@@ -1,9 +1,10 @@
 package com.paz1c.dao;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
+import com.paz1c.other.Osoba;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class MySQLZamestnanecDao implements ZamestnanecDao{
+public class MySQLOsobaDao implements OsobaDao{
         private String host = "sql14.dnsserver.eu";
         private String dbname = "db86233xpaz1c";
         private String userName = "db86233xpaz1c";
@@ -14,7 +15,7 @@ public class MySQLZamestnanecDao implements ZamestnanecDao{
         
     }
 
-    public MySQLZamestnanecDao() {
+    public MySQLOsobaDao() {
         
         mySQLconnection();
     }
@@ -37,13 +38,14 @@ public class MySQLZamestnanecDao implements ZamestnanecDao{
     }
 
     @Override
-    public void pridaj() {
+    public void pridaj(Osoba pridavanaOsoba) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void zmaz() {
+    public void zmaz(Osoba mazanaOsoba) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }
