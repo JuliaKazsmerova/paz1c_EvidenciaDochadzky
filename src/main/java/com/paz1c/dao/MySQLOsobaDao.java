@@ -12,16 +12,16 @@ public class MySQLOsobaDao implements OsobaDao{
         
     
     public static void main(String[] args){
-        
+        MySQLOsobaDao a = new MySQLOsobaDao();
     }
 
     public MySQLOsobaDao() {
-        
-        mySQLconnection();
+        //mySQLconnection(host,dbname);
+        vytvotDatabazy();
     }
     
         /**Vytvori pripojenie na databazu*/
-    public void mySQLconnection(){
+    public JdbcTemplate mySQLconnection(String host,String dbname){
         MysqlDataSource dataSource = new MysqlDataSource();
         
         String url =  "jdbc:mysql://"+host+"/"+dbname+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -29,12 +29,18 @@ public class MySQLOsobaDao implements OsobaDao{
         dataSource.setUser(userName);
         dataSource.setPassword(userPassword);
         dataSource.setURL(url);
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        return new JdbcTemplate(dataSource);
         
 
         // Example insert
         //String sql = "INSERT INTO vymazat(meno,priezvisko,vek) VALUES(?,?,?)";
-        //jdbcTemplate.update(sql,"chu","ju","25");
+        //jdbcTemplate.update(sql,"ch","j",5);
+    }
+    
+    public void vytvotDatabazy(){
+        JdbcTemplate jdbcTemplate = mySQLconnection(host, dbname);
+        String sql = "CREATE TABLE SKUSKA(idecko int,vek varchar(10))";
+        jdbcTemplate.execute(sql);
     }
 
     @Override
