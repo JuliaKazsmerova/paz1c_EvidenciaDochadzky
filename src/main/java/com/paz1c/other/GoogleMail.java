@@ -17,7 +17,13 @@ import javax.mail.internet.MimeMessage;
  * @author doraemon
  */
 public class GoogleMail {
-    
+     public static void main(String[] args){
+        try{
+            GoogleMail.Send("pato.sakac@gmail.com", "vecera", "tesis sa na palacinky?");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
     /**
      * Send email using GMail SMTP server.
      *

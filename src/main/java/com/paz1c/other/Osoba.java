@@ -16,36 +16,8 @@ public class Osoba {
     /**cas a datum posledneho zaznamenaneho odchodu*/
     private LocalDate poslednyOdchod;
     
-    
-    //pre zamestnanca
-    /**funkcia, specializacia alebo kratky popis jeho cinnosti*/
-    private String zameranie;
-
-    //pre cviciaceho
-    /**suma ktoru ma osob na permanentke*/
-    private double kredit;
-    
-    
-    
-    //pre studenta
-    //ci pana sak uz ic
-    
-    
-    
-    
-    
-    
-    /////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-    
-
-
-    //udaje ktore zistujeme
+   
+    ///////udaje ktore ZISTUJEME/////////
     private boolean stav;
     
-    //pre zamestnanca
-            /**pocet hodin za posledne prihlasenie a odhlasenie zadane v systeme*/
-    private int pocetOdrobenychHodin;
-            /**sucet hodin odrobenych od poslednej vyplaty*/
-    private int sucetOdrobenychHodin;
-    }
+}

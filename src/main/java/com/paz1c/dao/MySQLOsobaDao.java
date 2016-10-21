@@ -2,6 +2,9 @@ package com.paz1c.dao;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import com.paz1c.other.Osoba;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class MySQLOsobaDao implements OsobaDao{
@@ -16,31 +19,38 @@ public class MySQLOsobaDao implements OsobaDao{
     }
 
     public MySQLOsobaDao() {
-        //mySQLconnection(host,dbname);
         vytvotTabulky();
     }
     
         /**Vytvori pripojenie na databazu*/
     public JdbcTemplate mySQLconnection(String host,String dbname){
         MysqlDataSource dataSource = new MysqlDataSource();
-        
-        String url =  "jdbc:mysql://"+host+"/"+dbname+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        String url =  "jdbc:mysql://"+host+"/"+dbname+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true";
         
         dataSource.setUser(userName);
         dataSource.setPassword(userPassword);
         dataSource.setURL(url);
         return new JdbcTemplate(dataSource);
-        
-
-        // Example insert
-        //String sql = "INSERT INTO vymazat(meno,priezvisko,vek) VALUES(?,?,?)";
-        //jdbcTemplate.update(sql,"ch","j",5);
     }
     
     public void vytvotTabulky(){
-       /* JdbcTemplate jdbcTemplate = mySQLconnection(host, dbname);
-        String sql = "CREATE TABLE SKUSKA(idecko int,vek varchar(10))";
-        jdbcTemplate.execute(sql);*/
+        JdbcTemplate jdbcTemplate = mySQLconnection(host, dbname);
+        String sql = nacitajSQLScript("vytvorenieTabuliek.sql");
+        jdbcTemplate.execute(sql);
+    }
+    
+    public String nacitajSQLScript(String script) {
+        StringBuilder obsahScriptu = new StringBuilder();
+        try{
+            try(Scanner skener = new Scanner(new File(script))){
+                while(skener.hasNextLine()){
+                    obsahScriptu.append(skener.nextLine());
+                }
+            }
+        }catch(IOException e){
+            System.err.println("script "+script+" sa nepodarilo nacitat!!!!");
+        }
+        return obsahScriptu.toString();
     }
 
     @Override
