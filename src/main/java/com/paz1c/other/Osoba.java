@@ -25,7 +25,10 @@ public class Osoba {
     /**suma ktoru ma osob na permanentke*/
     private double kredit;
     
+    
+    
     //pre studenta
+    //ci pana sak uz ic
     
     
     
@@ -45,25 +48,4 @@ public class Osoba {
     private int pocetOdrobenychHodin;
             /**sucet hodin odrobenych od poslednej vyplaty*/
     private int sucetOdrobenychHodin;
-    
-    
-    /*
-    pri registracii firmy si potrebujeme zapamatat
-        ak je to firma sportoveho zariadenia tak cennik kolko stoji hodina pripadne viac hodin za inu cenu,
-        aby sme vedeli kolko mame odratavat
-    
-    pri registracii osoby potrebujeme si zapamatat
-        1. ak je to zamestnanec:
-            -datum kedy nastupuje
-            -nejaky interval vyplaty(napriklad kazdy mesiac,stvrtrok,polrok,...)
-            -denny pocet hodin ktory ma odpracovat
-            -pripadne ci moze mat nadcasy a kolko max???
-        2.ak je to osoba do sportoveho zariadenia:
-            -vstupny kredit ktory si vklada
-            -
-        3.ak je to student:
-            -
-    
-    */
-    
-}
+    }

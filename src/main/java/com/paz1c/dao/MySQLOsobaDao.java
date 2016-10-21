@@ -17,7 +17,7 @@ public class MySQLOsobaDao implements OsobaDao{
 
     public MySQLOsobaDao() {
         //mySQLconnection(host,dbname);
-        vytvotDatabazy();
+        vytvotTabulky();
     }
     
         /**Vytvori pripojenie na databazu*/
@@ -37,10 +37,10 @@ public class MySQLOsobaDao implements OsobaDao{
         //jdbcTemplate.update(sql,"ch","j",5);
     }
     
-    public void vytvotDatabazy(){
-        JdbcTemplate jdbcTemplate = mySQLconnection(host, dbname);
+    public void vytvotTabulky(){
+       /* JdbcTemplate jdbcTemplate = mySQLconnection(host, dbname);
         String sql = "CREATE TABLE SKUSKA(idecko int,vek varchar(10))";
-        jdbcTemplate.execute(sql);
+        jdbcTemplate.execute(sql);*/
     }
 
     @Override
