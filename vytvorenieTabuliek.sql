@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS Firma
     nazov VARCHAR(20),
     ico VARCHAR(20),
     dic VARCHAR(20),
-    sidlo VARCHAR(50)
+    sidlo VARCHAR(50),
+    vybraty_mod VARCHAR(20)
 );
 
 

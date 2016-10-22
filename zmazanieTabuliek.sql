@@ -1,0 +1,10 @@
+/*zmazanie vsetkych tabuliek*/
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE IF EXISTS Firma;
+DROP TABLE IF EXISTS Spravca;
+DROP TABLE IF EXISTS Zamestnanec;
+DROP TABLE IF EXISTS Denna_dochadzka;
+DROP TABLE IF EXISTS Mesacna_dochadzka;
+
+SET FOREIGN_KEY_CHECKS=1;
