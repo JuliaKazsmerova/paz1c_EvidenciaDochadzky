@@ -14,7 +14,7 @@ public class Zamestnanec extends Osoba{
      /**toString vracia retazec "id_osoba,meno,priezvisko,id_firma,zameranie,datumNastupu,pocetHodinNaDen"*/
     @Override
     public String toString() {
-        return super.toString()+",'"+zameranie+"','"+datumNastupu+"','"+pocetHodinNaDen+"'";
+        return super.toString()+",'"+pocetHodinNaDen+"','"+datumNastupu+"','"+zameranie+"'";
     }
 
     public String getZameranie() {

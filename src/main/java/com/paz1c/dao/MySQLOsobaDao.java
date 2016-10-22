@@ -27,6 +27,7 @@ public class MySQLOsobaDao implements OsobaDao{
 
     public MySQLOsobaDao() {
         jdbcTemplate = mySQLconnection(host, dbname);
+       
         Zamestnanec n = new Zamestnanec();
         n.setIdFirma(1);
         n.setMeno("Jano");
@@ -35,6 +36,7 @@ public class MySQLOsobaDao implements OsobaDao{
         n.setZameranie("umyvac okien");
         
         System.out.println(n);
+        
         vlozOsobu(n);
     }
     
