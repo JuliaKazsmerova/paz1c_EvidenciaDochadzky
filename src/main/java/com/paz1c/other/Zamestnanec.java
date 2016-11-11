@@ -1,17 +1,17 @@
 package com.paz1c.other;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 
 public class Zamestnanec extends Osoba{
     /**funkcia, specializacia alebo kratky popis jeho cinnosti*/
     private String zameranie;
     /**datum kedy nastupuje a kazdy mesiac v tento den bude mat vyplatu*/
-    private LocalDate datumNastupu;
+    private Date datumNastupu;
     /**pocet hodin ktore by mal kazdy den odrobit*/
     private int pocetHodinNaDen;
 
-     /**toString vracia retazec "id_osoba,meno,priezvisko,id_firma,zameranie,datumNastupu,pocetHodinNaDen"*/
+    /**toString vracia retazec "id_osoba,meno,priezvisko,id_firma,pocetHodinNaDen,datumNastupu,zameranie"*/
     @Override
     public String toString() {
         return super.toString()+",'"+pocetHodinNaDen+"','"+datumNastupu+"','"+zameranie+"'";
@@ -21,7 +21,7 @@ public class Zamestnanec extends Osoba{
         return zameranie;
     }
 
-    public LocalDate getDatumNastupu() {
+    public Date getDatumNastupu() {
         return datumNastupu;
     }
 
@@ -33,7 +33,7 @@ public class Zamestnanec extends Osoba{
         this.zameranie = zameranie;
     }
 
-    public void setDatumNastupu(LocalDate datumNastupu) {
+    public void setDatumNastupu(Date datumNastupu) {
         this.datumNastupu = datumNastupu;
     }
 

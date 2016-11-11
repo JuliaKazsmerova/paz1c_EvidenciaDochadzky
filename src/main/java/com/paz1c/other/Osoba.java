@@ -1,18 +1,16 @@
 package com.paz1c.other;
 
 import java.time.LocalDate;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
-public class Osoba {
+public abstract class Osoba {
     
-    ///////udaje ktore sa uchovavaju V SYSTEME/////////
-    /**unikatne cislo osoby*/
-    private int idOsoba;
-    /**meno danej osoby*/
+    private Long idOsoba;
     private String meno;
-    /**priezvisko danej osoby*/
     private String priezvisko;
-
-    public void setIdOsoba(int idOsoba) {
+    
+    
+    public void setIdOsoba(Long idOsoba) {
         this.idOsoba = idOsoba;
     }
 
@@ -28,7 +26,8 @@ public class Osoba {
         this.idFirma = idFirma;
     }
 
-    public int getIdOsoba() {
+   
+    public Long getIdOsoba() {
         return idOsoba;
     }
 
@@ -47,10 +46,10 @@ public class Osoba {
     private int idFirma;
   
 
-    /**toString vracia retazec "id_osoba,meno,priezvisko,id_firma"*/
+    /**toString vracia retazec "meno,priezvisko,id_firma"*/
     @Override
     public String toString() {
-        return /*idOsoba+","+*/"'"+meno+"','"+priezvisko+"','"+idFirma+"'";
+        return "'"+meno+"','"+priezvisko+"','"+idFirma+"'";
     }
     
     
