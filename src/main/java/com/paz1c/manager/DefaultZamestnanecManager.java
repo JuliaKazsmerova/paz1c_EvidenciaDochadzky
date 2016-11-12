@@ -8,31 +8,41 @@ import com.paz1c.other.Zamestnanec;
 
 
 public class DefaultZamestnanecManager implements ZamestnanecManager{
-    private ZamestnanecDao osobaDao = DaoFactory.INSTANCE.getZamestnanecDao();
+    private ZamestnanecDao zamestnanecDao;
 
+    public DefaultZamestnanecManager() {
+        zamestnanecDao = DaoFactory.INSTANCE.getZamestnanecDao();
+    }
+    
+    
     @Override
     public boolean vlozZamestnanca(Zamestnanec pridavanaOsoba) {
-       return osobaDao.vlozZamestnanca(pridavanaOsoba);
+       return zamestnanecDao.vlozZamestnanca(pridavanaOsoba);
     }
 
     @Override
     public boolean zmazZamestnanca(Zamestnanec mazanyZamestnanec) {
-        return osobaDao.zmazZamestnanca(mazanyZamestnanec);
+        return zamestnanecDao.zmazZamestnanca(mazanyZamestnanec);
     }
 
     @Override
     public List<Zamestnanec> getVsetkychZamestnancov() {
-        return osobaDao.getVsetkychZamestnancov();
+        return zamestnanecDao.getVsetkychZamestnancov();
     }
 
     @Override
-    public List<Zamestnanec> getZamestnanec(String meno,String priezvisko) {
-        return osobaDao.getZamestnanci(meno,priezvisko);
+    public List<Zamestnanec> getZamestnanci(String meno,String priezvisko) {
+        return zamestnanecDao.getZamestnanci(meno,priezvisko);
+    }
+    
+    @Override
+    public Zamestnanec getZamestnanec(Long id) {
+        return zamestnanecDao.getZamestnanec(id);
     }
 
     @Override
     public boolean upravZamestnanca(Zamestnanec upravovanyZamestnanec) {
-        return osobaDao.upravZamestnanca(upravovanyZamestnanec);
+        return zamestnanecDao.upravZamestnanca(upravovanyZamestnanec);
     }
     
     

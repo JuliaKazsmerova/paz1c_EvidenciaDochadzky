@@ -1,9 +1,8 @@
-package com.paz1c.dao;
+package com.paz1c.manager;
 
 import com.paz1c.other.Firma;
-import java.util.List;
 
-public interface FirmaDao {
+public interface FirmaManager {
     /***/
     public boolean vlozFirmu(Firma pridavanaFirma);
     
@@ -15,5 +14,5 @@ public interface FirmaDao {
     
     /***/
     public Firma getFirma(String nazov,String ico);
-
+    
 }
