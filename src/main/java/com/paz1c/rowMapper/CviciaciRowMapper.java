@@ -9,7 +9,14 @@ public class CviciaciRowMapper implements RowMapper<Cviciaci>{
 
     @Override
     public Cviciaci mapRow(ResultSet rs, int i) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cviciaci cviciaci = new Cviciaci();
+        cviciaci.setIdOsoba(rs.getLong("ID_cviciaci"));
+        cviciaci.setMeno(rs.getString("meno"));
+        cviciaci.setPriezvisko(rs.getString("priezvisko"));
+        cviciaci.setKredit(rs.getDouble("kredit"));
+        cviciaci.setIdFirma(rs.getLong("ID_firma"));
+        return cviciaci;
     }
     
 }
+    

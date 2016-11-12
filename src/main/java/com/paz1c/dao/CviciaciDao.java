@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface CviciaciDao {
     
-    public boolean vlozCvicaceho(Cviciaci pridavanaOsoba);
+    public boolean vlozCvicaceho(Cviciaci pridavanyCviciaci);
     
-    public boolean zmazCviciaceho(Cviciaci mazanaOsoba);
+    public boolean zmazCviciaceho(Cviciaci mazanyCviciaci);
     
     public List<Cviciaci> getVsetkychCviciacich();
 
