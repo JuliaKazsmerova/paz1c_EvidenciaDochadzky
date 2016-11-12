@@ -44,7 +44,7 @@ public class Spravca extends Osoba{
         return passwordHash;
     }
     
-      /**toString vracia retazec "'meno','priezvisko',id_firma"*/
+      /**toString vracia retazec "'meno','priezvisko',id_firma,'email','passwordHash', 'salt'"*/
     @Override
     public String toString() {
         return super.toString()+",'"+email+"','"+passwordHash+"','"+salt+"'";

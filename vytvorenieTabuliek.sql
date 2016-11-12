@@ -25,6 +25,18 @@ CREATE TABLE IF NOT EXISTS Spravca
     PRIMARY KEY (ID_admin)
 );
 
+
+CREATE TABLE IF NOT EXISTS Cviciaci
+(
+    ID_cviciaci INT NOT NULL AUTO_INCREMENT,
+    meno VARCHAR(20),
+    priezvisko VARCHAR(20),
+    kredit DECIMAL(5,2),
+    ID_firma INT NOT NULL,
+    FOREIGN KEY (ID_firma) REFERENCES Firma(ID_firma),
+    PRIMARY KEY (ID_cviciaci)
+);
+
 CREATE TABLE IF NOT EXISTS Zamestnanec
 (
     ID_zamestnanec INT NOT NULL AUTO_INCREMENT,

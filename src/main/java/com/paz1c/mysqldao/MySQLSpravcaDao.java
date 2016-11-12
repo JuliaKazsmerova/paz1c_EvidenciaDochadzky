@@ -14,8 +14,6 @@ public class MySQLSpravcaDao implements SpravcaDao{
     public MySQLSpravcaDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
-    
     
     @Override
     public boolean vlozSpravcu(Spravca pridavanySpravca) {
