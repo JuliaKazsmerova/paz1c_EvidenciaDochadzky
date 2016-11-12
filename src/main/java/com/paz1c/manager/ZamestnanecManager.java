@@ -5,13 +5,13 @@ import com.paz1c.other.Zamestnanec;
 import java.util.List;
 
 public interface ZamestnanecManager {
-     public void vlozZamestnanca(Zamestnanec pridavanaOsoba);
+     public boolean vlozZamestnanca(Zamestnanec pridavanaOsoba);
     
     public boolean zmazZamestnanca(Zamestnanec mazanaOsoba);
     
     public List<Zamestnanec> getVsetkychZamestnancov();
 
-    public Zamestnanec getZamestnanec(Long id);
+    public List<Zamestnanec> getZamestnanec(String meno,String priezvisko);
 
     public boolean upravZamestnanca(Zamestnanec upravovanaOsoba);
 }

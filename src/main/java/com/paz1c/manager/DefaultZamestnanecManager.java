@@ -11,8 +11,8 @@ public class DefaultZamestnanecManager implements ZamestnanecManager{
     private ZamestnanecDao osobaDao = DaoFactory.INSTANCE.getZamestnanecDao();
 
     @Override
-    public void vlozZamestnanca(Zamestnanec pridavanaOsoba) {
-       osobaDao.vlozZamestnanca(pridavanaOsoba);
+    public boolean vlozZamestnanca(Zamestnanec pridavanaOsoba) {
+       return osobaDao.vlozZamestnanca(pridavanaOsoba);
     }
 
     @Override
@@ -26,8 +26,8 @@ public class DefaultZamestnanecManager implements ZamestnanecManager{
     }
 
     @Override
-    public Zamestnanec getZamestnanec(Long id) {
-        return osobaDao.getZamestnanec(id);
+    public List<Zamestnanec> getZamestnanec(String meno,String priezvisko) {
+        return osobaDao.getZamestnanci(meno,priezvisko);
     }
 
     @Override

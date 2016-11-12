@@ -13,7 +13,7 @@ public class ZamestnanecRowMapper implements RowMapper<Zamestnanec>{
         zamestnanec.setIdOsoba(rs.getLong("ID_Zamestnanec"));
         zamestnanec.setMeno(rs.getString("meno"));
         zamestnanec.setPriezvisko(rs.getString("priezvisko"));
-        zamestnanec.setIdFirma(rs.getInt("ID_firma"));
+        zamestnanec.setIdFirma(rs.getLong("ID_firma"));
         zamestnanec.setPocetHodinNaDen(rs.getInt("pocet_hodin_na_den"));
         zamestnanec.setDatumNastupu(rs.getDate("datum_nastupu"));
         zamestnanec.setZameranie(rs.getString("funkcia"));

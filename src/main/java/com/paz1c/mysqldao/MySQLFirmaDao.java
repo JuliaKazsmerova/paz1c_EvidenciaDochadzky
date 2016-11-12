@@ -1,5 +1,6 @@
-package com.paz1c.dao;
+package com.paz1c.mysqldao;
 
+import com.paz1c.dao.FirmaDao;
 import com.paz1c.other.Firma;
 import java.util.List;
 import org.springframework.dao.DataAccessException;
@@ -29,8 +30,7 @@ public class MySQLFirmaDao implements FirmaDao{
             String sql = "DELETE FROM Firma WHERE nazov = '"+mazanaFirma.getNazov()
                     +"' AND ico = '"+mazanaFirma.getIco()+"';";
             System.out.println(sql);
-            jdbcTemplate.execute(sql);
-            return true;
+            return 1 == jdbcTemplate.update(sql);
         }catch(DataAccessException e){
             return false;
         }
@@ -40,7 +40,7 @@ public class MySQLFirmaDao implements FirmaDao{
     public Firma getFirma(Long id) {
         String sql = "SELECT ID_Firma,nazov,ico"
                 + ",dic,sidlo,vybraty_mod"
-                + " FROM Firma WHERE ID_Zamestnanec = "+id+";";   
+                + " FROM Firma WHERE ID_firma = "+id+";";   
         System.out.println(sql);
         Firma firma = null;
         try{

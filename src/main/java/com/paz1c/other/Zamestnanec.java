@@ -11,10 +11,10 @@ public class Zamestnanec extends Osoba{
     /**pocet hodin ktore by mal kazdy den odrobit*/
     private int pocetHodinNaDen;
 
-    /**toString vracia retazec "id_osoba,meno,priezvisko,id_firma,pocetHodinNaDen,datumNastupu,zameranie"*/
+    /**toString vracia retazec "meno,priezvisko,id_firma,pocetHodinNaDen,datumNastupu,zameranie"*/
     @Override
     public String toString() {
-        return super.toString()+",'"+pocetHodinNaDen+"','"+datumNastupu+"','"+zameranie+"'";
+        return super.toString()+", "+pocetHodinNaDen+" ,'"+datumNastupu+"','"+zameranie+"'";
     }
 
     public String getZameranie() {

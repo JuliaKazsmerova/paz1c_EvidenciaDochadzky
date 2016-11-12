@@ -8,7 +8,7 @@ public abstract class Osoba {
     private Long idOsoba;
     private String meno;
     private String priezvisko;
-    
+    private Long idFirma;
     
     public void setIdOsoba(Long idOsoba) {
         this.idOsoba = idOsoba;
@@ -22,7 +22,7 @@ public abstract class Osoba {
         this.priezvisko = priezvisko;
     }
 
-    public void setIdFirma(int idFirma) {
+    public void setIdFirma(Long idFirma) {
         this.idFirma = idFirma;
     }
 
@@ -39,17 +39,16 @@ public abstract class Osoba {
         return priezvisko;
     }
 
-    public int getIdFirma() {
+    public Long getIdFirma() {
         return idFirma;
     }
-    /**unikatne cislo firmy pre ktoru pracuje*/
-    private int idFirma;
+    
   
 
     /**toString vracia retazec "meno,priezvisko,id_firma"*/
     @Override
     public String toString() {
-        return "'"+meno+"','"+priezvisko+"','"+idFirma+"'";
+        return "'"+meno+"','"+priezvisko+"', "+idFirma+" ";
     }
     
     

@@ -18,7 +18,8 @@ CREATE TABLE IF NOT EXISTS Spravca
     meno VARCHAR(20),
     priezvisko VARCHAR(20),
     email VARCHAR(40),
-    heslo VARCHAR(15),
+    heslo VARCHAR(64),
+    sol VARCHAR(64),
     ID_firma INT NOT NULL,
     FOREIGN KEY (ID_firma) REFERENCES Firma(ID_firma),
     PRIMARY KEY (ID_admin)

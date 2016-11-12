@@ -15,7 +15,7 @@ public class SpravcaRowMapper implements RowMapper<Spravca>{
         spravca.setPriezvisko(rs.getString("priezvisko"));
         spravca.setEmail(rs.getString("email"));
         spravca.setPasswordHash(rs.getString("heslo"));
-        spravca.setIdFirma(rs.getInt("ID_firma"));
+        spravca.setIdFirma(rs.getLong("ID_firma"));
         return spravca;
     }
     

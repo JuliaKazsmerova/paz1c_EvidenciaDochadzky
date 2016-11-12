@@ -11,8 +11,8 @@ import static org.junit.Assert.*;
 
 public class MySQLFirmaDaoTest {
     
-    public MySQLFirmaDaoTest() {
-    }
+    FirmaDao firmaDao;
+    Firma testovaciaFirma;
     
     @BeforeClass
     public static void setUpClass() {
@@ -24,48 +24,60 @@ public class MySQLFirmaDaoTest {
     
     @Before
     public void setUp() {
+        firmaDao = DaoFactory.INSTANCE.getFirmaDao();
+        testovaciaFirma = vytvorFirmu();
     }
     
     @After
     public void tearDown() {
     }
 
-    private Firma tesco;
     
     public Firma vytvorFirmu(){
-        if(tesco == null){
-            tesco = new Firma();
-            tesco.setNazov("Tesco");
-            tesco.setIco("123456789");
-            tesco.setDic("999999");
-            tesco.setSidlo("Kosice, Tahanovska 258");
-            tesco.setVybratyMod("Zamestnanec");
-        }
+     
+        Firma tesco = new Firma();
+        tesco.setNazov("Tesco");
+        tesco.setIco("123456789");
+        tesco.setDic("999999");
+        tesco.setSidlo("Kosice, Tahanovska 258");
+        tesco.setVybratyMod("Zamestnanec");
+        
         return tesco;
     }
     
      @Test
      public void vlozFirmu() {
-        FirmaDao firmaDao = DaoFactory.INSTANCE.getFirmaDao();
-        boolean result = firmaDao.vlozFirmu(vytvorFirmu());
+        boolean result = firmaDao.vlozFirmu(testovaciaFirma);
         assertTrue(result);
-        zmazFirmu();
+        firmaDao.zmazFirmu(testovaciaFirma);
      }
      
      @Test
      public void zmazFirmu() {
-        FirmaDao firmaDao = DaoFactory.INSTANCE.getFirmaDao();
-        boolean result = firmaDao.zmazFirmu(vytvorFirmu());
+        firmaDao.vlozFirmu(testovaciaFirma);
+        boolean result = firmaDao.zmazFirmu(testovaciaFirma);
         assertTrue(result);
      }
      
      @Test
      public void getFirma() {
-        FirmaDao firmaDao = DaoFactory.INSTANCE.getFirmaDao();
-        String nazov = vytvorFirmu().getNazov();
-        String ico = vytvorFirmu().getIco();
+        firmaDao.vlozFirmu(testovaciaFirma);
+        String nazov = testovaciaFirma.getNazov();
+        String ico = testovaciaFirma.getIco();
         Firma firma = firmaDao.getFirma(nazov,ico);
-        assertTrue(firma.getNazov().equals(nazov) && firma.getIco().equals(ico));
-     
+        assertTrue(firma.getNazov().equals(nazov) && firma.getIco().equals(ico));  
+        firmaDao.zmazFirmu(testovaciaFirma);
+     }
+     @Test
+     public void getFirmaId() {
+        firmaDao.vlozFirmu(testovaciaFirma);
+        String nazov = testovaciaFirma.getNazov();
+        String ico = testovaciaFirma.getIco();
+        
+        Firma vlozenaFirma = firmaDao.getFirma(nazov,ico);
+        Firma firma = firmaDao.getFirma(vlozenaFirma.getIdFirma());
+        
+        assertTrue(firma.getNazov().equals(nazov) && firma.getIco().equals(ico));  
+        firmaDao.zmazFirmu(testovaciaFirma);
      }
 }
