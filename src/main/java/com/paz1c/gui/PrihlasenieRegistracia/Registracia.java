@@ -1,4 +1,4 @@
-package com.paz1c.gui;
+package com.paz1c.gui.PrihlasenieRegistracia;
 
 /**
  *
@@ -40,9 +40,13 @@ public class Registracia extends javax.swing.JPanel {
         menoTextField = new javax.swing.JTextField();
         nazovFirmyTextField = new javax.swing.JTextField();
         registraciaButton = new javax.swing.JButton();
-        zmenaJazykaPanel = new com.paz1c.gui.zmenaJazykaPanel();
+        zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
+        spatButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 250, 226));
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(400, 300));
 
         registraciaTextLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         registraciaTextLabel.setText("Pre registráciu zapíšte údaje. ");
@@ -75,6 +79,13 @@ public class Registracia extends javax.swing.JPanel {
             }
         });
 
+        spatButton.setText("Späť");
+        spatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spatButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,7 +98,8 @@ public class Registracia extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(zopakovatHesloTextField))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(spatButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registraciaButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(eMailLabel)
@@ -154,14 +166,20 @@ public class Registracia extends javax.swing.JPanel {
                     .addComponent(zopakovatHesloTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(zopakovatHesloLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(registraciaButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registraciaButton)
+                    .addComponent(spatButton))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void registraciaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraciaButtonActionPerformed
-        // TODO add your handling code here:
+        parentJFrame.registrujButton();
     }//GEN-LAST:event_registraciaButtonActionPerformed
+
+    private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
+        parentJFrame.spatZRegistracieButton();
+    }//GEN-LAST:event_spatButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -178,7 +196,8 @@ public class Registracia extends javax.swing.JPanel {
     private javax.swing.JTextField priezviskoTextField;
     private javax.swing.JButton registraciaButton;
     private javax.swing.JLabel registraciaTextLabel;
-    private com.paz1c.gui.zmenaJazykaPanel zmenaJazykaPanel;
+    private javax.swing.JButton spatButton;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel;
     private javax.swing.JLabel zopakovatHesloLabel;
     private javax.swing.JTextField zopakovatHesloTextField;
     // End of variables declaration//GEN-END:variables

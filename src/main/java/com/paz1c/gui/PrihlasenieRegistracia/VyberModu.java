@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.paz1c.gui;
+package com.paz1c.gui.PrihlasenieRegistracia;
 
 import java.awt.Container;
 import java.awt.event.ActionListener;
@@ -40,10 +40,13 @@ public class VyberModu extends javax.swing.JPanel {
         registraciaButton = new javax.swing.JButton();
         uvitaciTextLabel = new javax.swing.JLabel();
         popisTextLabel = new javax.swing.JLabel();
-        zmenaJazykaPanel = new com.paz1c.gui.zmenaJazykaPanel();
+        zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
 
         setBackground(new java.awt.Color(255, 250, 226));
         setForeground(new java.awt.Color(153, 153, 255));
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(400, 300));
 
         zamestnanecToggle.setText("Zamestnanie");
 
@@ -80,13 +83,16 @@ public class VyberModu extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(zamestnanecToggle, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cviciaciToggle)
                             .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(prihlasenieButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(registraciaButton))))
+                                .addComponent(registraciaButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(cviciaciToggle)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(uvitaciTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(22, 22, 22)
@@ -115,7 +121,7 @@ public class VyberModu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void prihlasenieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prihlasenieButtonActionPerformed
-       
+       parentJFrame.prihlasenieButton();
     }//GEN-LAST:event_prihlasenieButtonActionPerformed
 
     private void registraciaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraciaButtonActionPerformed
@@ -130,6 +136,6 @@ public class VyberModu extends javax.swing.JPanel {
     private javax.swing.JButton registraciaButton;
     private javax.swing.JLabel uvitaciTextLabel;
     private javax.swing.JToggleButton zamestnanecToggle;
-    private com.paz1c.gui.zmenaJazykaPanel zmenaJazykaPanel;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel;
     // End of variables declaration//GEN-END:variables
 }

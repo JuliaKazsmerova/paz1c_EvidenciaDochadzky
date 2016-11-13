@@ -1,4 +1,4 @@
-package com.paz1c.gui;
+package com.paz1c.gui.PrihlasenieRegistracia;
 
 /**
  *
@@ -29,9 +29,12 @@ public class Overenie extends javax.swing.JPanel {
         registracnyKodTextLabel = new javax.swing.JLabel();
         kodTextField = new javax.swing.JTextField();
         potvrditButton = new javax.swing.JButton();
-        zmenaJazykaPanel = new com.paz1c.gui.zmenaJazykaPanel();
+        zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
 
         setBackground(new java.awt.Color(255, 250, 226));
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(400, 300));
 
         registracnyKodTextLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         registracnyKodTextLabel.setText("Pre zaregistrovanie firmy zadajte registračný kód z e-mailu: ");
@@ -86,6 +89,6 @@ public class Overenie extends javax.swing.JPanel {
     private javax.swing.JTextField kodTextField;
     private javax.swing.JButton potvrditButton;
     private javax.swing.JLabel registracnyKodTextLabel;
-    private com.paz1c.gui.zmenaJazykaPanel zmenaJazykaPanel;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel;
     // End of variables declaration//GEN-END:variables
 }

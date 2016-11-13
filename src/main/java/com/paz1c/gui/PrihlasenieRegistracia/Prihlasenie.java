@@ -1,4 +1,4 @@
-package com.paz1c.gui;
+package com.paz1c.gui.PrihlasenieRegistracia;
 
 /**
  *
@@ -32,9 +32,12 @@ public class Prihlasenie extends javax.swing.JPanel {
         hesloTextField = new javax.swing.JTextField();
         prihlasenieTextLabel = new javax.swing.JLabel();
         prihlasenieButton = new javax.swing.JButton();
-        zmenaJazykaPanel = new com.paz1c.gui.zmenaJazykaPanel();
+        zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
+        spatButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 250, 226));
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
 
         menoLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         menoLabel.setText("Meno:");
@@ -49,6 +52,13 @@ public class Prihlasenie extends javax.swing.JPanel {
         prihlasenieButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prihlasenieButtonActionPerformed(evt);
+            }
+        });
+
+        spatButton.setText("Späť");
+        spatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                spatButtonActionPerformed(evt);
             }
         });
 
@@ -75,7 +85,8 @@ public class Prihlasenie extends javax.swing.JPanel {
                                     .addComponent(menoTextField)
                                     .addComponent(hesloTextField)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(spatButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(prihlasenieButton)))))
                 .addContainerGap())
         );
@@ -98,14 +109,20 @@ public class Prihlasenie extends javax.swing.JPanel {
                     .addComponent(hesloLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(hesloTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(prihlasenieButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(prihlasenieButton)
+                    .addComponent(spatButton))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void prihlasenieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prihlasenieButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_prihlasenieButtonActionPerformed
+
+    private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
+        parentJFrame.spatZPrihlaseniaButton();
+    }//GEN-LAST:event_spatButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -115,6 +132,7 @@ public class Prihlasenie extends javax.swing.JPanel {
     private javax.swing.JTextField menoTextField;
     private javax.swing.JButton prihlasenieButton;
     private javax.swing.JLabel prihlasenieTextLabel;
-    private com.paz1c.gui.zmenaJazykaPanel zmenaJazykaPanel;
+    private javax.swing.JButton spatButton;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel;
     // End of variables declaration//GEN-END:variables
 }
