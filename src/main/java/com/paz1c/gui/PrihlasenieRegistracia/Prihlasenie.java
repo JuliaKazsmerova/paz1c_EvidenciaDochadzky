@@ -109,11 +109,11 @@ public class Prihlasenie extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void prihlasenieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prihlasenieButtonActionPerformed
-        
+        //parentJFrame.otvorOknoaleboDvere("overenie");
     }//GEN-LAST:event_prihlasenieButtonActionPerformed
 
     private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
-        parentJFrame.spatZPrihlaseniaButton();
+        parentJFrame.otvorOknoaleboDvere("vyberModu");
     }//GEN-LAST:event_spatButtonActionPerformed
 
 

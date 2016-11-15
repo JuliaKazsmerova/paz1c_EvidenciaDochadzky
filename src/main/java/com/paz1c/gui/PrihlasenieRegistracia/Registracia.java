@@ -174,11 +174,11 @@ public class Registracia extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registraciaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraciaButtonActionPerformed
-        parentJFrame.registrujButton();
+        parentJFrame.otvorOknoaleboDvere("overenie");
     }//GEN-LAST:event_registraciaButtonActionPerformed
 
     private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
-        parentJFrame.spatZRegistracieButton();
+        parentJFrame.otvorOknoaleboDvere("vyberModu");
     }//GEN-LAST:event_spatButtonActionPerformed
 
 

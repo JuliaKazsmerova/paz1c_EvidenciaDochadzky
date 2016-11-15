@@ -1,48 +1,48 @@
 package com.paz1c.gui.PrihlasenieRegistracia;
 
+import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.HeadlessException;
 import javax.swing.JPanel;
 
 public class RegistraciaPrihlasenie extends javax.swing.JFrame {
+    
+    CardLayout cardlayout;
 
-    public RegistraciaPrihlasenie() {
-        overenie = new com.paz1c.gui.PrihlasenieRegistracia.Overenie();
-        registracia = new com.paz1c.gui.PrihlasenieRegistracia.Registracia();
-        prihlasenie = new com.paz1c.gui.PrihlasenieRegistracia.Prihlasenie();
-        vyberModu = new com.paz1c.gui.PrihlasenieRegistracia.VyberModu();
-        initPanel(vyberModu);
-        initPanel(overenie);
-        initPanel(registracia);
-        initPanel(prihlasenie);
-        overenie.setVisible(false);
-        registracia.setVisible(false);
-        prihlasenie.setVisible(false);
+    public RegistraciaPrihlasenie()  {
+       
         initComponents();
+        cardlayout =  (CardLayout)getContentPane().getLayout();
+        overenie.setParent(this);
         prihlasenie.setParent(this);
         registracia.setParent(this);
-        overenie.setParent(this);
-        vyberModu.setParent(this);        
+        vyberModu.setParent(this);
+        
+        cardlayout.show(getContentPane(),"vyberModu");
     }
     
+    
+    public void otvorOknoaleboDvere(String meno){
+        cardlayout.show(getContentPane(),meno);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        vyberModu = new com.paz1c.gui.PrihlasenieRegistracia.VyberModu();
+        prihlasenie = new com.paz1c.gui.PrihlasenieRegistracia.Prihlasenie();
+        registracia = new com.paz1c.gui.PrihlasenieRegistracia.Registracia();
+        overenie = new com.paz1c.gui.PrihlasenieRegistracia.Overenie();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(32767, 32767));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+        getContentPane().setLayout(new java.awt.CardLayout());
+        getContentPane().add(vyberModu, "vyberModu");
+        getContentPane().add(prihlasenie, "prihlasenie");
+        getContentPane().add(registracia, "registracia");
+        getContentPane().add(overenie, "overenie");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -80,54 +80,16 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
         });
     }
     
-    void initPanel(JPanel okno){
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(okno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-            .addComponent(okno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
-        );
-
-        pack();
-    }
     
-    public void registraciaButton() {                                                  
-        vyberModu.setVisible(false);
-        registracia.setVisible(true);
-    } 
     
-    public void prihlasenieButton(){
-        vyberModu.setVisible(false);
-        prihlasenie.setVisible(true);
-    }
     
-    public void registrujButton(){
-        registracia.setVisible(false);
-        overenie.setVisible(true);
-    }
-    
-    public void spatZRegistracieButton() {
-        registracia.setVisible(false);
-        vyberModu.setVisible(true);
-    }
-    
-    public void spatZPrihlaseniaButton() {
-        prihlasenie.setVisible(false);
-        vyberModu.setVisible(true);
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
     private com.paz1c.gui.PrihlasenieRegistracia.Overenie overenie;
-    private com.paz1c.gui.PrihlasenieRegistracia.Registracia registracia;
     private com.paz1c.gui.PrihlasenieRegistracia.Prihlasenie prihlasenie;
+    private com.paz1c.gui.PrihlasenieRegistracia.Registracia registracia;
     private com.paz1c.gui.PrihlasenieRegistracia.VyberModu vyberModu;
+    // End of variables declaration//GEN-END:variables
+
 
     
     

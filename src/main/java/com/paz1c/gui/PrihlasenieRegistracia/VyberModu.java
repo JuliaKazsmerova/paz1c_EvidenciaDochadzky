@@ -119,11 +119,11 @@ public class VyberModu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void prihlasenieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prihlasenieButtonActionPerformed
-       parentJFrame.prihlasenieButton();
+       parentJFrame.otvorOknoaleboDvere("prihlasenie");
     }//GEN-LAST:event_prihlasenieButtonActionPerformed
 
     private void registraciaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registraciaButtonActionPerformed
-        parentJFrame.registraciaButton();
+        parentJFrame.otvorOknoaleboDvere("registracia");
     }//GEN-LAST:event_registraciaButtonActionPerformed
 
 
