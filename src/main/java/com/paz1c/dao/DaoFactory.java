@@ -5,6 +5,9 @@ import com.paz1c.mysqldao.MySQLZamestnanecDao;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import com.paz1c.mysqldao.MySQLCviciaciDao;
 import com.paz1c.mysqldao.MySQLSpravcaDao;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public enum DaoFactory {
@@ -30,6 +33,7 @@ public enum DaoFactory {
         firmaDao = new MySQLFirmaDao(jdbcTemplate);
         spravcaDao = new MySQLSpravcaDao(jdbcTemplate);
         cviciaciDao = new MySQLCviciaciDao(jdbcTemplate);
+        vytvorTabulky();
     }
     
     /**Vytvori pripojenie na databazu*/
@@ -41,6 +45,30 @@ public enum DaoFactory {
         dataSource.setPassword(userPassword);
         dataSource.setURL(url);
         return new JdbcTemplate(dataSource);
+    }
+    
+    private void vytvorTabulky(){
+        String sql = nacitajSQLScript("vytvorenieTabuliek.sql");
+        jdbcTemplate.execute(sql);
+    }
+    
+    private void zmazTabulky(){
+        String sql = nacitajSQLScript("zmazanieTabuliek.sql");
+        jdbcTemplate.execute(sql);
+    }
+    
+    private String nacitajSQLScript(String script) {
+        StringBuilder obsahScriptu = new StringBuilder();
+        try{
+            try(Scanner skener = new Scanner(new File(script))){
+                while(skener.hasNextLine()){
+                    obsahScriptu.append(skener.nextLine());
+                }
+            }
+        }catch(IOException e){
+            System.err.println("script "+script+" sa nepodarilo nacitat!!!!");
+        }
+        return obsahScriptu.toString();
     }
     
     public ZamestnanecDao getZamestnanecDao(){

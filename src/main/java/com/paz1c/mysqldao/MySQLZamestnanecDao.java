@@ -22,120 +22,46 @@ public class MySQLZamestnanecDao implements ZamestnanecDao{
         this.jdbcTemplate = jdbcTemplate;
     }
     
-    
-   /* public static void main(String[] args){
-        MySQLZamestnanecDao a;
-        a = new MySQLZamestnanecDao(DaoFactory.INSTANCE.mySQLconnection("sql14.dnsserver.eu", "db86233xpaz1c"));
-        a.vytvotTabulky();
-    } */
-    
-    public void vytvotTabulky(){
-        String sql = nacitajSQLScript("vytvorenieTabuliek.sql");
-        jdbcTemplate.execute(sql);
-    }
-    
-    void zmazTabulky(){
-        String sql = nacitajSQLScript("zmazanieTabuliek.sql");
-        jdbcTemplate.execute(sql);
-    }
-    
-    public String nacitajSQLScript(String script) {
-        StringBuilder obsahScriptu = new StringBuilder();
-        try{
-            try(Scanner skener = new Scanner(new File(script))){
-                while(skener.hasNextLine()){
-                    obsahScriptu.append(skener.nextLine());
-                }
-            }
-        }catch(IOException e){
-            System.err.println("script "+script+" sa nepodarilo nacitat!!!!");
-        }
-        return obsahScriptu.toString();
-    }
-
     @Override
     public boolean vlozZamestnanca(Zamestnanec pridavanyZamestnanec) {
-        String sql = "INSERT INTO Zamestnanec "
-                + "(meno,priezvisko,ID_firma,"
-                + "pocet_hodin_na_den,datum_nastupu,funkcia) "
-                + "VALUES (" + pridavanyZamestnanec + ");";
-         
-        try{
-            return 1 == jdbcTemplate.update(sql);
-        }catch(Exception e){
-            System.out.println(sql);
-            System.err.println("zamestnanca: "+pridavanyZamestnanec+" sa nepodarilo ulozit");
-            return false;
-        }
+        String sql = "INSERT INTO Zamestnanec (meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,funkcia) VALUES (?,?,?,?,?,?);";
+        return 1 == jdbcTemplate.update(sql,pridavanyZamestnanec.getMeno(),pridavanyZamestnanec.getPriezvisko(),pridavanyZamestnanec.getIdFirma(),
+                pridavanyZamestnanec.getPocetHodinNaDen(),pridavanyZamestnanec.getDatumNastupu(),pridavanyZamestnanec.getZameranie());
     }
 
     @Override
     public boolean zmazZamestnanca(Zamestnanec mazanyZamestnanec) {  
-        String sql = "DELETE FROM Zamestnanec WHERE ID_Zamestnanec = " + mazanyZamestnanec.getIdOsoba() + ";";
-            
-        try{
-            return 1 == jdbcTemplate.update(sql);
-        }catch(DataAccessException e){
-            System.out.println(sql);
-            return false;
-        }
+        String sql = "DELETE FROM Zamestnanec WHERE ID_Zamestnanec = ?;";
+        return 1 == jdbcTemplate.update(sql,mazanyZamestnanec.getIdOsoba());
     }
         
     @Override
     public List<Zamestnanec> getVsetkychZamestnancov() {
-        String sql = "SELECT ID_Zamestnanec,meno,priezvisko"
-                + ",ID_firma,pocet_hodin_na_den,datum_nastupu,"
-                + "funkcia ,pocet_hodin_na_den,datum_nastupu,"
-                + "funkcia FROM Zamestnanec;";   
-        
-        List<Zamestnanec> zamestnanci = null;
-         try{
-            zamestnanci = jdbcTemplate.query(sql,new ZamestnanecRowMapper());
-        }catch(Exception e) {
-            System.out.println(sql);
-            System.err.println("Nepodarilo sa nacitat vsetkych zamestnancov");
-        }
-        return zamestnanci;
+        String sql = "SELECT ID_Zamestnanec,meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,funkcia"
+                + ",pocet_hodin_na_den,datum_nastupu,funkcia FROM Zamestnanec;";   
+        return jdbcTemplate.query(sql,new ZamestnanecRowMapper());
     }
 
     @Override
     public List<Zamestnanec> getZamestnanci(String meno,String priezvisko) {
-       String sql = "SELECT ID_Zamestnanec,meno,priezvisko"
-                + ",ID_firma,pocet_hodin_na_den,datum_nastupu,"
-                + "funkcia,pocet_hodin_na_den,datum_nastupu"
-                + " FROM Zamestnanec WHERE meno = '"+meno+"' AND priezvisko = '"+priezvisko+"';";   
-        
-        List<Zamestnanec> zamestnanci = null;
-        try{
-            zamestnanci = jdbcTemplate.query(sql,new ZamestnanecRowMapper());
-        }catch(Exception e){
-            System.out.println(sql);
-            System.err.println("Nepodarilo sa nacitat zamestnancov s menom: "+meno+" a priezviskom: "+priezvisko);
-        }
-        return zamestnanci;
+       String sql = "SELECT ID_Zamestnanec,meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,"
+                + "funkcia,pocet_hodin_na_den,datum_nastupu FROM Zamestnanec WHERE meno = ? AND priezvisko = ?;";   
+        return jdbcTemplate.query(sql,new ZamestnanecRowMapper(),meno,priezvisko);
     }
     
     @Override
     public Zamestnanec getZamestnanec(Long id) {
-        String sql = "SELECT ID_Zamestnanec,meno,priezvisko"
-                + ",ID_firma,pocet_hodin_na_den,datum_nastupu,"
-                + "funkcia ,pocet_hodin_na_den,datum_nastupu"
-                + " FROM Zamestnanec WHERE ID_Zamestnanec = "+id+";";   
-         
-        Zamestnanec zamestnanec = null;
-         try{
-            zamestnanec = jdbcTemplate.query(sql,new ZamestnanecRowMapper()).get(0);
-        }catch(Exception e){
-            System.out.println(sql);
-            System.err.println("Nepodarilo sa nacitat zamestnanca s id: "+id);
-        }
-        return zamestnanec;
+        String sql = "SELECT ID_Zamestnanec,meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,"
+                + "funkcia ,pocet_hodin_na_den,datum_nastupu FROM Zamestnanec WHERE ID_Zamestnanec = ?;";   
+        return jdbcTemplate.queryForObject(sql,new ZamestnanecRowMapper(),id);
     }
     
     
     @Override
-    public boolean upravZamestnanca(Zamestnanec upravovanaOsoba) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean upravZamestnanca(Zamestnanec upravovanyZamestnanec) {
+        String sql = "UPDATE Zamestnanec SET meno = ?,priezvisko = ?,pocet_hodin_na_den = ?,datum_nastupu = ?,funkcia = ? WHERE ID_zamestnanec = ?";
+        return 1 == jdbcTemplate.update(sql,upravovanyZamestnanec.getMeno(),upravovanyZamestnanec.getPriezvisko(),upravovanyZamestnanec.getPocetHodinNaDen(),
+                upravovanyZamestnanec.getDatumNastupu(),upravovanyZamestnanec.getZameranie(),upravovanyZamestnanec.getIdOsoba());
     }
 
     

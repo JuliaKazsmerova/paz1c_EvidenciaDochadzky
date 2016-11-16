@@ -113,7 +113,7 @@ public class Prihlasenie extends javax.swing.JPanel {
     }//GEN-LAST:event_prihlasenieButtonActionPerformed
 
     private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
-        parentJFrame.otvorOknoaleboDvere("vyberModu");
+        parentJFrame.otvorOkno("vyberModu");
     }//GEN-LAST:event_spatButtonActionPerformed
 
 

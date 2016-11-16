@@ -50,7 +50,7 @@ public class MySQLCviciaciDaoTest {
         forma.setIco("03010709");
         forma.setDic("44444444");
         forma.setSidlo("Presov, Hlavna 5");
-        forma.setVybratyMod("Zamestnanec");
+        forma.setVybratyMod("Cviciaci");
         
         return forma;
     }
@@ -127,7 +127,19 @@ public class MySQLCviciaciDaoTest {
 
     @Test
     public void upravCviciaceho() {
-        assertTrue(false);
+        cviciaciDao.vlozCvicaceho(testovaciCviciaci);
+        String meno = testovaciCviciaci.getMeno();
+        String priezvisko = testovaciCviciaci.getPriezvisko();
+        Cviciaci cviciaci = cviciaciDao.getCviciacich(meno, priezvisko).get(0);
+        
+        cviciaci.setMeno("jozo");
+        cviciaci.setPriezvisko("cvikla");
+        boolean result = cviciaciDao.upravCviciaceho(cviciaci);
+        Cviciaci upraveny = cviciaciDao.getCviciaceho(cviciaci.getIdOsoba());
+
+        assertTrue(upraveny.getMeno().equals("jozo") && upraveny.getPriezvisko().equals("cvikla") && result);
+        
+        cviciaciDao.zmazCviciaceho(upraveny);
     }
     
 }

@@ -126,6 +126,18 @@ package com.paz1c.dao;
      
      @Test
      public void upravZamestnanca() {
-         assertTrue(false);
+        zamestnanecDao.vlozZamestnanca(testovaciZamestnanec);
+        String meno = testovaciZamestnanec.getMeno();
+        String priezvisko = testovaciZamestnanec.getPriezvisko();
+        Zamestnanec cviciaci = zamestnanecDao.getZamestnanci(meno, priezvisko).get(0);
+        
+        cviciaci.setMeno("dula");
+        cviciaci.setPriezvisko("baci");
+        boolean result = zamestnanecDao.upravZamestnanca(cviciaci);
+        Zamestnanec upraveny = zamestnanecDao.getZamestnanec(cviciaci.getIdOsoba());
+
+        assertTrue(upraveny.getMeno().equals("dula") && upraveny.getPriezvisko().equals("baci") && result);
+        
+        zamestnanecDao.zmazZamestnanca(upraveny);
      }
  }

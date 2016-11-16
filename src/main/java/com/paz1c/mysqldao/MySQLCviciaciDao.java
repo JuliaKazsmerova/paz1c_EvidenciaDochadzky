@@ -19,82 +19,46 @@ public class MySQLCviciaciDao implements CviciaciDao{
 
     @Override
     public boolean vlozCvicaceho(Cviciaci pridavanyCviciaci) {
-         String sql = "INSERT INTO Cviciaci "
-                + "(meno,priezvisko,ID_firma,kredit) "
-                + "VALUES (" + pridavanyCviciaci + ");";
-         
-        try{
-            return 1 == jdbcTemplate.update(sql);
-        }catch(Exception e){
-            System.out.println(sql);
-            System.err.println("cviciaceho: "+pridavanyCviciaci+" sa nepodarilo ulozit");
-            return false;
-        }
+        String sql = "INSERT INTO Cviciaci (meno,priezvisko,ID_firma,kredit) "
+                + "VALUES (?,?,?,?);";
+        return 1 == jdbcTemplate.update(sql,pridavanyCviciaci.getMeno(),pridavanyCviciaci.getPriezvisko(),
+                    pridavanyCviciaci.getIdFirma(),pridavanyCviciaci.getKredit());    
     }
 
     @Override
     public boolean zmazCviciaceho(Cviciaci mazanyCviciaci) {
-        String sql = "DELETE FROM Cviciaci WHERE ID_cviciaci = " + mazanyCviciaci.getIdOsoba() + ";";
-           
-        try{
-            return 1 == jdbcTemplate.update(sql);
-        }catch(DataAccessException e){
-            System.out.println(sql);
-            return false;
-        }
+        String sql = "DELETE FROM Cviciaci WHERE ID_cviciaci = ?;";
+        return 1 == jdbcTemplate.update(sql,mazanyCviciaci.getIdOsoba());
     }
 
     @Override
     public List<Cviciaci> getVsetkychCviciacich() {
-        String sql = "SELECT ID_cviciaci,meno,priezvisko"
-                + ",ID_firma,kredit"
-                + " FROM Cviciaci;";
-        
-        List<Cviciaci> cviciaci = null;
-         try{
-            cviciaci = jdbcTemplate.query(sql,new CviciaciRowMapper());
-        }catch(Exception e) {
-            System.out.println(sql);
-            System.err.println("Nepodarilo sa nacitat vsetkych cviciacich");
-        }
-        return cviciaci;
+        String sql = "SELECT ID_cviciaci,meno,priezvisko,ID_firma,kredit FROM Cviciaci;";
+        return jdbcTemplate.query(sql,new CviciaciRowMapper());    
     }
 
     @Override
     public Cviciaci getCviciaceho(Long id) {
-        String sql = "SELECT ID_cviciaci,meno,priezvisko"
-                + ",ID_firma,kredit"
-                + " FROM Cviciaci WHERE ID_cviciaci = "+id+";";   
-         
-        Cviciaci cviciaci = null;
-         try{
-            cviciaci = jdbcTemplate.query(sql,new CviciaciRowMapper()).get(0);
-        }catch(Exception e){
-            System.out.println(sql);
-            System.err.println("Nepodarilo sa nacitat cviciaceho s id: "+id);
-        }
-        return cviciaci;
+        String sql = "SELECT ID_cviciaci,meno,priezvisko,ID_firma,kredit"
+                + " FROM Cviciaci WHERE ID_cviciaci = ?;";   
+        return jdbcTemplate.queryForObject(sql,new CviciaciRowMapper(),id);
+        
     }
     
     @Override
     public List<Cviciaci> getCviciacich(String meno,String priezvisko) {
          String sql = "SELECT ID_cviciaci,meno,priezvisko"
                 + ",ID_firma,kredit"
-                + " FROM Cviciaci WHERE meno = '"+meno+"' AND priezvisko = '"+priezvisko+"';";   
+                + " FROM Cviciaci WHERE meno = ? AND priezvisko = ?;";   
+        return jdbcTemplate.query(sql,new CviciaciRowMapper(),meno,priezvisko);
         
-        List<Cviciaci> cviciaci = null;
-        try{
-            cviciaci = jdbcTemplate.query(sql,new CviciaciRowMapper());
-        }catch(Exception e){
-            System.out.println(sql);
-            System.err.println("Nepodarilo sa nacitat cviciacich s menom: "+meno+" a priezviskom: "+priezvisko);
-        }
-        return cviciaci;
     }
 
     @Override
     public boolean upravCviciaceho(Cviciaci upravovanaOsoba) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "UPDATE Cviciaci SET meno = ?,priezvisko = ?,kredit = ? WHERE ID_cviciaci = ?";
+        return 1 == jdbcTemplate.update(sql,upravovanaOsoba.getMeno(),upravovanaOsoba.getPriezvisko(),
+                upravovanaOsoba.getKredit(),upravovanaOsoba.getIdOsoba());
     }
     
 }

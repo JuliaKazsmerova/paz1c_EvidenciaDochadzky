@@ -19,54 +19,31 @@ public class MySQLFirmaDao implements FirmaDao{
     @Override
     public boolean vlozFirmu(Firma pridavanaFirma) {
         String sql = "INSERT INTO Firma (nazov,ico,dic,sidlo,vybraty_mod) "
-                + "VALUES ("+pridavanaFirma+");";
-        System.out.println(sql);
-        return jdbcTemplate.update(sql) == 1;
+                + "VALUES (?,?,?,?,?);";
+        return jdbcTemplate.update(sql,pridavanaFirma.getNazov(),pridavanaFirma.getIco(),
+                pridavanaFirma.getDic(),pridavanaFirma.getSidlo(),pridavanaFirma.getVybratyMod()) == 1;
     }
 
     @Override
     public boolean zmazFirmu(Firma mazanaFirma) {
-        try{
-            String sql = "DELETE FROM Firma WHERE nazov = '"+mazanaFirma.getNazov()
-                    +"' AND ico = '"+mazanaFirma.getIco()+"';";
-            System.out.println(sql);
-            return 1 == jdbcTemplate.update(sql);
-        }catch(DataAccessException e){
-            return false;
-        }
+        String sql = "DELETE FROM Firma WHERE nazov = ? AND ico = ?;";
+        return 1 == jdbcTemplate.update(sql,mazanaFirma.getNazov(),mazanaFirma.getIco());
+        
     }
 
     @Override
     public Firma getFirma(Long id) {
-        String sql = "SELECT ID_Firma,nazov,ico"
-                + ",dic,sidlo,vybraty_mod"
-                + " FROM Firma WHERE ID_firma = "+id+";";   
-        System.out.println(sql);
-        Firma firma = null;
-        try{
-            firma = jdbcTemplate.query(sql,new FirmaRowMapper()).get(0);
-        }catch(Exception e){
-            System.err.println("Firma s id: "+id+" neexistuje v evidencii");
-        }
-        return firma;
+        String sql = "SELECT ID_Firma,nazov,ico,dic,sidlo,vybraty_mod"
+                + " FROM Firma WHERE ID_firma = ?;";
+        
+        return jdbcTemplate.queryForObject(sql,new FirmaRowMapper(),id);   
    }
     
    @Override
    public Firma getFirma(String nazov,String ico) {
-        String sql = "SELECT ID_Firma,nazov,ico"
-                + ",dic,sidlo,vybraty_mod"
-                + " FROM Firma WHERE nazov = '"+nazov+"' AND "
-                + "ico = '"+ico+"';";   
-        System.out.println(sql);
-        Firma firma = null;
-        try{
-            firma = jdbcTemplate.query(sql,new FirmaRowMapper()).get(0);
-        }catch(Exception e){
-            System.err.println("Firma: "+nazov+" neexistuje v evidencii");
-        }
-        return firma;
+        String sql = "SELECT ID_Firma,nazov,ico,dic,sidlo,vybraty_mod"
+                + " FROM Firma WHERE nazov = ? AND ico = ?;";   
+        return jdbcTemplate.queryForObject(sql,new FirmaRowMapper(),nazov,ico);
    }
 
-    
-    
 }

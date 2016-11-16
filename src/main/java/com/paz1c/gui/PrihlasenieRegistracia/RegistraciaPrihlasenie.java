@@ -22,7 +22,7 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
     }
     
     
-    public void otvorOknoaleboDvere(String meno){
+    public void otvorOkno(String meno){
         cardlayout.show(getContentPane(),meno);
     }
 
@@ -38,6 +38,7 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(32767, 32767));
+        setMinimumSize(new java.awt.Dimension(500, 500));
         getContentPane().setLayout(new java.awt.CardLayout());
         getContentPane().add(vyberModu, "vyberModu");
         getContentPane().add(prihlasenie, "prihlasenie");
