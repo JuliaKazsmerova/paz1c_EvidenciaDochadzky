@@ -46,4 +46,17 @@ public class MySQLFirmaDao implements FirmaDao{
         return jdbcTemplate.queryForObject(sql,new FirmaRowMapper(),nazov,ico);
    }
 
+    @Override
+    public boolean existsFirmaNazov(String nazov) {
+        String sql = "SELECT ID_firma,nazov,ico,dic,sidlo,vybraty_mod FROM Firma WHERE nazov = ?";
+        List<Firma> firmy = jdbcTemplate.query(sql, new FirmaRowMapper(),nazov);
+        return 1 <= firmy.size();
+    }
+
+    @Override
+    public boolean existsFirmaIco(String ico) {
+        String sql = "SELECT ID_firma,nazov,ico,dic,sidlo,vybraty_mod FROM Firma WHERE ico = ?";
+        List<Firma> firmy = jdbcTemplate.query(sql, new FirmaRowMapper(),ico);
+        return 1 <= firmy.size();}
+
 }

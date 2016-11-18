@@ -72,7 +72,7 @@ public class MySQLSpravcaDaoTest {
         
         assertTrue(pocetPoPridani-1==pocetPredPridanim && result);
         
-        Spravca spravca = spravcaDao.getSpravcov(testovaciSpravca.getMeno(), testovaciSpravca.getPriezvisko()).get(0);
+        Spravca spravca = spravcaDao.getSpravcovMenoPriezvisko(testovaciSpravca.getMeno(), testovaciSpravca.getPriezvisko()).get(0);
         spravcaDao.zmazSpravcu(spravca);
     }
 
@@ -81,7 +81,7 @@ public class MySQLSpravcaDaoTest {
        spravcaDao.vlozSpravcu(testovaciSpravca);
        String meno = testovaciSpravca.getMeno();
        String priezvisko = testovaciSpravca.getPriezvisko();
-       Spravca spravca = spravcaDao.getSpravcov(meno, priezvisko).get(0);
+       Spravca spravca = spravcaDao.getSpravcovMenoPriezvisko(meno, priezvisko).get(0);
        
        int pocetPredMazanim = spravcaDao.getVsetkychSpravcov().size();
        boolean result = spravcaDao.zmazSpravcu(spravca);
@@ -98,26 +98,36 @@ public class MySQLSpravcaDaoTest {
     }
 
     @Test
-    public void getSpravcu() {
+    public void getSpravcuId() {
         spravcaDao.vlozSpravcu(testovaciSpravca);
         String meno = testovaciSpravca.getMeno();
         String priezvisko = testovaciSpravca.getPriezvisko();
-        Spravca spravca1 = spravcaDao.getSpravcov(meno, priezvisko).get(0);
+        Spravca spravca1 = spravcaDao.getSpravcovMenoPriezvisko(meno, priezvisko).get(0);
         
-        Spravca spravca2 = spravcaDao.getSpravcu(spravca1.getIdOsoba());
+        Spravca spravca2 = spravcaDao.getSpravcuId(spravca1.getIdOsoba());
         assertTrue(spravca2.getMeno().equals(meno) && spravca2.getPriezvisko().equals(priezvisko));
         
         spravcaDao.zmazSpravcu(spravca2);
     }
     
     @Test
-    public void getSpravcov() {
+    public void getSpravcovMenoPriezvisko() {
        spravcaDao.vlozSpravcu(testovaciSpravca);
         String meno = testovaciSpravca.getMeno();
         String priezvisko = testovaciSpravca.getPriezvisko();
-        Spravca spravca = spravcaDao.getSpravcov(meno, priezvisko).get(0);
+        Spravca spravca = spravcaDao.getSpravcovMenoPriezvisko(meno, priezvisko).get(0);
         
         assertTrue(spravca.getMeno().equals(meno) && spravca.getPriezvisko().equals(priezvisko));
+        
+        spravcaDao.zmazSpravcu(spravca);
+    }
+    
+    @Test
+    public void getSpravcuEmail() {
+        spravcaDao.vlozSpravcu(testovaciSpravca);
+        
+        Spravca spravca = spravcaDao.getSpravcuEmail(testovaciSpravca.getEmail());
+        assertTrue(spravca.getMeno().equals(testovaciSpravca.getMeno()) && spravca.getPriezvisko().equals(testovaciSpravca.getPriezvisko()));
         
         spravcaDao.zmazSpravcu(spravca);
     }

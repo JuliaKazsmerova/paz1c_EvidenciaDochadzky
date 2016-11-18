@@ -53,7 +53,11 @@
             <artifactId>beansbinding</artifactId>
             <version>1.2.1</version>
         </dependency>
-        
+        <dependency>
+            <groupId>com.nulab-inc</groupId>
+            <artifactId>zxcvbn</artifactId>
+            <version>1.2.0</version>
+          </dependency>
     </dependencies>
     
   

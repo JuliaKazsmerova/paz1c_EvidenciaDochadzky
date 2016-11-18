@@ -15,5 +15,11 @@ public interface FirmaDao {
     
     /***/
     public Firma getFirma(String nazov,String ico);
+    
+    /***/
+    public boolean existsFirmaNazov(String nazov);
+    
+    /***/
+    public boolean existsFirmaIco(String ico);
 
 }

@@ -30,21 +30,31 @@ public class MySQLSpravcaDao implements SpravcaDao{
 
     @Override
     public List<Spravca> getVsetkychSpravcov() {
-        String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo FROM Spravca;";
+        String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo,sol FROM Spravca;";
         return jdbcTemplate.query(sql,new SpravcaRowMapper());
     }
 
     @Override
-    public Spravca getSpravcu(Long id) {
-        String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo FROM Spravca WHERE ID_admin = ?;";   
+    public Spravca getSpravcuId(Long id) {
+        String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo,sol FROM Spravca WHERE ID_admin = ?;";   
         return jdbcTemplate.queryForObject(sql,new SpravcaRowMapper(),id);
     }
     
     @Override
-    public List<Spravca> getSpravcov(String meno,String priezvisko) {
-        String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo "
+    public List<Spravca> getSpravcovMenoPriezvisko(String meno,String priezvisko) {
+        String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo,sol "
                 + "FROM Spravca WHERE meno = ? AND priezvisko = ?;";   
         return jdbcTemplate.query(sql,new SpravcaRowMapper(),meno,priezvisko);
+    }
+
+    @Override
+    public Spravca getSpravcuEmail(String email) {
+        String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo,sol FROM Spravca WHERE email = ?;";   
+        try{
+        return jdbcTemplate.queryForObject(sql,new SpravcaRowMapper(),email);
+        }catch(Exception e){
+            return null;
+        }
     }
     
 }

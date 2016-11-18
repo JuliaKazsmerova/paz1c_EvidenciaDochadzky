@@ -80,4 +80,11 @@ public class MySQLFirmaDaoTest {
         assertTrue(firma.getNazov().equals(nazov) && firma.getIco().equals(ico));  
         firmaDao.zmazFirmu(testovaciaFirma);
      }
+     @Test
+     public void existsFirma(){
+        firmaDao.vlozFirmu(testovaciaFirma);
+        assertTrue(firmaDao.existsFirmaNazov(testovaciaFirma.getNazov()));
+        firmaDao.zmazFirmu(testovaciaFirma);
+         
+     }
 }

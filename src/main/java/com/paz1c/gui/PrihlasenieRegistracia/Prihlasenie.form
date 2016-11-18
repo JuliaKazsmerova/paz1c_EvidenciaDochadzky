@@ -32,12 +32,12 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="hesloLabel" pref="60" max="32767" attributes="0"/>
-                          <Component id="menoLabel" max="32767" attributes="0"/>
+                          <Component id="emailLabel" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="menoTextField" max="32767" attributes="0"/>
-                          <Component id="hesloTextField" max="32767" attributes="0"/>
+                          <Component id="emailTextField" max="32767" attributes="0"/>
+                          <Component id="hesloPasswordField" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -53,20 +53,25 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="zmenaJazykaPanel" min="-2" max="-2" attributes="0"/>
-                  <Component id="prihlasenieTextLabel" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="prihlasenieTextLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="zmenaJazykaPanel" min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="menoLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="menoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="emailLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="emailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="hesloLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="hesloTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hesloPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="482" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -79,12 +84,12 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="menoLabel">
+    <Component class="javax.swing.JLabel" name="emailLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="15" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Meno:"/>
+        <Property name="text" type="java.lang.String" value="E-mail:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="hesloLabel">
@@ -95,9 +100,7 @@
         <Property name="text" type="java.lang.String" value="Heslo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="menoTextField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="hesloTextField">
+    <Component class="javax.swing.JTextField" name="emailTextField">
     </Component>
     <Component class="javax.swing.JLabel" name="prihlasenieTextLabel">
       <Properties>
@@ -124,6 +127,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="spatButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="hesloPasswordField">
     </Component>
   </SubComponents>
 </Form>

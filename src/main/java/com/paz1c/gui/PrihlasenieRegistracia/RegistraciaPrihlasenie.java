@@ -1,18 +1,26 @@
 package com.paz1c.gui.PrihlasenieRegistracia;
 
+import com.paz1c.dao.DaoFactory;
+import com.paz1c.dao.FirmaDao;
+import com.paz1c.dao.SpravcaDao;
+import com.paz1c.other.Firma;
+import com.paz1c.other.Spravca;
 import java.awt.CardLayout;
-import java.awt.Dimension;
-import java.awt.HeadlessException;
-import javax.swing.JPanel;
 
 public class RegistraciaPrihlasenie extends javax.swing.JFrame {
     
-    CardLayout cardlayout;
-
+    private final CardLayout cardlayout;
+    private String vygenerovanyKod;
+    private final FirmaDao firmaDao;
+    private final SpravcaDao spravcaDao;
+    private Firma novaFirma;
+    private Spravca novySpravca;
+    
     public RegistraciaPrihlasenie()  {
-       
+        firmaDao = DaoFactory.INSTANCE.getFirmaDao();
+        spravcaDao = DaoFactory.INSTANCE.getSpravcaDao();
         initComponents();
-        cardlayout =  (CardLayout)getContentPane().getLayout();
+        cardlayout = (CardLayout)getContentPane().getLayout();
         overenie.setParent(this);
         prihlasenie.setParent(this);
         registracia.setParent(this);
@@ -24,8 +32,55 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
     
     public void otvorOkno(String meno){
         cardlayout.show(getContentPane(),meno);
+        
+    }
+    
+    public void nastavJazyk(){
+        vyberModu.nastavJazyk();
+        overenie.nastavJazyk();
+        registracia.nastavJazyk();
+        prihlasenie.nastavJazyk();
     }
 
+    public void setVygenerovanyKod(String vygenerovanyKod) {
+        this.vygenerovanyKod = vygenerovanyKod;
+    }
+
+    public String getVygenerovanyKod() {
+        return vygenerovanyKod;
+    }
+    
+    public Long vlozFirmu(){
+        firmaDao.vlozFirmu(novaFirma);
+        return firmaDao.getFirma(novaFirma.getNazov(), novaFirma.getIco()).getIdFirma();
+    }
+    
+    public Spravca getSpravcuEmail(String email){
+        return spravcaDao.getSpravcuEmail(email);
+    }
+    
+    public void vlozSpravcu(Long id_firma){
+        novySpravca.setIdFirma(id_firma);
+        spravcaDao.vlozSpravcu(novySpravca);
+    }
+
+    public void setNovaFirma(Firma novaFirma) {
+        this.novaFirma = novaFirma;
+    }
+    
+    public void setNovySpravca(Spravca novySpravca) {
+        this.novySpravca = novySpravca;
+    }
+    
+    boolean existsFirmaNazov(String nazov){
+        return firmaDao.existsFirmaNazov(nazov);
+    }
+    
+    boolean existsFirmaIco(String ico){
+        return firmaDao.existsFirmaIco(ico);
+    }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,7 +93,7 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(32767, 32767));
-        setMinimumSize(new java.awt.Dimension(500, 500));
+        setMinimumSize(new java.awt.Dimension(500, 600));
         getContentPane().setLayout(new java.awt.CardLayout());
         getContentPane().add(vyberModu, "vyberModu");
         getContentPane().add(prihlasenie, "prihlasenie");
@@ -80,9 +135,7 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.paz1c.gui.PrihlasenieRegistracia.Overenie overenie;

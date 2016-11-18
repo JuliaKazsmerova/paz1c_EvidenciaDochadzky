@@ -30,12 +30,12 @@ public class DefaultSpravcaManager implements SpravcaManager{
 
     @Override
     public Spravca getSpravcu(Long id) {
-        return spravcaDao.getSpravcu(id);
+        return spravcaDao.getSpravcuId(id);
     }
 
     @Override
     public List<Spravca> getSpravcov(String meno, String priezvisko) {
-        return spravcaDao.getSpravcov(meno, priezvisko);
+        return spravcaDao.getSpravcovMenoPriezvisko(meno, priezvisko);
     }
     
 }
