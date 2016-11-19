@@ -62,100 +62,101 @@ public class Registracia extends javax.swing.JPanel {
                     mapaString.put("uvod2", "Na e-mail Vám príde registračný kód.");
                     
                     mapaString.put("firma", "Názov firmy:");
-                    mapaString.put("firmaExistuje", "firma s danym nazvom uz je registrovana");
-                    mapaString.put("firmaPrazdna", "nie je zadana ziadna firma");
+                    mapaString.put("firmaExistuje", "Firma s daným názvom už je zaregistrovaná.");
+                    mapaString.put("firmaPrazdna", "Nie je zadaný názov firmy.");
                     
                     mapaString.put("sidlo", "Sídlo:");
-                    mapaString.put("sidloPrazdne", "zadajte sidlo");
+                    mapaString.put("sidloPrazdne", "Zadajte sídlo.");
                     
-                    mapaString.put("ico", "Ičo:");
-                    mapaString.put("icoExistuje", "firma s danym ico uz je registrovana");
-                    mapaString.put("icoPrazdne", "zadajte ico");
+                    mapaString.put("ico", "IČO:");
+                    mapaString.put("icoExistuje", "Firma s daným IČO už je zaregistrovaná.");
+                    mapaString.put("icoPrazdne", "Zadajte IČO.");
                     
-                    mapaString.put("dic", "Dič:");
-                    mapaString.put("dicPrazdne", "zadajte dic");
+                    mapaString.put("dic", "DIČ:");
+                    mapaString.put("dicPrazdne", "Zadajte DIČ.");
                     
                     mapaString.put("meno", "Meno:");
-                    mapaString.put("menoPrazdne", "zadajte prosim meno");
+                    mapaString.put("menoPrazdne", "Zadajte meno.");
                     
                     mapaString.put("priezvisko", "Priezvisko:");
-                    mapaString.put("priezviskoPrazdne", "zadajte prosim priezvisko");
+                    mapaString.put("priezviskoPrazdne", "Zadajte priezvisko.");
                    
                     mapaString.put("email", "E-mail:");
-                    mapaString.put("emailNeexistuje", "zadany mail neexistuje");
-                    mapaString.put("emailPrazdny", "zadajte email");
-                    mapaString.put("emailPredmet", "Overenie mailu");
-                    mapaString.put("emailSprava", "Dakujeme za registraciu. \nVase udaje vo firme: @firma \nMeno: @meno \nPriezvisko: @priezvisko \n"
-                    + "Heslo: @heslo \nVas registracny kod je: @kod");
+                    mapaString.put("emailNeexistuje", "Zadaný e-mail neexistuje.");
+                    mapaString.put("emailPrazdny", "Zadajte e-mail.");
+                    mapaString.put("emailPredmet", "Overenie e-mailu.");
+                    mapaString.put("emailSprava", "Ďakujeme za registráciu. \nVaše údaje vo firme: @firma \nMeno: @meno \nPriezvisko: @priezvisko \n"
+                    + "Heslo: @heslo \nVáš registračný kód je: @kod .");
                    
                     mapaString.put("heslo", "Heslo:");
                     mapaString.put("zopakovatHeslo", "Zopakovať heslo:");
-                    mapaString.put("zopakovatHesloPrazdne", "zadajte znova heslo");
-                    mapaString.put("zopakovatHesloNezhodne", "zadane hesla sa nezhoduju");
+                    mapaString.put("zopakovatHesloPrazdne", "Zadajte znova heslo.");
+                    mapaString.put("zopakovatHesloNezhodne", "Zadané heslá sa nezhodujú.");
                     
                     mapaString.put("spat", "Späť");
                     mapaString.put("registruj", "Registruj");  
                     
-                    mapaString.put("firmaUpozornenie", "Skontrolujte nazov firmy.");
-                    mapaString.put("sidloUpozornenie", "Skontrolujte sidlo firmy.");
-                    mapaString.put("icoUpozornenie", "Skontrolujte ico firmy.");
-                    mapaString.put("dicUpozornenie", "Skontrolujte dic firmy.");
-                    mapaString.put("menoUpozornenie", "Skontrolujte vase meno.");
-                    mapaString.put("priezviskoUpozornenie", "Skontrolujte vase priezvisko.");
-                    mapaString.put("emailUpozornenie", "Skontrolujte vas email.");
-                    mapaString.put("hesloUpozornenie", "Zadane heslo nie je dostatocne silne.");
-                    mapaString.put("zopakovatHesloUpozornenie", "Hesla sa nezhoduju.");
-                    mapaString.put("nadpisUpozornenie", "Registracia");
+                    mapaString.put("firmaUpozornenie", "Skontrolujte názov firmy.");
+                    mapaString.put("sidloUpozornenie", "Skontrolujte sídlo firmy.");
+                    mapaString.put("icoUpozornenie", "Skontrolujte IČO firmy.");
+                    mapaString.put("dicUpozornenie", "Skontrolujte DIČ firmy.");
+                    mapaString.put("menoUpozornenie", "Skontrolujte Vaše meno.");
+                    mapaString.put("priezviskoUpozornenie", "Skontrolujte Vašé priezvisko.");
+                    mapaString.put("emailUpozornenie", "Skontrolujte Váš e-mail.");
+                    mapaString.put("hesloUpozornenie", "Zadané heslo nie je dostatočne silné.");
+                    mapaString.put("zopakovatHesloUpozornenie", "Heslá sa nezhodujú.");
+                    mapaString.put("nadpisUpozornenie", "Registrácia");
                     
                     break;
                 case "EN" :
-                    mapaString.put("uvod1", "");
-                    mapaString.put("uvod2", "");
+                    mapaString.put("uvod1", "For registration enter your data.");
+                    mapaString.put("uvod2", "You will recieve a registration code on your e-mail.");
                     
-                    mapaString.put("firma", "");
-                    mapaString.put("firmaExistuje", "");
-                    mapaString.put("firmaPrazdna", "");
+                    mapaString.put("firma", "Company name: ");
+                    mapaString.put("firmaExistuje", "Company with entered name is registered.");
+                    mapaString.put("firmaPrazdna", "Company name is not entered.");
                     
-                    mapaString.put("sidlo", "");
-                    mapaString.put("sidloPrazdne", "");
+                    mapaString.put("sidlo", "Address:" );
+                    mapaString.put("sidloPrazdne", "Address is not entered.");
                     
-                    mapaString.put("ico", "");
-                    mapaString.put("icoExistuje", "");
-                    mapaString.put("icoPrazdne", "");
+                    mapaString.put("ico", "Company ID:");
+                    mapaString.put("icoExistuje", "Company ID is registered.");
+                    mapaString.put("icoPrazdne", "Company ID is not entered.");
                     
-                    mapaString.put("dic", "");
-                    mapaString.put("dicPrazdne", "");
+                    mapaString.put("dic", "TIN:");
+                    mapaString.put("dicPrazdne", "TIN is not entered.");
                     
-                    mapaString.put("meno", "");
-                    mapaString.put("menoPrazdne", "");
+                    mapaString.put("meno", "Name:");
+                    mapaString.put("menoPrazdne", "Name is not entered.");
                     
-                    mapaString.put("priezvisko", "");
-                    mapaString.put("priezviskoPrazdne", "");
+                    mapaString.put("priezvisko", "Surname:");
+                    mapaString.put("priezviskoPrazdne", "Surname is not entered.");
                     
-                    mapaString.put("email", "");
-                    mapaString.put("emailNeexistuje", "");
-                    mapaString.put("emailPrazdny", "");
-                    mapaString.put("emailPredmet", "");
-                    mapaString.put("emailSprava", "");
+                    mapaString.put("email", "E-mail: ");
+                    mapaString.put("emailNeexistuje", "Entered e-mail does not exist.");
+                    mapaString.put("emailPrazdny", "E-mail is not entered. ");
+                    mapaString.put("emailPredmet", "Verification code. ");
+                    mapaString.put("emailSprava", "Thank you for your registration. \nYour company name: @firma \nName: @meno \nSurname: @priezvisko \n"
+                    + "Password: @heslo \nYour verification code is: @kod .");
                     
-                    mapaString.put("heslo", "");
-                    mapaString.put("zopakovatHeslo", "");
-                    mapaString.put("zopakovatHesloPrazdne", "");
-                    mapaString.put("zopakovatHesloNezhodne", "");
+                    mapaString.put("heslo", "Password: ");
+                    mapaString.put("zopakovatHeslo", "Password again: ");
+                    mapaString.put("zopakovatHesloPrazdne", "Enter your password again.");
+                    mapaString.put("zopakovatHesloNezhodne", "Entered passwords does not match. ");
                     
-                    mapaString.put("spat", "");
-                    mapaString.put("registruj", "");  
+                    mapaString.put("spat", "Back");
+                    mapaString.put("registruj", "Create your account");  
                     
-                    mapaString.put("firmaUpozornenie", "");
-                    mapaString.put("sidloUpozornenie", "");
-                    mapaString.put("icoUpozornenie", "");
-                    mapaString.put("dicUpozornenie", "");
-                    mapaString.put("menoUpozornenie", "");
-                    mapaString.put("priezviskoUpozornenie", "");
-                    mapaString.put("emailUpozornenie", "");
-                    mapaString.put("hesloUpozornenie", "");
-                    mapaString.put("zopakovatHesloUpozornenie", "");
-                    mapaString.put("nadpisUpozornenie", "");
+                    mapaString.put("firmaUpozornenie", "Check company name.");
+                    mapaString.put("sidloUpozornenie", "Check address.");
+                    mapaString.put("icoUpozornenie", "Check company ID.");
+                    mapaString.put("dicUpozornenie", "Check TIN.");
+                    mapaString.put("menoUpozornenie", "Check name.");
+                    mapaString.put("priezviskoUpozornenie", "Chcek surname.");
+                    mapaString.put("emailUpozornenie", "Check e-mail.");
+                    mapaString.put("hesloUpozornenie", "Check password.");
+                    mapaString.put("zopakovatHesloUpozornenie", "Check repeated password.");
+                    mapaString.put("nadpisUpozornenie", "Registration");
                 break;
                 
             }

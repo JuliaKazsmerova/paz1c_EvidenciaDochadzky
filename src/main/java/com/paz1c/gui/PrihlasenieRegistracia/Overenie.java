@@ -31,14 +31,14 @@ public class Overenie extends javax.swing.JPanel {
                 case "SK" :
                     mapaString.put("uvod1", "Pre zaregistrovanie firmy zadajte registračný kód z e-mailu: ");
                     mapaString.put("nadpisUpozornenie", "Zly kod");
-                    mapaString.put("textUpozornenie", "Zadali ste zly kod.\nChodte prosim na vas email a napiste kod znova.");
+                    mapaString.put("textUpozornenie", "Zadali ste zlý kód.\nChodte na Váš e-mail a skontrolujte kód.");
                     mapaString.put("potvrdit", "Potvrdiť");
                     break;
                 case "EN" :
-                    mapaString.put("uvod1", "Pre zaregistrovanie firmy zadajte registračný kód z e-mailu: ");
-                    mapaString.put("nadpisUpozornenie", "Zly kod");
-                    mapaString.put("textUpozornenie", "Zadali ste zly kod.\nChodte prosim na vas email a napiste kod znova.");
-                    mapaString.put("potvrdit", "Potvrdiť");
+                    mapaString.put("uvod1", "For registration of the company enter the verification code: ");
+                    mapaString.put("nadpisUpozornenie", "Wrong verification code");
+                    mapaString.put("textUpozornenie", " You entered wrong verification code.\nGo to your e-mail and check verification code.");
+                    mapaString.put("potvrdit", "Confirm");
                 break;
                 
             }

@@ -26,17 +26,17 @@ public class Prihlasenie extends javax.swing.JPanel {
             switch(jazyk) {
                 case "SK" :
                     mapaString.put("uvod1", "Prihlásenie");
-                    mapaString.put("email", "E-mail");
+                    mapaString.put("email", "E-mail:");
                     mapaString.put("heslo", "Heslo:");
                     mapaString.put("prihlasit", "Prihlasiť");
                     mapaString.put("spat", "Späť");
                     break;
                 case "EN" :
-                    mapaString.put("uvod1", "");
-                    mapaString.put("email", "");
-                    mapaString.put("heslo", "");
-                    mapaString.put("prihlasit", "");
-                    mapaString.put("spat", "");
+                    mapaString.put("uvod1", "Sign in");
+                    mapaString.put("email", "E-mail:");
+                    mapaString.put("heslo", "Password:");
+                    mapaString.put("prihlasit", "Sign in");
+                    mapaString.put("spat", "Back");
                 break;
                 
             }

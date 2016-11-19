@@ -29,23 +29,23 @@ public class VyberModu extends javax.swing.JPanel {
             switch(jazyk) {
                 case "SK" :
                     mapaString.put("uvod1", "Vítame Vás!");
-                    mapaString.put("uvod2", "Vyberte si mód a zaregistrujte sa alebo sa prihláste ak už máte účet.");
+                    mapaString.put("uvod2", "Vyberte mód a zaregistrujte sa alebo sa prihláste ak už máte účet.");
                     mapaString.put("zamestnanie", "Zamestnanie");
                     mapaString.put("sportoveZariadenie", "Športové zariadenie");
                     mapaString.put("prihlasit", "Prihlásiť");
                     mapaString.put("registracia", "Registrácia");
-                    mapaString.put("upozornenieText", "Neni vybraty ziaden mod");
-                    mapaString.put("upozornenieNadpis", "Vyber modu");
+                    mapaString.put("upozornenieText", "Nie je vybratý mód!");
+                    mapaString.put("upozornenieNadpis", "Výber modu");
                     break;
                 case "EN" :
-                    mapaString.put("uvod1", "");
-                    mapaString.put("uvod2", "");
-                    mapaString.put("zamestnanie", "");
-                    mapaString.put("sportoveZariadenie", "");
-                    mapaString.put("prihlasit", "");
-                    mapaString.put("registracia", "");
-                    mapaString.put("upozornenieText", "");
-                    mapaString.put("upozornenieNadpis", "");
+                    mapaString.put("uvod1", "Welcome!");
+                    mapaString.put("uvod2", "Choose a mode and create a new account or sign in if you have an account");
+                    mapaString.put("zamestnanie", "Employment");
+                    mapaString.put("sportoveZariadenie", "Sport facility");
+                    mapaString.put("prihlasit", "Sign in");
+                    mapaString.put("registracia", "Create a new account");
+                    mapaString.put("upozornenieText", "You haven´t choose any mode!");
+                    mapaString.put("upozornenieNadpis", "Choose mode");
                 break;
                 
             }
