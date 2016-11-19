@@ -28,7 +28,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="spatButton" min="-2" max="-2" attributes="0"/>
@@ -36,85 +36,71 @@
                       <Component id="registraciaButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="nazovFirmyLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nazovFirmyVypisLabel" max="32767" attributes="0"/>
-                          <Component id="nazovFirmyTextField" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="hesloLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="hesloPasswordField" max="32767" attributes="0"/>
-                          <Component id="hesloProgressBar" alignment="0" pref="528" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="zopakovatHesloLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="zopakovatHesloVypisLabel" max="32767" attributes="0"/>
-                          <Component id="zopakovatHesloPasswordField" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <Component id="registraciaTextLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="398" max="32767" attributes="0"/>
                       <Component id="zmenaJazykaPanel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="eMailLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                      <Component id="eMailLabel" min="-2" pref="132" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="emailTextField" max="32767" attributes="0"/>
-                          <Component id="emailVypisLabel" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="sidloLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="sidloTextField" max="32767" attributes="0"/>
-                          <Component id="sidloVypisLabel" max="32767" attributes="0"/>
+                          <Component id="emailVypisLabel" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="icoLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="icoTextField" max="32767" attributes="0"/>
-                          <Component id="icoVypisLabel" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="nazovFirmyLabel" alignment="0" pref="134" max="32767" attributes="0"/>
+                          <Component id="sidloLabel" alignment="1" max="32767" attributes="0"/>
+                          <Component id="icoLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="dicLabel" alignment="1" max="32767" attributes="0"/>
+                          <Component id="menoLabel" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="dicLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dicTextField" max="32767" attributes="0"/>
-                          <Component id="dicVypisLabel" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="eMailTextLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="menoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="priezviskoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="priezviskoVypisLabel" alignment="1" max="32767" attributes="0"/>
-                          <Component id="priezviskoTextField" max="32767" attributes="0"/>
                           <Component id="menoVypisLabel" alignment="1" max="32767" attributes="0"/>
-                          <Component id="menoTextField" max="32767" attributes="0"/>
+                          <Component id="nazovFirmyVypisLabel" max="32767" attributes="0"/>
+                          <Component id="sidloVypisLabel" max="32767" attributes="0"/>
+                          <Component id="icoVypisLabel" max="32767" attributes="0"/>
+                          <Component id="dicVypisLabel" alignment="1" max="32767" attributes="0"/>
+                          <Component id="nazovFirmyTextField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="sidloTextField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="icoTextField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="dicTextField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="menoTextField" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="zopakovatHesloLabel" max="32767" attributes="0"/>
+                          <Component id="hesloLabel" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
+                              <Component id="zopakovatHesloVypisLabel" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="zopakovatHesloPasswordField" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="hesloProgressBar" max="32767" attributes="0"/>
+                                  <Component id="hesloPasswordField" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Component id="eMailTextLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="priezviskoLabel" min="-2" pref="134" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="priezviskoVypisLabel" max="32767" attributes="0"/>
+                          <Component id="priezviskoTextField" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -140,63 +126,63 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="nazovFirmyVypisLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="sidloTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="sidloLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="sidloVypisLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="icoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="icoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="icoVypisLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="dicTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="dicLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="dicVypisLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="menoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="menoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="menoVypisLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="priezviskoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="priezviskoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="priezviskoVypisLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="emailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="eMailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="emailVypisLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="hesloLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="hesloPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="hesloProgressBar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="zopakovatHesloLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="zopakovatHesloPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="zopakovatHesloVypisLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="spatButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="registraciaButton" alignment="3" min="-2" max="-2" attributes="0"/>
