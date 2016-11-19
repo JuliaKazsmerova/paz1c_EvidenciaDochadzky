@@ -22,9 +22,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Component id="prihlasenieTextLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="485" max="32767" attributes="0"/>
                       <Component id="zmenaJazykaPanel" min="-2" max="-2" attributes="0"/>
@@ -34,10 +34,10 @@
                           <Component id="hesloLabel" pref="60" max="32767" attributes="0"/>
                           <Component id="emailLabel" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="emailTextField" max="32767" attributes="0"/>
                           <Component id="hesloPasswordField" max="32767" attributes="0"/>
+                          <Component id="emailTextField" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -46,24 +46,19 @@
                       <Component id="prihlasenieButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="prihlasenieTextLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="zmenaJazykaPanel" min="-2" pref="26" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="prihlasenieTextLabel" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="zmenaJazykaPanel" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="emailLabel" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="emailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -73,7 +68,7 @@
                   <Component id="hesloLabel" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="hesloPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="482" max="32767" attributes="0"/>
+              <EmptySpace pref="464" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="prihlasenieButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="spatButton" alignment="3" min="-2" max="-2" attributes="0"/>
