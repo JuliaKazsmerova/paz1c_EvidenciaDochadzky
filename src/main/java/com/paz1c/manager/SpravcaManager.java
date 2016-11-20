@@ -10,8 +10,10 @@ public interface SpravcaManager {
     
     public List<Spravca> getVsetkychSpravcov();
 
-    public Spravca getSpravcu(Long id);
+    public Spravca getSpravcuId(Long id);
     
-    public List<Spravca> getSpravcov(String meno,String priezvisko);
+    public List<Spravca> getSpravcovMenoPriezvisko(String meno,String priezvisko);
+
+    public Spravca getSpravcuEmail(String email); 
 
 }

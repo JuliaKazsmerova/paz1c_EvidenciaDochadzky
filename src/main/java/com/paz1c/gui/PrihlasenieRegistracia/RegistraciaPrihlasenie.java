@@ -3,6 +3,10 @@ package com.paz1c.gui.PrihlasenieRegistracia;
 import com.paz1c.dao.DaoFactory;
 import com.paz1c.dao.FirmaDao;
 import com.paz1c.dao.SpravcaDao;
+import com.paz1c.manager.DefaultFirmaManager;
+import com.paz1c.manager.DefaultSpravcaManager;
+import com.paz1c.manager.FirmaManager;
+import com.paz1c.manager.SpravcaManager;
 import com.paz1c.other.Firma;
 import com.paz1c.other.Spravca;
 import java.awt.CardLayout;
@@ -11,14 +15,14 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
     
     private final CardLayout cardlayout;
     private String vygenerovanyKod;
-    private final FirmaDao firmaDao;
-    private final SpravcaDao spravcaDao;
+    private final FirmaManager firmaManager;
+    private final SpravcaManager spravcaManager;
     private Firma novaFirma;
     private Spravca novySpravca;
     
     public RegistraciaPrihlasenie()  {
-        firmaDao = DaoFactory.INSTANCE.getFirmaDao();
-        spravcaDao = DaoFactory.INSTANCE.getSpravcaDao();
+        firmaManager = new DefaultFirmaManager();
+        spravcaManager = new DefaultSpravcaManager();
         initComponents();
         cardlayout = (CardLayout)getContentPane().getLayout();
         overenie.setParent(this);
@@ -51,17 +55,17 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
     }
     
     public Long vlozFirmu(){
-        firmaDao.vlozFirmu(novaFirma);
-        return firmaDao.getFirma(novaFirma.getNazov(), novaFirma.getIco()).getIdFirma();
+        firmaManager.vlozFirmu(novaFirma);
+        return firmaManager.getFirma(novaFirma.getNazov(), novaFirma.getIco()).getIdFirma();
     }
     
     public Spravca getSpravcuEmail(String email){
-        return spravcaDao.getSpravcuEmail(email);
+        return spravcaManager.getSpravcuEmail(email);
     }
     
     public void vlozSpravcu(Long id_firma){
         novySpravca.setIdFirma(id_firma);
-        spravcaDao.vlozSpravcu(novySpravca);
+        spravcaManager.vlozSpravcu(novySpravca);
     }
 
     public void setNovaFirma(Firma novaFirma) {
@@ -73,11 +77,11 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
     }
     
     boolean existsFirmaNazov(String nazov){
-        return firmaDao.existsFirmaNazov(nazov);
+        return firmaManager.existsFirmaNazov(nazov);
     }
     
     boolean existsFirmaIco(String ico){
-        return firmaDao.existsFirmaIco(ico);
+        return firmaManager.existsFirmaIco(ico);
     }
     
     

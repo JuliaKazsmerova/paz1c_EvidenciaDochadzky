@@ -15,4 +15,10 @@ public interface FirmaManager {
     /***/
     public Firma getFirma(String nazov,String ico);
     
+    /***/
+    public boolean existsFirmaNazov(String nazov);
+    
+    /***/
+    public boolean existsFirmaIco(String ico);
+    
 }

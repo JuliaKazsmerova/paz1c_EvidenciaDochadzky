@@ -1,18 +1,10 @@
 package com.paz1c.mysqldao;
 
-import com.paz1c.constants.Nastavenia;
-import com.paz1c.dao.DaoFactory;
 import com.paz1c.dao.ZamestnanecDao;
-import com.paz1c.other.Osoba;
 import com.paz1c.other.Zamestnanec;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.paz1c.rowMapper.ZamestnanecRowMapper;
-import org.springframework.jdbc.core.RowMapper;
 
 public class MySQLZamestnanecDao implements ZamestnanecDao{
     

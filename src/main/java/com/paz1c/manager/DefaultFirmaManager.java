@@ -32,5 +32,15 @@ public class DefaultFirmaManager implements FirmaManager{
     public Firma getFirma(String nazov, String ico) {
         return firmaDao.getFirma(nazov, ico);
     }
+
+    @Override
+    public boolean existsFirmaNazov(String nazov) {
+        return firmaDao.existsFirmaNazov(nazov);
+    }
+
+    @Override
+    public boolean existsFirmaIco(String ico) {
+        return firmaDao.existsFirmaIco(ico);
+    }
     
 }

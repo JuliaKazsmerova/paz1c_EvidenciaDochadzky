@@ -10,10 +10,15 @@ public interface ZamestnanecManager {
     public boolean zmazZamestnanca(Zamestnanec mazanaOsoba);
     
     public List<Zamestnanec> getVsetkychZamestnancov();
+    
+    public Zamestnanec getVsetkychZamestnancov(int index);
 
     public List<Zamestnanec> getZamestnanci(String meno,String priezvisko);
 
     public Zamestnanec getZamestnanec(Long id);
 
     public boolean upravZamestnanca(Zamestnanec upravovanaOsoba);
+    
+    public int pocetZamestnancov();
+
 }

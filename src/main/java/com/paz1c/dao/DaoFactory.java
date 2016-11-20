@@ -5,6 +5,7 @@ import com.paz1c.mysqldao.MySQLZamestnanecDao;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import com.paz1c.mysqldao.MySQLCviciaciDao;
 import com.paz1c.mysqldao.MySQLSpravcaDao;
+import com.paz1c.mysqldao.MySQLZaznamDochadzkyDao;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -18,6 +19,7 @@ public enum DaoFactory {
     private FirmaDao firmaDao;
     private SpravcaDao spravcaDao;
     private CviciaciDao cviciaciDao;
+    private ZaznamDochadzkyDao zaznamDochadzkyDao;
     
     private String host = "sql14.dnsserver.eu";
     private String dbname = "db86233xpaz1c";
@@ -25,7 +27,7 @@ public enum DaoFactory {
     private String userPassword = "dochadzka1";
 
     private JdbcTemplate jdbcTemplate;
-
+    
     private DaoFactory() {
         jdbcTemplate = mySQLconnection(host, dbname);
        
@@ -33,6 +35,8 @@ public enum DaoFactory {
         firmaDao = new MySQLFirmaDao(jdbcTemplate);
         spravcaDao = new MySQLSpravcaDao(jdbcTemplate);
         cviciaciDao = new MySQLCviciaciDao(jdbcTemplate);
+        zaznamDochadzkyDao = new MySQLZaznamDochadzkyDao(jdbcTemplate);
+        
         vytvorTabulky();
     }
     
@@ -86,5 +90,10 @@ public enum DaoFactory {
     public CviciaciDao getCviciaciDao(){
         return cviciaciDao;
     }
+
+    public ZaznamDochadzkyDao getZaznamDochadzkyDao() {
+        return zaznamDochadzkyDao;
+    }
+
     
 }
