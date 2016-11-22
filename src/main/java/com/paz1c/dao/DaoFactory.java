@@ -15,18 +15,19 @@ public enum DaoFactory {
     
     INSTANCE;
     
-    private ZamestnanecDao zamestnanecDao;
-    private FirmaDao firmaDao;
-    private SpravcaDao spravcaDao;
-    private CviciaciDao cviciaciDao;
-    private ZaznamDochadzkyDao zaznamDochadzkyDao;
     
-    private String host = "sql14.dnsserver.eu";
-    private String dbname = "db86233xpaz1c";
-    private String userName = "db86233xpaz1c";
-    private String userPassword = "dochadzka1";
+    private ZamestnanecDao zamestnanecDao = null;
+    private FirmaDao firmaDao = null;
+    private SpravcaDao spravcaDao = null;
+    private CviciaciDao cviciaciDao = null;
+    private ZaznamDochadzkyDao zaznamDochadzkyDao = null;
+    
+    private final String host = "sql14.dnsserver.eu";
+    private final String dbname = "db86233xpaz1c";
+    private final String userName = "db86233xpaz1c";
+    private final String userPassword = "dochadzka1";
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
     
     private DaoFactory() {
         jdbcTemplate = mySQLconnection(host, dbname);
@@ -36,6 +37,7 @@ public enum DaoFactory {
         spravcaDao = new MySQLSpravcaDao(jdbcTemplate);
         cviciaciDao = new MySQLCviciaciDao(jdbcTemplate);
         zaznamDochadzkyDao = new MySQLZaznamDochadzkyDao(jdbcTemplate);
+        
         
         vytvorTabulky();
     }
@@ -53,7 +55,8 @@ public enum DaoFactory {
     
     private void vytvorTabulky(){
         String sql = nacitajSQLScript("vytvorenieTabuliek.sql");
-        jdbcTemplate.execute(sql);
+        if(jdbcTemplate != null)
+            jdbcTemplate.execute(sql);
     }
     
     private void zmazTabulky(){

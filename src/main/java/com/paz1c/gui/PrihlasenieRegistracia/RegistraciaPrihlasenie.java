@@ -1,8 +1,5 @@
 package com.paz1c.gui.PrihlasenieRegistracia;
 
-import com.paz1c.dao.DaoFactory;
-import com.paz1c.dao.FirmaDao;
-import com.paz1c.dao.SpravcaDao;
 import com.paz1c.manager.DefaultFirmaManager;
 import com.paz1c.manager.DefaultSpravcaManager;
 import com.paz1c.manager.FirmaManager;

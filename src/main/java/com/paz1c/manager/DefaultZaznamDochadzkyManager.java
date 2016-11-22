@@ -7,7 +7,7 @@ import com.paz1c.other.ZaznamDochadzky;
 
 public class DefaultZaznamDochadzkyManager implements ZaznamDochadzkyManager{
 
-    private ZaznamDochadzkyDao zaznamDochadzkyDao;
+    private final ZaznamDochadzkyDao zaznamDochadzkyDao;
     
     public DefaultZaznamDochadzkyManager() {
         zaznamDochadzkyDao = DaoFactory.INSTANCE.getZaznamDochadzkyDao();

@@ -1,16 +1,12 @@
 package com.paz1c.gui.zamestnanec;
 
-import com.paz1c.dao.DaoFactory;
-import com.paz1c.dao.ZamestnanecDao;
-import com.paz1c.manager.DefaultZamestnanecManager;
-import com.paz1c.manager.ZamestnanecManager;
 import com.paz1c.other.Zamestnanec;
 import javax.swing.table.AbstractTableModel;
 
 
 public class ZamestnanecTableModel extends AbstractTableModel{
 
-    private ZamestnanecManager zamestnanecManager = new DefaultZamestnanecManager();
+    private com.paz1c.manager.ZamestnanecManager zamestnanecManager = new com.paz1c.manager.DefaultZamestnanecManager();
     private static final String[] NAZVY_STLPCOV = { "ID zamestnanca", "Meno", "Priezvisko", "Pracovna doba", "Zameranie",
         "Je v praci", "Posledny prichod", "Posledny odchod" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;

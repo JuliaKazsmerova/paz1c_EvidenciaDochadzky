@@ -5,7 +5,7 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
     
     public SpravaZamestnancov() {
         initComponents();
-        zamestnanciTable1.setParent(this);
+        tableZamestnanci.setParent(this);
     }
 
    
@@ -13,11 +13,39 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        zamestnanciTable1 = new com.paz1c.gui.zamestnanec.ZamestnanciTable();
+        tableZamestnanci = new com.paz1c.gui.zamestnanec.TableZamestnanci();
+        pridatZamestnanca = new com.paz1c.gui.zamestnanec.PridatZamestnanca();
+        zmazatZamestnanca = new com.paz1c.gui.zamestnanec.ZmazatZamestnanca();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
-        getContentPane().add(zamestnanciTable1, "card2");
+        getContentPane().add(tableZamestnanci, "card4");
+
+        javax.swing.GroupLayout pridatZamestnancaLayout = new javax.swing.GroupLayout(pridatZamestnanca);
+        pridatZamestnanca.setLayout(pridatZamestnancaLayout);
+        pridatZamestnancaLayout.setHorizontalGroup(
+            pridatZamestnancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        pridatZamestnancaLayout.setVerticalGroup(
+            pridatZamestnancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(pridatZamestnanca, "card4");
+
+        javax.swing.GroupLayout zmazatZamestnancaLayout = new javax.swing.GroupLayout(zmazatZamestnanca);
+        zmazatZamestnanca.setLayout(zmazatZamestnancaLayout);
+        zmazatZamestnancaLayout.setHorizontalGroup(
+            zmazatZamestnancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        zmazatZamestnancaLayout.setVerticalGroup(
+            zmazatZamestnancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(zmazatZamestnanca, "card3");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -56,6 +84,8 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.paz1c.gui.zamestnanec.ZamestnanciTable zamestnanciTable1;
+    private com.paz1c.gui.zamestnanec.PridatZamestnanca pridatZamestnanca;
+    private com.paz1c.gui.zamestnanec.TableZamestnanci tableZamestnanci;
+    private com.paz1c.gui.zamestnanec.ZmazatZamestnanca zmazatZamestnanca;
     // End of variables declaration//GEN-END:variables
 }

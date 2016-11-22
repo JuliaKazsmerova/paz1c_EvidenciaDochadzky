@@ -1,13 +1,13 @@
 package com.paz1c.gui.zamestnanec;
 
 
-public class ZamestnanciTable extends javax.swing.JPanel {
+public class TableZamestnanci extends javax.swing.JPanel {
 
     private SpravaZamestnancov parentJForm;
     
-    public ZamestnanciTable() {
+    public TableZamestnanci() {
         initComponents();
-        aktualizovatZoznamUloh();
+        //aktualizovatZoznamUloh();
     }
 
     public void setParent(SpravaZamestnancov parentJForm){
@@ -16,7 +16,7 @@ public class ZamestnanciTable extends javax.swing.JPanel {
     
     private void aktualizovatZoznamUloh() {
         // ziskaj model
-        ZamestnanecTableModel model = (ZamestnanecTableModel) zamestnanciTable.getModel();        
+        ZamestnanecTableModel model = (ZamestnanecTableModel) zamestnanciTabulka.getModel();        
         // aktualizuj ho
         model.aktualizovat();
     }
@@ -32,7 +32,7 @@ public class ZamestnanciTable extends javax.swing.JPanel {
         neaktivnyFilter = new javax.swing.JToggleButton();
         infoLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        zamestnanciTable = new javax.swing.JTable();
+        zamestnanciTabulka = new javax.swing.JTable();
 
         spravcoviaButton.setText("Správcovia");
 
@@ -63,8 +63,8 @@ public class ZamestnanciTable extends javax.swing.JPanel {
 
         infoLabel.setText("info o prihlasenom spravcovi");
 
-        zamestnanciTable.setModel(new ZamestnanecTableModel());
-        jScrollPane1.setViewportView(zamestnanciTable);
+        zamestnanciTabulka.setModel(new ZamestnanecTableModel());
+        jScrollPane1.setViewportView(zamestnanciTabulka);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -122,7 +122,7 @@ public class ZamestnanciTable extends javax.swing.JPanel {
     private javax.swing.JButton pridatZamestnancaButton;
     private javax.swing.JButton spravcoviaButton;
     private javax.swing.JToggleButton vsetciFilter;
-    private javax.swing.JTable zamestnanciTable;
+    private javax.swing.JTable zamestnanciTabulka;
     private javax.swing.JButton zmazatZamestnancaButton;
     // End of variables declaration//GEN-END:variables
 }

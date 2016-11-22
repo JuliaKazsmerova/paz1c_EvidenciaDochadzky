@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 public class DefaultZamestnanecManager implements ZamestnanecManager{
-    private ZamestnanecDao zamestnanecDao;
+    private final ZamestnanecDao zamestnanecDao;
     private List<Zamestnanec> zamestnanci = new ArrayList<>();
     
     public DefaultZamestnanecManager() {
