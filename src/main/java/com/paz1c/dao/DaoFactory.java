@@ -39,7 +39,7 @@ public enum DaoFactory {
         zaznamDochadzkyDao = new MySQLZaznamDochadzkyDao(jdbcTemplate);
         
         
-        vytvorTabulky();
+        //vytvorTabulky();
     }
     
     /**Vytvori pripojenie na databazu*/
