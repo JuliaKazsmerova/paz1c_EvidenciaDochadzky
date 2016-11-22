@@ -58,6 +58,12 @@
             <artifactId>zxcvbn</artifactId>
             <version>1.2.0</version>
           </dependency>
+        <dependency>
+            <groupId>no.tornado.databinding</groupId>
+            <artifactId>jxdatepicker-support</artifactId>
+            <version>1.0</version>
+        </dependency>
+          
     </dependencies>
     
   
