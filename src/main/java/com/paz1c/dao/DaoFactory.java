@@ -55,8 +55,7 @@ public enum DaoFactory {
     
     private void vytvorTabulky(){
         String sql = nacitajSQLScript("vytvorenieTabuliek.sql");
-        if(jdbcTemplate != null)
-            jdbcTemplate.execute(sql);
+        jdbcTemplate.execute(sql);
     }
     
     private void zmazTabulky(){
