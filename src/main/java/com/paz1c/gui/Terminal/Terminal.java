@@ -1,9 +1,10 @@
 
 package com.paz1c.gui.Terminal;
 
-import com.paz1c.dao.DaoFactory;
-import com.paz1c.dao.ZaznamDochadzkyDao;
+import com.paz1c.manager.DefaultZaznamDochadzkyManager;
+import com.paz1c.manager.ZaznamDochadzkyManager;
 import com.paz1c.other.ZaznamDochadzky;
+import java.awt.Color;
 import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -11,13 +12,18 @@ import java.util.concurrent.TimeUnit;
 public class Terminal extends javax.swing.JFrame {
 
     private boolean prichod = true; 
-    private ZaznamDochadzkyDao zaznamDochadzkyDao = DaoFactory.INSTANCE.getZaznamDochadzkyDao();
+    private ZaznamDochadzkyManager zaznamDochadzkyManager = new DefaultZaznamDochadzkyManager();
+
     
     public Terminal() {
         initComponents();
+        getContentPane().setBackground(new Color(255,250,226));
+        
         prichodToggleButton.setSelected(prichod);
         
     }
+    
+ 
 
     
     @SuppressWarnings("unchecked")
@@ -31,6 +37,18 @@ public class Terminal extends javax.swing.JFrame {
         potvrditButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 250, 226));
+        setForeground(new java.awt.Color(255, 250, 226));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 600, 150));
+        setMaximumSize(new java.awt.Dimension(600, 150));
+        setMinimumSize(new java.awt.Dimension(400, 150));
+        setPreferredSize(new java.awt.Dimension(400, 150));
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         buttonGroup1.add(prichodToggleButton);
         prichodToggleButton.setText("Prichod");
@@ -60,30 +78,31 @@ public class Terminal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(prichodToggleButton)
-                .addGap(31, 31, 31)
-                .addComponent(odchodToggleButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addComponent(potvrditButton)
-                .addGap(37, 37, 37))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(prichodToggleButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(odchodToggleButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(idTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(potvrditButton)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prichodToggleButton)
                     .addComponent(odchodToggleButton))
-                .addGap(68, 68, 68)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(potvrditButton))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
@@ -104,19 +123,23 @@ public class Terminal extends javax.swing.JFrame {
             novyZaznam.setIdOsoba(Long.parseLong(idTextField.getText()));
             novyZaznam.setPrichod(new Date(System.currentTimeMillis()));
             
-            zaznamDochadzkyDao.vlozZaznam(novyZaznam);
+            zaznamDochadzkyManager.vlozZaznam(novyZaznam);
         }else{
             //zapise sa do databazy odchod
-            ZaznamDochadzky existujuciZaznam = zaznamDochadzkyDao.getPoslednyZaznam(Long.parseLong(idTextField.getText()));
+            ZaznamDochadzky existujuciZaznam = zaznamDochadzkyManager.getPoslednyZaznam(Long.parseLong(idTextField.getText()));
             existujuciZaznam.setOdchod(new Date(System.currentTimeMillis()));
             long rozdiel = existujuciZaznam.getOdchod().getTime() - existujuciZaznam.getPrichod().getTime();
             int hodiny = (int)TimeUnit.HOURS.convert(rozdiel, TimeUnit.MILLISECONDS);
             existujuciZaznam.setOdrobeneHodiny(hodiny);
             
-            zaznamDochadzkyDao.upravZaznam(existujuciZaznam);
+            zaznamDochadzkyManager.upravZaznam(existujuciZaznam);
         }
         idTextField.setText("");
     }//GEN-LAST:event_potvrditButtonActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
     
     public static void main(String args[]) {
