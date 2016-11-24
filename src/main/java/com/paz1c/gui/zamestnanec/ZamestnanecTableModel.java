@@ -22,6 +22,7 @@ public class ZamestnanecTableModel extends AbstractTableModel{
         return POCET_STLPCOV;
     }
 
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Zamestnanec zamestnanec = zamestnanecManager.getVsetkychZamestnancov(rowIndex);

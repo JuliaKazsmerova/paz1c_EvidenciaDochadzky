@@ -6,6 +6,7 @@ import com.paz1c.manager.ZaznamDochadzkyManager;
 import com.paz1c.other.ZaznamDochadzky;
 import java.awt.Color;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.concurrent.TimeUnit;
 
 
@@ -122,17 +123,21 @@ public class Terminal extends javax.swing.JFrame {
             ZaznamDochadzky novyZaznam = new ZaznamDochadzky();
             novyZaznam.setIdOsoba(Long.parseLong(idTextField.getText()));
             novyZaznam.setPrichod(new Date(System.currentTimeMillis()));
-            
             zaznamDochadzkyManager.vlozZaznam(novyZaznam);
         }else{
             //zapise sa do databazy odchod
+            System.out.println(Long.parseLong(idTextField.getText()));
             ZaznamDochadzky existujuciZaznam = zaznamDochadzkyManager.getPoslednyZaznam(Long.parseLong(idTextField.getText()));
-            existujuciZaznam.setOdchod(new Date(System.currentTimeMillis()));
-            long rozdiel = existujuciZaznam.getOdchod().getTime() - existujuciZaznam.getPrichod().getTime();
-            int hodiny = (int)TimeUnit.HOURS.convert(rozdiel, TimeUnit.MILLISECONDS);
-            existujuciZaznam.setOdrobeneHodiny(hodiny);
+            if(existujuciZaznam.getOdchod()==null){
+                existujuciZaznam.setOdchod(new Date(System.currentTimeMillis()));
+                long rozdiel = existujuciZaznam.getOdchod().getTime() - existujuciZaznam.getPrichod().getTime();
+                int hodiny = (int)TimeUnit.HOURS.convert(rozdiel, TimeUnit.MILLISECONDS);
+                existujuciZaznam.setOdrobeneHodiny(hodiny);
+                zaznamDochadzkyManager.upravZaznam(existujuciZaznam);
+            }else{
+                //nemoze dvakrat odist treba vymysliet chybovu hlasku
+            }
             
-            zaznamDochadzkyManager.upravZaznam(existujuciZaznam);
         }
         idTextField.setText("");
     }//GEN-LAST:event_potvrditButtonActionPerformed

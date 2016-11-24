@@ -33,7 +33,7 @@ public class MySQLZaznamDochadzkyDao implements ZaznamDochadzkyDao{
 
     @Override
     public ZaznamDochadzky getPoslednyZaznam(Long idOsoba) {
-        String sql = "SELECT MAX(ID_den) AS ID_den,prichod,odchod,odrobene_hodiny,ID_osoba FROM Denna_dochadzka WHERE ID_osoba = ? GROUP BY ID_den;";   
+        String sql = "SELECT ID_den,prichod,odchod,odrobene_hodiny,ID_osoba FROM Denna_dochadzka WHERE ID_den = (SELECT MAX(ID_den) FROM Denna_dochadzka WHERE ID_osoba = ?);";
         return jdbcTemplate.queryForObject(sql,new ZaznamDochadzkyRowMapper(),idOsoba);
     }
     

@@ -42,5 +42,13 @@ public class DefaultSpravcaManager implements SpravcaManager{
     public Spravca getSpravcuEmail(String email) {
         return spravcaDao.getSpravcuEmail(email);
     }
+
+    @Override
+    public boolean existsEmail(String email) {
+        if(getSpravcuEmail(email) == null)
+            return false;
+        else
+            return true;
+    }
     
 }

@@ -34,6 +34,7 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
         zmazatZamestnanca = new com.paz1c.gui.zamestnanec.ZmazatZamestnanca();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new java.awt.CardLayout());
         getContentPane().add(pridatZamestnanca, "pridatZamestnanca");
         getContentPane().add(tableZamestnanci, "tableZamestnanci");

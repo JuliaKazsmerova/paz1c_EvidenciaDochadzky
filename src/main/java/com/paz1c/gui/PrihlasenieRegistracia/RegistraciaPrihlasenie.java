@@ -55,6 +55,10 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
         return firmaManager.getFirma(novaFirma.getNazov(), novaFirma.getIco()).getIdFirma();
     }
     
+    public Firma getFirma(Long id){
+        return firmaManager.getFirma(id);
+    }
+    
     public Spravca getSpravcuEmail(String email){
         return spravcaManager.getSpravcuEmail(email);
     }
@@ -74,6 +78,10 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
     
     boolean existsFirmaNazov(String nazov){
         return firmaManager.existsFirmaNazov(nazov);
+    }
+    
+    boolean existsEmail(String email){
+        return spravcaManager.existsEmail(email);
     }
     
     boolean existsFirmaIco(String ico){

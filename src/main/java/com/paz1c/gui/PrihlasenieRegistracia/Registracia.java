@@ -82,6 +82,7 @@ public class Registracia extends javax.swing.JPanel {
                     mapaString.put("priezviskoPrazdne", "Zadajte priezvisko.");
                    
                     mapaString.put("email", "E-mail:");
+                    mapaString.put("emailExistuje", "Zadaný e-mail už je registrovaný.");
                     mapaString.put("emailNeexistuje", "Zadaný e-mail neexistuje.");
                     mapaString.put("emailPrazdny", "Zadajte e-mail.");
                     mapaString.put("emailPredmet", "Overenie e-mailu.");
@@ -133,6 +134,7 @@ public class Registracia extends javax.swing.JPanel {
                     mapaString.put("priezviskoPrazdne", "Surname is not entered.");
                     
                     mapaString.put("email", "E-mail: ");
+                    mapaString.put("emailExistuje", "");
                     mapaString.put("emailNeexistuje", "Entered e-mail does not exist.");
                     mapaString.put("emailPrazdny", "E-mail is not entered. ");
                     mapaString.put("emailPredmet", "Verification code. ");
@@ -641,15 +643,20 @@ public class Registracia extends javax.swing.JPanel {
     }//GEN-LAST:event_priezviskoTextFieldKeyReleased
 
     private void emailTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTextFieldKeyReleased
+        email = false;
         if(emailTextField.getText().equals("")){
             emailVypisLabel.setText(mapaString.get("emailPrazdny"));
-            email = false;
         }else{
-            email = validateEmail(emailTextField.getText());
-            if(email)
-                emailVypisLabel.setText(ok);  
-             else 
-                emailVypisLabel.setText(mapaString.get("emailNeexistuje"));
+            if(!validateEmail(emailTextField.getText()))
+                 emailVypisLabel.setText(mapaString.get("emailNeexistuje"));
+            else if(parentJFrame.existsEmail(emailTextField.getText()))
+                    emailVypisLabel.setText(mapaString.get("emailExistuje"));
+            else{
+                emailVypisLabel.setText(ok); 
+                email = true;
+            }
+            
+               
             
         }
         

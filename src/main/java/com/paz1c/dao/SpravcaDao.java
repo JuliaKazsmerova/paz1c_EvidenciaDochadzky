@@ -16,4 +16,5 @@ public interface SpravcaDao {
     public List<Spravca> getSpravcovMenoPriezvisko(String meno,String priezvisko);
 
     public Spravca getSpravcuEmail(String email);
+    
 }

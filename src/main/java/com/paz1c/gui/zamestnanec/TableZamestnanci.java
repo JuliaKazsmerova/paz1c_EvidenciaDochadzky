@@ -1,5 +1,7 @@
 package com.paz1c.gui.zamestnanec;
 
+import javax.swing.table.DefaultTableColumnModel;
+
 
 public class TableZamestnanci extends javax.swing.JPanel {
 
@@ -8,6 +10,12 @@ public class TableZamestnanci extends javax.swing.JPanel {
     public TableZamestnanci() {
         initComponents();
         aktualizovatZamestnancov();
+        for (int i = 0; i < zamestnanciTabulka.getColumnModel().getColumnCount(); i++) {
+            zamestnanciTabulka.getColumnModel().getColumn(i).setMinWidth(50);
+            zamestnanciTabulka.getColumnModel().getColumn(i).setPreferredWidth(150);
+            
+        }
+        
     }
 
     public void setParent(SpravaZamestnancov parentJForm){
@@ -74,6 +82,7 @@ public class TableZamestnanci extends javax.swing.JPanel {
         infoLabel.setText("info o prihlasenom spravcovi");
 
         zamestnanciTabulka.setModel(new ZamestnanecTableModel());
+        zamestnanciTabulka.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         jScrollPane1.setViewportView(zamestnanciTabulka);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

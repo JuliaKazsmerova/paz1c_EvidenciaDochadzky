@@ -51,10 +51,12 @@ public class MySQLSpravcaDao implements SpravcaDao{
     public Spravca getSpravcuEmail(String email) {
         String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo,sol FROM Spravca WHERE email = ?;";   
         try{
-        return jdbcTemplate.queryForObject(sql,new SpravcaRowMapper(),email);
+            return jdbcTemplate.queryForObject(sql,new SpravcaRowMapper(),email);
         }catch(Exception e){
             return null;
         }
     }
+
+    
     
 }

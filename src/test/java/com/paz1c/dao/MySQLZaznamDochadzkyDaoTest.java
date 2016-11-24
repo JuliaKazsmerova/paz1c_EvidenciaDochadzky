@@ -110,7 +110,7 @@ public class MySQLZaznamDochadzkyDaoTest {
         ZaznamDochadzky vratenyZaznam = zaznamDao.getPoslednyZaznam(testovaciZamestnanec.getIdOsoba());
         assertTrue(vratenyZaznam.getIdOsoba().equals(testovaciZaznam.getIdOsoba()) && 
                 vratenyZaznam.getOdrobeneHodiny() == testovaciZaznam.getOdrobeneHodiny());
-        zaznamDao.zmazZaznam(testovaciZaznam);
+        zaznamDao.zmazZaznam(vratenyZaznam);
     }
     
     @Test

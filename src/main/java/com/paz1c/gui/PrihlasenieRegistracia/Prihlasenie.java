@@ -1,9 +1,11 @@
 package com.paz1c.gui.PrihlasenieRegistracia;
 
 import com.paz1c.constants.Nastavenia;
+import com.paz1c.gui.zamestnanec.SpravaZamestnancov;
 import com.paz1c.other.Spravca;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 
 public class Prihlasenie extends javax.swing.JPanel {
@@ -30,6 +32,8 @@ public class Prihlasenie extends javax.swing.JPanel {
                     mapaString.put("heslo", "Heslo:");
                     mapaString.put("prihlasit", "Prihlasiť");
                     mapaString.put("spat", "Späť");
+                    mapaString.put("zleHesloNadpis", "Zly email alebo heslo");
+                    mapaString.put("zleHesloText", "Zadany email a heslo neexistuje. \nSkuste to znova.");
                     break;
                 case "EN" :
                     mapaString.put("uvod1", "Sign in");
@@ -37,6 +41,8 @@ public class Prihlasenie extends javax.swing.JPanel {
                     mapaString.put("heslo", "Password:");
                     mapaString.put("prihlasit", "Sign in");
                     mapaString.put("spat", "Back");
+                    mapaString.put("zleHesloNadpis", "");
+                    mapaString.put("zleHesloText", "");
                 break;
                 
             }
@@ -144,8 +150,25 @@ public class Prihlasenie extends javax.swing.JPanel {
         Spravca spravca = parentJFrame.getSpravcuEmail(emailTextField.getText());
         if(spravca != null){
             if(spravca.checkPassword(new String(hesloPasswordField.getPassword()))){
-                //vytvori sa nove okno
+                
+                Nastavenia.vybranyMod = parentJFrame.getFirma(spravca.getIdFirma()).getVybratyMod();
+                Nastavenia.idFirma = spravca.getIdFirma();
+                
+                if(Nastavenia.vybranyMod.equals("Zamestnanec")){
+                    java.awt.EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            new SpravaZamestnancov().setVisible(true);
+                        }
+                    });
+                }else if (Nastavenia.vybranyMod.equals("Cviciaci")){
+                    //pracuje sa na tom
+                }
+                    
                 parentJFrame.dispose();
+            }else{
+                //zadane heslo je nespravne (skuste znova)
+                JOptionPane.showMessageDialog(parentJFrame,mapaString.get("zleHesloText"),mapaString.get("zleHesloNadpis"),JOptionPane.ERROR_MESSAGE);
+        
             }
         }
     }//GEN-LAST:event_prihlasenieButtonActionPerformed

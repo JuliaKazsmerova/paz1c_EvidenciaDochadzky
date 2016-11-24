@@ -2,6 +2,7 @@ package com.paz1c.gui.PrihlasenieRegistracia;
 
 import com.paz1c.constants.Nastavenia;
 import com.paz1c.dao.FirmaDao;
+import com.paz1c.gui.zamestnanec.SpravaZamestnancov;
 import com.paz1c.other.Firma;
 import java.util.HashMap;
 import java.util.Map;
@@ -125,7 +126,19 @@ public class Overenie extends javax.swing.JPanel {
         if(kontrolaKodu()){
             Long id_firma = parentJFrame.vlozFirmu();
             parentJFrame.vlozSpravcu(id_firma);
-            //otvori sa nove okno
+            if(Nastavenia.vybranyMod.equals("Zamestnanec")){
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        new SpravaZamestnancov().setVisible(true);
+                    }
+                });
+                System.out.println("otvaram sprava zamestnancov");
+            }else if(Nastavenia.vybranyMod.equals("Cviciaci")){
+                //pracuje sa na tom
+            }
+            
+            Nastavenia.idFirma = id_firma;
+            
             parentJFrame.dispose();
         } else
             JOptionPane.showMessageDialog(parentJFrame,mapaString.get("textUpozornenie"),mapaString.get("nadpisUpozornenie"),JOptionPane.ERROR_MESSAGE);
