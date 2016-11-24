@@ -89,6 +89,9 @@
           <Dimension value="[170, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zmazatZamestnancaButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pridatZamestnancaButton">
       <Properties>
@@ -103,6 +106,9 @@
           <Dimension value="[170, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pridatZamestnancaButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="vsetciFilter">
       <Properties>

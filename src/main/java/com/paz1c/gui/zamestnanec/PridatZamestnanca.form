@@ -30,7 +30,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="pridatZamestnancaTextLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="193" max="32767" attributes="0"/>
+                      <EmptySpace pref="103" max="32767" attributes="0"/>
+                      <Component id="zmenaJazykaPanel1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="spatButton" min="-2" max="-2" attributes="0"/>
@@ -51,8 +52,7 @@
                           <Component id="hodinyZaDenTextField" max="32767" attributes="0"/>
                           <Component id="priezviskoTextField" max="32767" attributes="0"/>
                           <Component id="menoTextField" max="32767" attributes="0"/>
-                          <Component id="datumNastupuTextField" max="32767" attributes="0"/>
-                          <Component id="jXDatePicker2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="datumNastupuJXDatePicker" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -63,10 +63,11 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="datumNastupuTextField" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="pridatZamestnancaTextLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="pridatZamestnancaTextLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="zmenaJazykaPanel1" min="-2" pref="29" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="menoLabel" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
@@ -80,7 +81,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="datumNastupuLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jXDatePicker2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="datumNastupuJXDatePicker" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -147,8 +148,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="priezviskoTextField">
     </Component>
-    <Component class="javax.swing.JTextField" name="datumNastupuTextField">
-    </Component>
     <Component class="javax.swing.JTextField" name="hodinyZaDenTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="funkciaTextField">
@@ -165,6 +164,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Sp&#xe4;&#x165;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="spatButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="pridatZamestnancaTextLabel">
       <Properties>
@@ -174,12 +176,14 @@
         <Property name="text" type="java.lang.String" value="Prida&#x165; zamestnanca"/>
       </Properties>
     </Component>
-    <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker2">
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="datumNastupuJXDatePicker">
       <Properties>
         <Property name="timeZone" type="java.util.TimeZone" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="java.util.TimeZone.getTimeZone(&quot;Europe/Bratislava&quot;)" type="code"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel" name="zmenaJazykaPanel1">
     </Component>
   </SubComponents>
 </Form>

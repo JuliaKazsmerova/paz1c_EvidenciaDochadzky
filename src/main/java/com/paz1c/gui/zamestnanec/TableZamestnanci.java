@@ -7,14 +7,14 @@ public class TableZamestnanci extends javax.swing.JPanel {
     
     public TableZamestnanci() {
         initComponents();
-        //aktualizovatZoznamUloh();
+        aktualizovatZamestnancov();
     }
 
     public void setParent(SpravaZamestnancov parentJForm){
         this.parentJForm = parentJForm;
     }
     
-    private void aktualizovatZoznamUloh() {
+    private void aktualizovatZamestnancov() {
         // ziskaj model
         ZamestnanecTableModel model = (ZamestnanecTableModel) zamestnanciTabulka.getModel();        
         // aktualizuj ho
@@ -40,11 +40,21 @@ public class TableZamestnanci extends javax.swing.JPanel {
         zmazatZamestnancaButton.setMaximumSize(new java.awt.Dimension(170, 25));
         zmazatZamestnancaButton.setMinimumSize(new java.awt.Dimension(170, 25));
         zmazatZamestnancaButton.setPreferredSize(new java.awt.Dimension(170, 25));
+        zmazatZamestnancaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zmazatZamestnancaButtonActionPerformed(evt);
+            }
+        });
 
         pridatZamestnancaButton.setText("Pridať zamestnanca");
         pridatZamestnancaButton.setMaximumSize(new java.awt.Dimension(170, 25));
         pridatZamestnancaButton.setMinimumSize(new java.awt.Dimension(170, 25));
         pridatZamestnancaButton.setPreferredSize(new java.awt.Dimension(170, 25));
+        pridatZamestnancaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pridatZamestnancaButtonActionPerformed(evt);
+            }
+        });
 
         vsetciFilter.setText("Všetci");
         vsetciFilter.setMaximumSize(new java.awt.Dimension(170, 25));
@@ -112,6 +122,14 @@ public class TableZamestnanci extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pridatZamestnancaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridatZamestnancaButtonActionPerformed
+         parentJForm.otvorOkno("pridatZamestnanca");
+    }//GEN-LAST:event_pridatZamestnancaButtonActionPerformed
+
+    private void zmazatZamestnancaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zmazatZamestnancaButtonActionPerformed
+        parentJForm.otvorOkno("zmazatZamestnanca");
+    }//GEN-LAST:event_zmazatZamestnancaButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

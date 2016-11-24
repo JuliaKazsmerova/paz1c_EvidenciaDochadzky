@@ -32,8 +32,7 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
     
     
     public void otvorOkno(String meno){
-        cardlayout.show(getContentPane(),meno);
-        
+        cardlayout.show(getContentPane(),meno);   
     }
     
     public void nastavJazyk(){

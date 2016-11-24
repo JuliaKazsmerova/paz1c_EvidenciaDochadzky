@@ -1,11 +1,27 @@
 package com.paz1c.gui.zamestnanec;
 
+import com.paz1c.manager.DefaultZamestnanecManager;
+import com.paz1c.manager.ZamestnanecManager;
+import com.paz1c.other.Zamestnanec;
+import java.awt.CardLayout;
+
 public class SpravaZamestnancov extends javax.swing.JFrame {
 
+    private final CardLayout cardlayout;
+    private ZamestnanecManager zamestnanecManager = new DefaultZamestnanecManager();
     
     public SpravaZamestnancov() {
         initComponents();
+        cardlayout = (CardLayout)getContentPane().getLayout();
         tableZamestnanci.setParent(this);
+        pridatZamestnanca.setParent(this);
+        zmazatZamestnanca.setParent(this);
+        
+        cardlayout.show(getContentPane(),"tableZamestnanci");
+    }
+    
+    public void otvorOkno(String meno){
+        cardlayout.show(getContentPane(),meno);   
     }
 
    
@@ -19,21 +35,9 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
-        getContentPane().add(pridatZamestnanca, "card4");
-        getContentPane().add(tableZamestnanci, "card4");
-
-        javax.swing.GroupLayout zmazatZamestnancaLayout = new javax.swing.GroupLayout(zmazatZamestnanca);
-        zmazatZamestnanca.setLayout(zmazatZamestnancaLayout);
-        zmazatZamestnancaLayout.setHorizontalGroup(
-            zmazatZamestnancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-        zmazatZamestnancaLayout.setVerticalGroup(
-            zmazatZamestnancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(zmazatZamestnanca, "card3");
+        getContentPane().add(pridatZamestnanca, "pridatZamestnanca");
+        getContentPane().add(tableZamestnanci, "tableZamestnanci");
+        getContentPane().add(zmazatZamestnanca, "zmazatZamestnanca");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -76,4 +80,12 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
     private com.paz1c.gui.zamestnanec.TableZamestnanci tableZamestnanci;
     private com.paz1c.gui.zamestnanec.ZmazatZamestnanca zmazatZamestnanca;
     // End of variables declaration//GEN-END:variables
+
+    void pridatZamestnanca(Zamestnanec zamestnanec) {
+        zamestnanecManager.vlozZamestnanca(zamestnanec);
+    }
+
+    public Zamestnanec najdiZamestnancaPodlaID(long zadaneID) {
+        return zamestnanecManager.getZamestnanec(zadaneID);
+    }
 }

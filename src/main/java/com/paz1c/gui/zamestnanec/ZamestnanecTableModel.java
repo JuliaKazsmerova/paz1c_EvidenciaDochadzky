@@ -79,7 +79,7 @@ public class ZamestnanecTableModel extends AbstractTableModel{
                 upravovany.setPriezvisko((String)value);
                 break;
             case 3:
-                upravovany.setPocetHodinNaDen((int)value);
+                upravovany.setPocetHodinNaDen(Integer.parseInt((String)value));
                 break;
             case 4:
                 upravovany.setZameranie((String)value);
