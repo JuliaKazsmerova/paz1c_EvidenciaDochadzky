@@ -1,5 +1,6 @@
 package com.paz1c.gui.zamestnanec;
 
+import com.paz1c.gui.spravcovia.Spravcovia;
 import javax.swing.table.DefaultTableColumnModel;
 
 
@@ -144,7 +145,8 @@ public class TableZamestnanci extends javax.swing.JPanel {
     }//GEN-LAST:event_zmazatZamestnancaButtonActionPerformed
 
     private void spravcoviaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spravcoviaButtonActionPerformed
-        
+        Spravcovia spravcoviaDialog = new Spravcovia(parentJForm, true);
+        spravcoviaDialog.setVisible(true);
     }//GEN-LAST:event_spravcoviaButtonActionPerformed
 
 
