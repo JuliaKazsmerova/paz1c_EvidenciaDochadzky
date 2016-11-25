@@ -43,6 +43,7 @@ public class MySQLZamestnanecDao implements ZamestnanecDao{
     
     @Override
     public Zamestnanec getZamestnanec(Long id) {
+        System.out.println("robim");
         String sql = "SELECT ID_Zamestnanec,meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,"
                 + "funkcia ,pocet_hodin_na_den,datum_nastupu FROM Zamestnanec WHERE ID_Zamestnanec = ?;";   
         return jdbcTemplate.queryForObject(sql,new ZamestnanecRowMapper(),id);

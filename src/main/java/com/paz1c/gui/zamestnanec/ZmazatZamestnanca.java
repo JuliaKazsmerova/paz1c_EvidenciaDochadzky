@@ -1,16 +1,11 @@
 package com.paz1c.gui.zamestnanec;
 
-import com.paz1c.other.Zamestnanec;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 public class ZmazatZamestnanca extends javax.swing.JPanel {
 
     private SpravaZamestnancov parentJForm;
-    private Boolean potvrdene;
+    private boolean potvrdene;
     MazanyZamestnanecTableModel model;
     
     public ZmazatZamestnanca() {
@@ -23,7 +18,6 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
     }
     
         private void aktualizovatZamestnancov(Long ID) {
-        // pridaj zamestnanca
         model.najdiPodlaId(ID);
     }
 
@@ -150,13 +144,11 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         overovaciaOtazkaLabel.setVisible(false);  
         jScrollPane2.setVisible(false);
         potvrditButton.setVisible(false);
-        potvrdene = true;
-        model.dajOpacnuHodnotu(potvrdene);
-        model.fireTableDataChanged();
+        model.setHodnota(false);
     }//GEN-LAST:event_spatButtonActionPerformed
 
     private void potvrditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potvrditButtonActionPerformed
-        if(potvrdene){
+        if((boolean)zamestnanecNaMazanieTable.getValueAt(0, 3)){
             System.out.println("mozem mazat");
         }else{
             JOptionPane.showMessageDialog(parentJForm, "Neoznačili ste zamestnanca!", "Upozornenie", JOptionPane.ERROR_MESSAGE);
@@ -164,11 +156,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
     }//GEN-LAST:event_potvrditButtonActionPerformed
 
     private void zamestnanecNaMazanieTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zamestnanecNaMazanieTableMouseClicked
-        int row = zamestnanecNaMazanieTable.getSelectedRow();
-        int column = zamestnanecNaMazanieTable.getSelectedColumn();
-        Boolean hodnota = (Boolean) zamestnanecNaMazanieTable.getValueAt(0, 3);
-        potvrdene = model.dajOpacnuHodnotu(hodnota);
-        model.fireTableDataChanged();
+        model.setHodnota(!(boolean) zamestnanecNaMazanieTable.getValueAt(0, 3));
     }//GEN-LAST:event_zamestnanecNaMazanieTableMouseClicked
 
 

@@ -10,6 +10,7 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
     private Long id;
     private boolean hodnota;
+    private Zamestnanec zamestnanec;
     
     @Override
     public int getRowCount() {
@@ -23,7 +24,11 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Zamestnanec zamestnanec = zamestnanecManager.getZamestnanec(id);
+        System.out.println(columnIndex);
+        if(columnIndex == 0){
+            zamestnanec = zamestnanecManager.getZamestnanec(id);
+        }
+        
         switch (columnIndex) {
             case 0:
                 return zamestnanec.getMeno();
@@ -38,6 +43,18 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
         }
         
     }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        if(columnIndex==3)
+            return true;
+        else 
+            return false;
+    }
+    
+    
+    
+    
     
         @Override
     public Class<?> getColumnClass(int columnIndex) {
@@ -58,12 +75,7 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
         fireTableDataChanged();
     }
     
-    boolean dajOpacnuHodnotu(Boolean value){
-        if(value){
-            hodnota = false;
-        }else{
-            hodnota = true;
-        }
-        return hodnota;
+    void setHodnota(boolean value){
+        hodnota = value;
     }   
 }
