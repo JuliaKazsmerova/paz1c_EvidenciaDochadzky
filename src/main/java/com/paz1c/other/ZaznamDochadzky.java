@@ -1,11 +1,12 @@
 package com.paz1c.other;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ZaznamDochadzky {
     private Long id;
-    private Date prichod;
-    private Date odchod;
+    private Timestamp prichod;
+    private Timestamp odchod;
     private int odrobeneHodiny;
     private Long idOsoba;
 
@@ -13,11 +14,11 @@ public class ZaznamDochadzky {
         this.id = id;
     }
 
-    public void setPrichod(Date prichod) {
+    public void setPrichod(Timestamp prichod) {
         this.prichod = prichod;
     }
 
-    public void setOdchod(Date odchod) {
+    public void setOdchod(Timestamp odchod) {
         this.odchod = odchod;
     }
 
@@ -33,11 +34,11 @@ public class ZaznamDochadzky {
         return id;
     }
 
-    public Date getPrichod() {
+    public Timestamp getPrichod() {
         return prichod;
     }
 
-    public Date getOdchod() {
+    public Timestamp getOdchod() {
         return odchod;
     }
 

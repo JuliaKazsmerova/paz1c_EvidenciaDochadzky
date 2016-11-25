@@ -24,9 +24,6 @@ public class Terminal extends javax.swing.JFrame {
         
     }
     
- 
-
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -122,14 +119,14 @@ public class Terminal extends javax.swing.JFrame {
             //zapise sa do databazy prichod
             ZaznamDochadzky novyZaznam = new ZaznamDochadzky();
             novyZaznam.setIdOsoba(Long.parseLong(idTextField.getText()));
-            novyZaznam.setPrichod(new Date(System.currentTimeMillis()));
+            novyZaznam.setPrichod(new Timestamp(System.currentTimeMillis()));
             zaznamDochadzkyManager.vlozZaznam(novyZaznam);
         }else{
             //zapise sa do databazy odchod
             System.out.println(Long.parseLong(idTextField.getText()));
             ZaznamDochadzky existujuciZaznam = zaznamDochadzkyManager.getPoslednyZaznam(Long.parseLong(idTextField.getText()));
             if(existujuciZaznam.getOdchod()==null){
-                existujuciZaznam.setOdchod(new Date(System.currentTimeMillis()));
+                existujuciZaznam.setOdchod(new Timestamp(System.currentTimeMillis()));
                 long rozdiel = existujuciZaznam.getOdchod().getTime() - existujuciZaznam.getPrichod().getTime();
                 int hodiny = (int)TimeUnit.HOURS.convert(rozdiel, TimeUnit.MILLISECONDS);
                 existujuciZaznam.setOdrobeneHodiny(hodiny);

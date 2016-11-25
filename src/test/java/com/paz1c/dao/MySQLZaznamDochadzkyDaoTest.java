@@ -4,6 +4,7 @@ import com.paz1c.other.Firma;
 import com.paz1c.other.Zamestnanec;
 import com.paz1c.other.ZaznamDochadzky;
 import java.sql.Date;
+import java.sql.Timestamp;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -80,8 +81,8 @@ public class MySQLZaznamDochadzkyDaoTest {
 
     public ZaznamDochadzky vytvorZaznam(){
          ZaznamDochadzky zaznam = new ZaznamDochadzky();
-         zaznam.setPrichod(new Date(System.currentTimeMillis()));
-         zaznam.setOdchod(new Date(System.currentTimeMillis()+154545));
+         zaznam.setPrichod(new Timestamp(System.currentTimeMillis()));
+         zaznam.setOdchod(new Timestamp(System.currentTimeMillis()+154545));
          zaznam.setOdrobeneHodiny(7);
          zaznam.setIdOsoba(testovaciZamestnanec.getIdOsoba());
          

@@ -9,6 +9,7 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
     private static final String[] NAZVY_STLPCOV = { "Meno", "Priezvisko", "Zameranie", "Označenie" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
     private Long id;
+    private boolean hodnota;
     
     @Override
     public int getRowCount() {
@@ -31,7 +32,7 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
             case 2:
                 return zamestnanec.getZameranie();
             case 3:
-                return false;
+                return hodnota;
             default:
                 return "???";
         }
@@ -45,14 +46,7 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
         }
         
         return super.getColumnClass(columnIndex);
-    }
-
-    @Override
-    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        super.setValueAt(aValue, rowIndex, columnIndex); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
+    }    
 
     @Override
     public String getColumnName(int columnIndex) {
@@ -64,4 +58,12 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
         fireTableDataChanged();
     }
     
+    boolean dajOpacnuHodnotu(Boolean value){
+        if(value){
+            hodnota = false;
+        }else{
+            hodnota = true;
+        }
+        return hodnota;
+    }   
 }

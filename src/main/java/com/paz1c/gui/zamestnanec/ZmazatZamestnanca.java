@@ -10,18 +10,19 @@ import javax.swing.table.DefaultTableModel;
 public class ZmazatZamestnanca extends javax.swing.JPanel {
 
     private SpravaZamestnancov parentJForm;
+    private Boolean potvrdene;
+    MazanyZamestnanecTableModel model;
     
     public ZmazatZamestnanca() {
         initComponents();
+        model = (MazanyZamestnanecTableModel) zamestnanecNaMazanieTable.getModel(); 
+        zamestnanecNaMazanieTable.getTableHeader().setUI(null);
         overovaciaOtazkaLabel.setVisible(false);
         jScrollPane2.setVisible(false);
         potvrditButton.setVisible(false);
     }
     
         private void aktualizovatZamestnancov(Long ID) {
-        // ziskaj model
-        MazanyZamestnanecTableModel model = (MazanyZamestnanecTableModel) zamestnanecNaMazanieTable.getModel(); 
-        zamestnanecNaMazanieTable.getTableHeader().setUI(null);
         // pridaj zamestnanca
         model.najdiPodlaId(ID);
     }
@@ -91,6 +92,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
                     .addComponent(overovaciaOtazkaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(spatButton)
@@ -101,10 +103,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(zmazatButton))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -149,25 +148,27 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         parentJForm.otvorOkno("tableZamestnanci");
         IDZamestnancaTextField.setText("");
         overovaciaOtazkaLabel.setVisible(false);  
-            jScrollPane2.setVisible(false);
-            potvrditButton.setVisible(false);
+        jScrollPane2.setVisible(false);
+        potvrditButton.setVisible(false);
+        potvrdene = true;
+        model.dajOpacnuHodnotu(potvrdene);
+        model.fireTableDataChanged();
     }//GEN-LAST:event_spatButtonActionPerformed
 
     private void potvrditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potvrditButtonActionPerformed
-        
+        if(potvrdene){
+            System.out.println("mozem mazat");
+        }else{
+            JOptionPane.showMessageDialog(parentJForm, "Neoznačili ste zamestnanca!", "Upozornenie", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_potvrditButtonActionPerformed
 
     private void zamestnanecNaMazanieTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zamestnanecNaMazanieTableMouseClicked
         int row = zamestnanecNaMazanieTable.getSelectedRow();
-        int column = zamestnanecNaMazanieTable.convertColumnIndexToModel(zamestnanecNaMazanieTable.getSelectedColumn());
-            MazanyZamestnanecTableModel model = (MazanyZamestnanecTableModel) zamestnanecNaMazanieTable.getModel(); 
-            model.setValueAt(Boolean.TRUE, row, column);
-        /*
-        if (zamestnanecNaMazanieTable.getValueAt(row, column) == Boolean.FALSE){
-       
-        }
-        */
-         
+        int column = zamestnanecNaMazanieTable.getSelectedColumn();
+        Boolean hodnota = (Boolean) zamestnanecNaMazanieTable.getValueAt(0, 3);
+        potvrdene = model.dajOpacnuHodnotu(hodnota);
+        model.fireTableDataChanged();
     }//GEN-LAST:event_zamestnanecNaMazanieTableMouseClicked
 
 

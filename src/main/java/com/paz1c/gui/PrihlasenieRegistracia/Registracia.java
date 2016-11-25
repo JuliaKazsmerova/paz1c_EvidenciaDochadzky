@@ -134,7 +134,7 @@ public class Registracia extends javax.swing.JPanel {
                     mapaString.put("priezviskoPrazdne", "Surname is not entered.");
                     
                     mapaString.put("email", "E-mail: ");
-                    mapaString.put("emailExistuje", "");
+                    mapaString.put("emailExistuje", "The email address you have entered is already registered.");
                     mapaString.put("emailNeexistuje", "Entered e-mail does not exist.");
                     mapaString.put("emailPrazdny", "E-mail is not entered. ");
                     mapaString.put("emailPredmet", "Verification code. ");

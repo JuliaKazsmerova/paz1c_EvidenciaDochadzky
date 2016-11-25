@@ -41,8 +41,8 @@ public class Prihlasenie extends javax.swing.JPanel {
                     mapaString.put("heslo", "Password:");
                     mapaString.put("prihlasit", "Sign in");
                     mapaString.put("spat", "Back");
-                    mapaString.put("zleHesloNadpis", "");
-                    mapaString.put("zleHesloText", "");
+                    mapaString.put("zleHesloNadpis", "Incorrect E-mail or password");
+                    mapaString.put("zleHesloText", "E-mail and password do not exist.");
                 break;
                 
             }
