@@ -3,11 +3,13 @@ package com.paz1c.manager;
 import com.paz1c.dao.DaoFactory;
 import com.paz1c.dao.SpravcaDao;
 import com.paz1c.other.Spravca;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultSpravcaManager implements SpravcaManager{
 
     private SpravcaDao spravcaDao;
+    private List<Spravca> spravcovia = new ArrayList<>();
 
     public DefaultSpravcaManager() {
         spravcaDao = DaoFactory.INSTANCE.getSpravcaDao();
@@ -25,7 +27,8 @@ public class DefaultSpravcaManager implements SpravcaManager{
 
     @Override
     public List<Spravca> getVsetkychSpravcov() {
-        return spravcaDao.getVsetkychSpravcov();
+        spravcovia = spravcaDao.getVsetkychSpravcov();
+        return spravcovia;
     }
 
     @Override
@@ -49,6 +52,16 @@ public class DefaultSpravcaManager implements SpravcaManager{
             return false;
         else
             return true;
+    }
+
+    @Override
+    public Spravca getVsetkychSpravcov(int index) {
+        return spravcovia.get(index);
+    }
+
+    @Override
+    public int pocetSpravcov() {
+        return spravcovia.size();
     }
     
 }

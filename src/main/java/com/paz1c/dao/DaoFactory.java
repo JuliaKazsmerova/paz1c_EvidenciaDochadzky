@@ -45,7 +45,7 @@ public enum DaoFactory {
     /**Vytvori pripojenie na databazu*/
     public JdbcTemplate mySQLconnection(String host,String dbname){
         MysqlDataSource dataSource = new MysqlDataSource();
-        String url =  "jdbc:mysql://"+host+"/"+dbname+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowMultiQueries=true";
+        String url =  "jdbc:mysql://"+host+"/"+dbname+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Bratislava&allowMultiQueries=true";
         
         dataSource.setUser(userName);
         dataSource.setPassword(userPassword);
