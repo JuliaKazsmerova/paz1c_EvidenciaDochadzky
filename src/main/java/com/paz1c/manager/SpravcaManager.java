@@ -9,6 +9,8 @@ public interface SpravcaManager {
     public boolean zmazSpravcu(Spravca mazanySpravca);
     
     public List<Spravca> getVsetkychSpravcov();
+    
+    public Spravca getVsetkychSpravcov(int index);
 
     public Spravca getSpravcuId(Long id);
     
@@ -18,4 +20,5 @@ public interface SpravcaManager {
     
     public boolean existsEmail(String email);
 
+    public int pocetSpravcov();
 }
