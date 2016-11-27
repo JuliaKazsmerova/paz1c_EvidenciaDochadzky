@@ -64,11 +64,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pridatZamestnancaTextLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="zmenaJazykaPanel1" min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="pridatZamestnancaTextLabel" max="32767" attributes="0"/>
+                  <Component id="zmenaJazykaPanel1" pref="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="menoLabel" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="menoTextField" alignment="3" min="-2" max="-2" attributes="0"/>

@@ -22,7 +22,7 @@ public class TableZamestnanci extends javax.swing.JPanel {
         this.parentJForm = parentJForm;
     }
     
-    private void aktualizovatZamestnancov() {
+    public void aktualizovatZamestnancov() {
         // ziskaj model
         ZamestnanecTableModel model = (ZamestnanecTableModel) zamestnanciTabulka.getModel();        
         // aktualizuj ho

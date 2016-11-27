@@ -15,8 +15,8 @@ public class MySQLZaznamDochadzkyDao implements ZaznamDochadzkyDao{
     
     @Override
     public boolean vlozZaznam(ZaznamDochadzky zaznam) {
-        String sql = "INSERT INTO Denna_dochadzka (prichod,odchod,odrobene_hodiny,ID_osoba) VALUES (?,?,?,?);";
-        return 1 == jdbcTemplate.update(sql,zaznam.getPrichod(),zaznam.getOdchod(),zaznam.getOdrobeneHodiny(),zaznam.getIdOsoba());
+        String sql = "INSERT INTO Denna_dochadzka (prichod,odchod,odrobene_hodiny,ID_zamestnanec,ID_cviciaci) VALUES (?,?,?,?,?);";
+        return 1 == jdbcTemplate.update(sql,zaznam.getPrichod(),zaznam.getOdchod(),zaznam.getOdrobeneHodiny(),zaznam.getIdZamestnanec(),zaznam.getIdCviciaci());
     }
 
     @Override
@@ -33,8 +33,8 @@ public class MySQLZaznamDochadzkyDao implements ZaznamDochadzkyDao{
 
     @Override
     public ZaznamDochadzky getPoslednyZaznam(Long idOsoba) {
-        String sql = "SELECT ID_den,prichod,odchod,odrobene_hodiny,ID_osoba FROM Denna_dochadzka WHERE ID_den = (SELECT MAX(ID_den) FROM Denna_dochadzka WHERE ID_osoba = ?);";
-        return jdbcTemplate.queryForObject(sql,new ZaznamDochadzkyRowMapper(),idOsoba);
+        String sql = "SELECT ID_den,prichod,odchod,odrobene_hodiny,ID_zamestnanec,ID_cviciaci FROM Denna_dochadzka WHERE ID_den = (SELECT MAX(ID_den) FROM Denna_dochadzka WHERE ID_zamestnanec = ? OR ID_cviciaci = ?);";
+        return jdbcTemplate.queryForObject(sql,new ZaznamDochadzkyRowMapper(),idOsoba,idOsoba);
     }
     
 }

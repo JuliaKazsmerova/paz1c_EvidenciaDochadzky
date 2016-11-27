@@ -15,7 +15,7 @@ public class PridatZamestnanca extends javax.swing.JPanel {
     }
     
     public void setParent(SpravaZamestnancov parent){
-        parentJFrame = parent;
+        this.parentJFrame = parent;
     }
     
     public boolean upozornit(){
@@ -129,10 +129,10 @@ public class PridatZamestnanca extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pridatZamestnancaTextLabel)
-                    .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pridatZamestnancaTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(menoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(menoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -173,11 +173,20 @@ public class PridatZamestnanca extends javax.swing.JPanel {
             zamestnanec.setIdFirma(Nastavenia.idFirma);
             parentJFrame.pridatZamestnanca(zamestnanec);
             JOptionPane.showMessageDialog(parentJFrame, "Zamestnanec bol pridaný.", "OK", JOptionPane.OK_OPTION);
+            
+            menoTextField.setText("");
+            priezviskoTextField.setText("");
+            datumNastupuJXDatePicker.setDate(null);
+            hodinyZaDenTextField.setText("");
+            funkciaTextField.setText("");
+            
+         parentJFrame.aktualizovatZamestnancov();
         }
     }//GEN-LAST:event_pridatButtonActionPerformed
 
     private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
         parentJFrame.otvorOkno("tableZamestnanci");
+        
     }//GEN-LAST:event_spatButtonActionPerformed
 
 

@@ -84,7 +84,7 @@ public class MySQLZaznamDochadzkyDaoTest {
          zaznam.setPrichod(new Timestamp(System.currentTimeMillis()));
          zaznam.setOdchod(new Timestamp(System.currentTimeMillis()+154545));
          zaznam.setOdrobeneHodiny(7);
-         zaznam.setIdOsoba(testovaciZamestnanec.getIdOsoba());
+         zaznam.setIdZamestnanec(testovaciZamestnanec.getIdOsoba());
          
          return zaznam;
      }
@@ -109,7 +109,7 @@ public class MySQLZaznamDochadzkyDaoTest {
     public void getPoslednyZaznam() {
         zaznamDao.vlozZaznam(testovaciZaznam);
         ZaznamDochadzky vratenyZaznam = zaznamDao.getPoslednyZaznam(testovaciZamestnanec.getIdOsoba());
-        assertTrue(vratenyZaznam.getIdOsoba().equals(testovaciZaznam.getIdOsoba()) && 
+        assertTrue(vratenyZaznam.getIdZamestnanec().equals(testovaciZaznam.getIdZamestnanec()) && 
                 vratenyZaznam.getOdrobeneHodiny() == testovaciZaznam.getOdrobeneHodiny());
         zaznamDao.zmazZaznam(vratenyZaznam);
     }

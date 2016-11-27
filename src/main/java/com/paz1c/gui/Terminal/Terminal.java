@@ -8,11 +8,13 @@ import java.awt.Color;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.concurrent.TimeUnit;
+import javax.swing.JOptionPane;
 
 
 public class Terminal extends javax.swing.JFrame {
 
     private boolean prichod = true; 
+    private Terminal parentJForm;
     private ZaznamDochadzkyManager zaznamDochadzkyManager = new DefaultZaznamDochadzkyManager();
 
     
@@ -118,13 +120,23 @@ public class Terminal extends javax.swing.JFrame {
         if(prichod){
             //zapise sa do databazy prichod
             ZaznamDochadzky novyZaznam = new ZaznamDochadzky();
-            novyZaznam.setIdOsoba(Long.parseLong(idTextField.getText()));
+            novyZaznam.setIdZamestnanec(Long.parseLong(idTextField.getText()));
             novyZaznam.setPrichod(new Timestamp(System.currentTimeMillis()));
-            zaznamDochadzkyManager.vlozZaznam(novyZaznam);
+            try{
+                zaznamDochadzkyManager.vlozZaznam(novyZaznam);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(parentJForm, "Zlá karta. ", "Upozornenie", JOptionPane.ERROR_MESSAGE);
+            }
         }else{
             //zapise sa do databazy odchod
-            System.out.println(Long.parseLong(idTextField.getText()));
-            ZaznamDochadzky existujuciZaznam = zaznamDochadzkyManager.getPoslednyZaznam(Long.parseLong(idTextField.getText()));
+            ZaznamDochadzky existujuciZaznam;
+            try{
+                existujuciZaznam = zaznamDochadzkyManager.getPoslednyZaznam(Long.parseLong(idTextField.getText()));
+            }catch(Exception e){
+                    JOptionPane.showMessageDialog(parentJForm, "Zlá karta. ", "Upozornenie", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            System.out.println(existujuciZaznam.getOdchod());
             if(existujuciZaznam.getOdchod()==null){
                 existujuciZaznam.setOdchod(new Timestamp(System.currentTimeMillis()));
                 long rozdiel = existujuciZaznam.getOdchod().getTime() - existujuciZaznam.getPrichod().getTime();
@@ -132,9 +144,8 @@ public class Terminal extends javax.swing.JFrame {
                 existujuciZaznam.setOdrobeneHodiny(hodiny);
                 zaznamDochadzkyManager.upravZaznam(existujuciZaznam);
             }else{
-                //nemoze dvakrat odist treba vymysliet chybovu hlasku
+                JOptionPane.showMessageDialog(parentJForm, "Odchod uz bol zaznamenany. ", "Upozornenie", JOptionPane.ERROR_MESSAGE);
             }
-            
         }
         idTextField.setText("");
     }//GEN-LAST:event_potvrditButtonActionPerformed

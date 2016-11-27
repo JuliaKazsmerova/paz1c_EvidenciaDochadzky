@@ -8,7 +8,20 @@ public class ZaznamDochadzky {
     private Timestamp prichod;
     private Timestamp odchod;
     private int odrobeneHodiny;
-    private Long idOsoba;
+    private Long idZamestnanec;
+    private Long idCviciaci;
+
+    public int getOdrobeneHodiny() {
+        return odrobeneHodiny;
+    }
+
+    public void setIdCviciaci(Long idCviciaci) {
+        this.idCviciaci = idCviciaci;
+    }
+
+    public Long getIdCviciaci() {
+        return idCviciaci;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -26,8 +39,8 @@ public class ZaznamDochadzky {
         this.odrobeneHodiny = odrobeneHodiny;
     }
 
-    public void setIdOsoba(Long idOsoba) {
-        this.idOsoba = idOsoba;
+    public void setIdZamestnanec(Long idOsoba) {
+        this.idZamestnanec = idOsoba;
     }
 
     public Long getId() {
@@ -42,11 +55,7 @@ public class ZaznamDochadzky {
         return odchod;
     }
 
-    public float getOdrobeneHodiny() {
-        return odrobeneHodiny;
-    }
-
-    public Long getIdOsoba() {
-        return idOsoba;
+    public Long getIdZamestnanec() {
+        return idZamestnanec;
     }
 }

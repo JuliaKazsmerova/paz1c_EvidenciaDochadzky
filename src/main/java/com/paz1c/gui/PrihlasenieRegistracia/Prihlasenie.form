@@ -124,6 +124,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="hesloPasswordField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hesloPasswordFieldActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

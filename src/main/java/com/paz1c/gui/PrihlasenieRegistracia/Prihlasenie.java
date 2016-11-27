@@ -98,6 +98,12 @@ public class Prihlasenie extends javax.swing.JPanel {
             }
         });
 
+        hesloPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hesloPasswordFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -176,6 +182,10 @@ public class Prihlasenie extends javax.swing.JPanel {
     private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
         parentJFrame.otvorOkno("vyberModu");
     }//GEN-LAST:event_spatButtonActionPerformed
+
+    private void hesloPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hesloPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hesloPasswordFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

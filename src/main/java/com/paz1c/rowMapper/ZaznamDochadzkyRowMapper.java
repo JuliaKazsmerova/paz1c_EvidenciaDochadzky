@@ -16,7 +16,8 @@ public class ZaznamDochadzkyRowMapper implements RowMapper<ZaznamDochadzky>{
         zaznam.setPrichod(rs.getTimestamp("prichod"));
         zaznam.setOdchod(rs.getTimestamp("odchod"));
         zaznam.setOdrobeneHodiny(rs.getInt("odrobene_hodiny"));
-        zaznam.setIdOsoba(rs.getLong("ID_osoba"));
+        zaznam.setIdZamestnanec(rs.getLong("ID_zamestnanec"));
+        zaznam.setIdCviciaci(rs.getLong("ID_cviciaci"));
         
         return zaznam;
     }

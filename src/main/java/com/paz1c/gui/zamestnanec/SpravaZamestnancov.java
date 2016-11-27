@@ -24,6 +24,9 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
         cardlayout.show(getContentPane(),meno);   
     }
 
+    public void aktualizovatZamestnancov() {
+        tableZamestnanci.aktualizovatZamestnancov();
+    }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
