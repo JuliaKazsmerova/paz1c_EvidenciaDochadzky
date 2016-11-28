@@ -2,6 +2,7 @@ package com.paz1c.gui.zamestnanec;
 
 import com.paz1c.constants.Nastavenia;
 import com.paz1c.other.Zamestnanec;
+import java.awt.event.KeyEvent;
 import java.sql.Date;
 import javax.swing.JOptionPane;
 
@@ -74,6 +75,12 @@ public class PridatZamestnanca extends javax.swing.JPanel {
 
         funkciaLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         funkciaLabel.setText("Funkcia:");
+
+        funkciaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                funkciaTextFieldKeyReleased(evt);
+            }
+        });
 
         pridatButton.setText("Pridať");
         pridatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -186,7 +193,18 @@ public class PridatZamestnanca extends javax.swing.JPanel {
 
     private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
         parentJFrame.otvorOkno("tableZamestnanci");
+        menoTextField.setText("");
+        priezviskoTextField.setText("");
+        datumNastupuJXDatePicker.setDate(null);
+        hodinyZaDenTextField.setText("");
+        funkciaTextField.setText("");
     }//GEN-LAST:event_spatButtonActionPerformed
+
+    private void funkciaTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_funkciaTextFieldKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            pridatButtonActionPerformed(null);
+        }
+    }//GEN-LAST:event_funkciaTextFieldKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
