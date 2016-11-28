@@ -2,9 +2,13 @@ package com.paz1c.gui.PrihlasenieRegistracia;
 
 import com.paz1c.constants.Nastavenia;
 import com.paz1c.gui.zamestnanec.SpravaZamestnancov;
+import com.paz1c.manager.FirmaManager;
+import com.paz1c.other.Firma;
 import com.paz1c.other.Spravca;
+import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
+import javafx.scene.input.KeyCode;
 import javax.swing.JOptionPane;
 
 
@@ -16,6 +20,11 @@ public class Prihlasenie extends javax.swing.JPanel {
     public Prihlasenie() {
         initComponents();
         nastavJazyk();
+        
+    }
+    
+    public void focusPrihlasenie() {
+        emailTextField.requestFocusInWindow();
     }
     
     public void setParent(RegistraciaPrihlasenie parent){
@@ -98,9 +107,9 @@ public class Prihlasenie extends javax.swing.JPanel {
             }
         });
 
-        hesloPasswordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hesloPasswordFieldActionPerformed(evt);
+        hesloPasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                hesloPasswordFieldKeyReleased(evt);
             }
         });
 
@@ -135,7 +144,7 @@ public class Prihlasenie extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(prihlasenieTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,6 +168,12 @@ public class Prihlasenie extends javax.swing.JPanel {
                 
                 Nastavenia.vybranyMod = parentJFrame.getFirma(spravca.getIdFirma()).getVybratyMod();
                 Nastavenia.idFirma = spravca.getIdFirma();
+                Nastavenia.menoSpravcu = spravca.getMeno();
+                Nastavenia.priezviskoSpravcu = spravca.getPriezvisko();
+                
+                Firma firma = parentJFrame.getFirma(Nastavenia.idFirma);
+                Nastavenia.nazovFirmy = firma.getNazov();
+                Nastavenia.sidloFirmy = firma.getSidlo();
                 
                 if(Nastavenia.vybranyMod.equals("Zamestnanec")){
                     java.awt.EventQueue.invokeLater(new Runnable() {
@@ -183,9 +198,11 @@ public class Prihlasenie extends javax.swing.JPanel {
         parentJFrame.otvorOkno("vyberModu");
     }//GEN-LAST:event_spatButtonActionPerformed
 
-    private void hesloPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hesloPasswordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_hesloPasswordFieldActionPerformed
+    private void hesloPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hesloPasswordFieldKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            prihlasenieButtonActionPerformed(null);
+        }
+    }//GEN-LAST:event_hesloPasswordFieldKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -33,6 +33,14 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
     
     public void otvorOkno(String meno){
         cardlayout.show(getContentPane(),meno);   
+        if(meno.equals("prihlasenie")){
+            prihlasenie.focusPrihlasenie();
+        }else if(meno.equals("registracia")){
+            registracia.focusRegistracia();
+        }else if(meno.equals("overenie")){
+            overenie.focusOverenie();
+        }
+        
     }
     
     public void nastavJazyk(){

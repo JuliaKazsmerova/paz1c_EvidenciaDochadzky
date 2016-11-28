@@ -50,11 +50,7 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
             return true;
         else 
             return false;
-    }
-    
-    
-    
-    
+    } 
     
         @Override
     public Class<?> getColumnClass(int columnIndex) {
@@ -78,4 +74,8 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
     void setHodnota(boolean value){
         hodnota = value;
     }   
+    
+    Zamestnanec dajPodlaId(long id){
+        return zamestnanecManager.getZamestnanec(id);     
+    }
 }

@@ -172,7 +172,7 @@ public class PridatZamestnanca extends javax.swing.JPanel {
             zamestnanec.setZameranie(funkciaTextField.getText());
             zamestnanec.setIdFirma(Nastavenia.idFirma);
             parentJFrame.pridatZamestnanca(zamestnanec);
-            JOptionPane.showMessageDialog(parentJFrame, "Zamestnanec bol pridaný.", "OK", JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(parentJFrame, "Zamestnanec bol pridaný.", "OK", JOptionPane.PLAIN_MESSAGE);
             
             menoTextField.setText("");
             priezviskoTextField.setText("");
@@ -180,13 +180,12 @@ public class PridatZamestnanca extends javax.swing.JPanel {
             hodinyZaDenTextField.setText("");
             funkciaTextField.setText("");
             
-         parentJFrame.aktualizovatZamestnancov();
+            parentJFrame.aktualizovatZamestnancov();
         }
     }//GEN-LAST:event_pridatButtonActionPerformed
 
     private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
         parentJFrame.otvorOkno("tableZamestnanci");
-        
     }//GEN-LAST:event_spatButtonActionPerformed
 
 

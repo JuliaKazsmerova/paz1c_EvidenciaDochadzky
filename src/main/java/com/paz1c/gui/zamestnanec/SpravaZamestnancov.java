@@ -99,4 +99,8 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
     public Zamestnanec najdiZamestnancaPodlaID(long zadaneID) {
         return zamestnanecManager.getZamestnanec(zadaneID);
     }
+
+    void zmazZamestnanca(Zamestnanec zamestnanec) {
+        zamestnanecManager.zmazZamestnanca(zamestnanec);
+    }
 }

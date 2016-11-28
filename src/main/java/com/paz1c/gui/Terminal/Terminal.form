@@ -56,13 +56,14 @@
                       <Component id="prichodToggleButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="odchodToggleButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="122" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="idTextField" pref="294" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="potvrditButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="idTextField" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="zmenaJazykaPanel1" max="32767" attributes="0"/>
+                  <Component id="potvrditButton" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -75,8 +76,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="prichodToggleButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="odchodToggleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="zmenaJazykaPanel1" min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="idTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="potvrditButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -118,6 +120,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="potvrditButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel" name="zmenaJazykaPanel1">
     </Component>
   </SubComponents>
 </Form>

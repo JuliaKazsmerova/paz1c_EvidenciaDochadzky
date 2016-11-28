@@ -46,6 +46,10 @@ public class Registracia extends javax.swing.JPanel {
         nastavJazyk();
     }
     
+    public void focusRegistracia() {
+        nazovFirmyTextField.requestFocusInWindow();
+    }
+    
     void patternCompile(){
         patternEmail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
     }

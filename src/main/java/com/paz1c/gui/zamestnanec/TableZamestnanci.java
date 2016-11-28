@@ -1,5 +1,6 @@
 package com.paz1c.gui.zamestnanec;
 
+import com.paz1c.constants.Nastavenia;
 import com.paz1c.gui.spravcovia.Spravcovia;
 import javax.swing.table.DefaultTableColumnModel;
 
@@ -11,6 +12,8 @@ public class TableZamestnanci extends javax.swing.JPanel {
     public TableZamestnanci() {
         initComponents();
         aktualizovatZamestnancov();
+        firmaInfoLabel.setText("Prihlásená firma : " + Nastavenia.nazovFirmy + ". Sídlo firmy: " + Nastavenia.sidloFirmy + ".");
+        spravcaInfoLabel.setText("Prihlásený správca: " + Nastavenia.menoSpravcu + " " + Nastavenia.priezviskoSpravcu + "." );
         for (int i = 0; i < zamestnanciTabulka.getColumnModel().getColumnCount(); i++) {
             zamestnanciTabulka.getColumnModel().getColumn(i).setMinWidth(50);
             zamestnanciTabulka.getColumnModel().getColumn(i).setPreferredWidth(150);
@@ -38,9 +41,13 @@ public class TableZamestnanci extends javax.swing.JPanel {
         vsetciFilter = new javax.swing.JToggleButton();
         aktivnyFilter = new javax.swing.JToggleButton();
         neaktivnyFilter = new javax.swing.JToggleButton();
-        infoLabel = new javax.swing.JLabel();
+        spravcaInfoLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         zamestnanciTabulka = new javax.swing.JTable();
+        zmenaJazykaPanel1 = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
+        firmaInfoLabel = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 250, 226));
 
         spravcoviaButton.setText("Správcovia");
         spravcoviaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -84,11 +91,13 @@ public class TableZamestnanci extends javax.swing.JPanel {
         neaktivnyFilter.setMinimumSize(new java.awt.Dimension(170, 25));
         neaktivnyFilter.setPreferredSize(new java.awt.Dimension(170, 25));
 
-        infoLabel.setText("info o prihlasenom spravcovi");
+        spravcaInfoLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         zamestnanciTabulka.setModel(new ZamestnanecTableModel());
         zamestnanciTabulka.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         jScrollPane1.setViewportView(zamestnanciTabulka);
+
+        firmaInfoLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,24 +107,36 @@ public class TableZamestnanci extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(infoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spravcoviaButton))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(zmazatZamestnancaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pridatZamestnancaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vsetciFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(aktivnyFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(neaktivnyFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(zmazatZamestnancaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(aktivnyFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vsetciFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(firmaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spravcoviaButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(firmaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(spravcoviaButton)
+                    .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(vsetciFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,11 +148,7 @@ public class TableZamestnanci extends javax.swing.JPanel {
                         .addComponent(pridatZamestnancaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(zmazatZamestnancaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(spravcoviaButton)
-                    .addComponent(infoLabel))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -152,13 +169,15 @@ public class TableZamestnanci extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton aktivnyFilter;
-    private javax.swing.JLabel infoLabel;
+    private javax.swing.JLabel firmaInfoLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton neaktivnyFilter;
     private javax.swing.JButton pridatZamestnancaButton;
+    private javax.swing.JLabel spravcaInfoLabel;
     private javax.swing.JButton spravcoviaButton;
     private javax.swing.JToggleButton vsetciFilter;
     private javax.swing.JTable zamestnanciTabulka;
     private javax.swing.JButton zmazatZamestnancaButton;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel1;
     // End of variables declaration//GEN-END:variables
 }

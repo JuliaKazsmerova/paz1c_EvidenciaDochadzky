@@ -21,6 +21,10 @@ public class Overenie extends javax.swing.JPanel {
         nastavJazyk();
     }
     
+    public void focusOverenie() {
+        kodTextField.requestFocusInWindow();
+    }
+    
     public void setParent(RegistraciaPrihlasenie parent){
         parentJFrame = parent; 
         zmenaJazykaPanel.setParent(parentJFrame);

@@ -1,5 +1,6 @@
 package com.paz1c.gui.zamestnanec;
 
+import com.paz1c.other.Zamestnanec;
 import javax.swing.JOptionPane;
 
 public class ZmazatZamestnanca extends javax.swing.JPanel {
@@ -7,6 +8,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
     private SpravaZamestnancov parentJForm;
     private boolean potvrdene;
     MazanyZamestnanecTableModel model;
+    Zamestnanec zamestnanec;
     
     public ZmazatZamestnanca() {
         initComponents();
@@ -17,7 +19,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         potvrditButton.setVisible(false);
     }
     
-        private void aktualizovatZamestnancov(Long ID) {
+    private void aktualizujMazanehoZamastnanca(Long ID) {
         model.najdiPodlaId(ID);
     }
 
@@ -38,6 +40,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         zamestnanecNaMazanieTable = new javax.swing.JTable();
         spatButton = new javax.swing.JButton();
+        zmenaJazykaPanel1 = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
 
         setBackground(new java.awt.Color(255, 250, 226));
 
@@ -90,24 +93,30 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(spatButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(potvrditButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(IDZamestnancaTextField)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(zmazatButton))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(overovaciaOtazkaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                    .addComponent(overovaciaOtazkaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(spatButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(potvrditButton)))
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
@@ -131,11 +140,15 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(parentJForm, "Nezadali ste ID zamestnanca!", "Upozornenie", JOptionPane.ERROR_MESSAGE);
         }else{
             Long zadaneID = Long.parseLong(IDZamestnancaTextField.getText());
-            aktualizovatZamestnancov(zadaneID);
- 
-            overovaciaOtazkaLabel.setVisible(true);  
-            jScrollPane2.setVisible(true);
-            potvrditButton.setVisible(true);
+            try{
+                aktualizujMazanehoZamastnanca(zadaneID);
+                zamestnanec = parentJForm.najdiZamestnancaPodlaID(zadaneID);
+                overovaciaOtazkaLabel.setVisible(true);  
+                jScrollPane2.setVisible(true);
+                potvrditButton.setVisible(true);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(parentJForm, "Osoba s daným ID neexistuje!", "Upozornenie", JOptionPane.ERROR_MESSAGE);    
+            }
         }
         
        
@@ -148,11 +161,19 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         jScrollPane2.setVisible(false);
         potvrditButton.setVisible(false);
         model.setHodnota(false);
+        parentJForm.aktualizovatZamestnancov();
+
     }//GEN-LAST:event_spatButtonActionPerformed
 
     private void potvrditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potvrditButtonActionPerformed
         if((boolean)zamestnanecNaMazanieTable.getValueAt(0, 3)){
-            System.out.println("mozem mazat");
+            parentJForm.zmazZamestnanca(zamestnanec);
+            JOptionPane.showMessageDialog(parentJForm, "Zamestnanec bol zmazaný.", "OK", JOptionPane.PLAIN_MESSAGE);
+            IDZamestnancaTextField.setText("");
+            overovaciaOtazkaLabel.setVisible(false);  
+            jScrollPane2.setVisible(false);
+            potvrditButton.setVisible(false);
+            model.setHodnota(false);
         }else{
             JOptionPane.showMessageDialog(parentJForm, "Neoznačili ste zamestnanca!", "Upozornenie", JOptionPane.ERROR_MESSAGE);
         }
@@ -173,5 +194,6 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
     private javax.swing.JButton spatButton;
     private javax.swing.JTable zamestnanecNaMazanieTable;
     private javax.swing.JButton zmazatButton;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel1;
     // End of variables declaration//GEN-END:variables
 }
