@@ -2,6 +2,7 @@ package com.paz1c.gui.zamestnanec;
 
 import com.paz1c.constants.Nastavenia;
 import com.paz1c.other.Zamestnanec;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class ZmazatZamestnanca extends javax.swing.JPanel {
@@ -48,6 +49,12 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel2.setText("Zadajte ID zamestnanca:");
 
+        IDZamestnancaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                IDZamestnancaTextFieldKeyReleased(evt);
+            }
+        });
+
         zmazatButton.setText("Zmazať");
         zmazatButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +79,11 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         zamestnanecNaMazanieTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 zamestnanecNaMazanieTableMouseClicked(evt);
+            }
+        });
+        zamestnanecNaMazanieTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                zamestnanecNaMazanieTableKeyReleased(evt);
             }
         });
         jScrollPane2.setViewportView(zamestnanecNaMazanieTable);
@@ -186,6 +198,18 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
     private void zamestnanecNaMazanieTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zamestnanecNaMazanieTableMouseClicked
         model.setHodnota(!(boolean) zamestnanecNaMazanieTable.getValueAt(0, 3));
     }//GEN-LAST:event_zamestnanecNaMazanieTableMouseClicked
+
+    private void IDZamestnancaTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IDZamestnancaTextFieldKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            zmazatButtonActionPerformed(null);
+        }
+    }//GEN-LAST:event_IDZamestnancaTextFieldKeyReleased
+
+    private void zamestnanecNaMazanieTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_zamestnanecNaMazanieTableKeyReleased
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            potvrditButtonActionPerformed(null);
+        }
+    }//GEN-LAST:event_zamestnanecNaMazanieTableKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -151,6 +151,9 @@
     <Component class="javax.swing.JTextField" name="hodinyZaDenTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="funkciaTextField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="funkciaTextFieldKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pridatButton">
       <Properties>

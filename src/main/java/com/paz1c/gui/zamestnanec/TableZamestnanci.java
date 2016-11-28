@@ -1,6 +1,7 @@
 package com.paz1c.gui.zamestnanec;
 
 import com.paz1c.constants.Nastavenia;
+import com.paz1c.gui.PrihlasenieRegistracia.RegistraciaPrihlasenie;
 import com.paz1c.gui.spravcovia.Spravcovia;
 import javax.swing.table.DefaultTableColumnModel;
 
@@ -101,6 +102,11 @@ public class TableZamestnanci extends javax.swing.JPanel {
         firmaInfoLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jButton1.setText("Odhlásiť sa");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -171,6 +177,15 @@ public class TableZamestnanci extends javax.swing.JPanel {
         Spravcovia spravcoviaDialog = new Spravcovia(parentJForm, true);
         spravcoviaDialog.setVisible(true);
     }//GEN-LAST:event_spravcoviaButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        parentJForm.dispose();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RegistraciaPrihlasenie().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
