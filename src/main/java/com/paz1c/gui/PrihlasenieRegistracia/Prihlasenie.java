@@ -41,8 +41,9 @@ public class Prihlasenie extends javax.swing.JPanel {
                     mapaString.put("heslo", "Heslo:");
                     mapaString.put("prihlasit", "Prihlasiť");
                     mapaString.put("spat", "Späť");
-                    mapaString.put("zleHesloNadpis", "Zly email alebo heslo");
-                    mapaString.put("zleHesloText", "Zadany email a heslo neexistuje. \nSkuste to znova.");
+                    mapaString.put("zleHesloNadpis", "Upozornenie");
+                    mapaString.put("zleHesloText", "Zadané heslo je nesprávne. \nSkúste to znova.");
+                    mapaString.put("zlyEmailText", "Zadaný email neexistuje. ");
                     break;
                 case "EN" :
                     mapaString.put("uvod1", "Sign in");
@@ -50,8 +51,9 @@ public class Prihlasenie extends javax.swing.JPanel {
                     mapaString.put("heslo", "Password:");
                     mapaString.put("prihlasit", "Sign in");
                     mapaString.put("spat", "Back");
-                    mapaString.put("zleHesloNadpis", "Incorrect E-mail or password");
-                    mapaString.put("zleHesloText", "E-mail and password do not exist.");
+                    mapaString.put("zleHesloNadpis", "Warning");
+                    mapaString.put("zleHesloText", "Entered password is not correct.");
+                    mapaString.put("zlyEmailText", "Entered email does not exist. ");
                 break;
                 
             }
@@ -180,10 +182,10 @@ public class Prihlasenie extends javax.swing.JPanel {
                     
                 parentJFrame.dispose();
             }else{
-                //zadane heslo je nespravne (skuste znova)
                 JOptionPane.showMessageDialog(parentJFrame,mapaString.get("zleHesloText"),mapaString.get("zleHesloNadpis"),JOptionPane.ERROR_MESSAGE);
-        
             }
+        }else{
+            JOptionPane.showMessageDialog(parentJFrame,mapaString.get("zlyEmailText"),mapaString.get("zleHesloNadpis"),JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_prihlasenieButtonActionPerformed
 
