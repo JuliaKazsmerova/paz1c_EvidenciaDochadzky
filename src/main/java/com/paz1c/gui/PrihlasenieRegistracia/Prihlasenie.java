@@ -166,14 +166,7 @@ public class Prihlasenie extends javax.swing.JPanel {
         if(spravca != null){
             if(spravca.checkPassword(new String(hesloPasswordField.getPassword()))){
                 
-                Nastavenia.vybranyMod = parentJFrame.getFirma(spravca.getIdFirma()).getVybratyMod();
-                Nastavenia.idFirma = spravca.getIdFirma();
-                Nastavenia.menoSpravcu = spravca.getMeno();
-                Nastavenia.priezviskoSpravcu = spravca.getPriezvisko();
-                
-                Firma firma = parentJFrame.getFirma(Nastavenia.idFirma);
-                Nastavenia.nazovFirmy = firma.getNazov();
-                Nastavenia.sidloFirmy = firma.getSidlo();
+                parentJFrame.zapamatajUdaje(spravca);
                 
                 if(Nastavenia.vybranyMod.equals("Zamestnanec")){
                     java.awt.EventQueue.invokeLater(new Runnable() {

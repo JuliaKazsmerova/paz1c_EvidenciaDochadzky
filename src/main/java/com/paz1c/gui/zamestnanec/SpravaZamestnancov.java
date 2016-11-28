@@ -1,7 +1,9 @@
 package com.paz1c.gui.zamestnanec;
 
+import com.paz1c.constants.Nastavenia;
 import com.paz1c.manager.DefaultZamestnanecManager;
 import com.paz1c.manager.ZamestnanecManager;
+import com.paz1c.other.Firma;
 import com.paz1c.other.Zamestnanec;
 import java.awt.CardLayout;
 
@@ -27,6 +29,7 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
     public void aktualizovatZamestnancov() {
         tableZamestnanci.aktualizovatZamestnancov();
     }
+    
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

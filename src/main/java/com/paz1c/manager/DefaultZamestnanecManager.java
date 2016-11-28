@@ -1,5 +1,6 @@
 package com.paz1c.manager;
 
+import com.paz1c.constants.Nastavenia;
 import com.paz1c.dao.DaoFactory;
 import com.paz1c.other.Osoba;
 import java.util.List;
@@ -29,12 +30,12 @@ public class DefaultZamestnanecManager implements ZamestnanecManager{
 
     @Override
     public List<Zamestnanec> getVsetkychZamestnancov() {
-        zamestnanci = zamestnanecDao.getVsetkychZamestnancov();
+        zamestnanci = zamestnanecDao.getVsetkychZamestnancov(Nastavenia.idFirma);
         return zamestnanci;
     }
     
     public List<Zamestnanec> getAktivnychZamestnancov() {
-        List<Zamestnanec> vsetci = zamestnanecDao.getVsetkychZamestnancov();
+        //List<Zamestnanec> vsetci = zamestnanecDao.getVsetkychZamestnancov();
         return null;
     }
     

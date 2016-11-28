@@ -28,10 +28,10 @@ public class MySQLZamestnanecDao implements ZamestnanecDao{
     }
         
     @Override
-    public List<Zamestnanec> getVsetkychZamestnancov() {
+    public List<Zamestnanec> getVsetkychZamestnancov(Long idFirmy) {
         String sql = "SELECT ID_Zamestnanec,meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,funkcia"
-                + ",pocet_hodin_na_den,datum_nastupu,funkcia FROM Zamestnanec;";   
-        return jdbcTemplate.query(sql,new ZamestnanecRowMapper());
+                + ",pocet_hodin_na_den,datum_nastupu,funkcia FROM Zamestnanec WHERE ID_firma = ?;";   
+        return jdbcTemplate.query(sql,new ZamestnanecRowMapper(),idFirmy);
     }
 
     @Override

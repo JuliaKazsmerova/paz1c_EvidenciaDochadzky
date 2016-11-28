@@ -1,5 +1,6 @@
 package com.paz1c.gui.PrihlasenieRegistracia;
 
+import com.paz1c.constants.Nastavenia;
 import com.paz1c.manager.DefaultFirmaManager;
 import com.paz1c.manager.DefaultSpravcaManager;
 import com.paz1c.manager.FirmaManager;
@@ -84,6 +85,10 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
         this.novySpravca = novySpravca;
     }
     
+    public Spravca getNovySpravca(){
+        return novySpravca;
+    }
+    
     boolean existsFirmaNazov(String nazov){
         return firmaManager.existsFirmaNazov(nazov);
     }
@@ -96,6 +101,18 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
         return firmaManager.existsFirmaIco(ico);
     }
     
+    
+    public void zapamatajUdaje(Spravca spravca){
+        Nastavenia.vybranyMod = getFirma(spravca.getIdFirma()).getVybratyMod();
+        Nastavenia.idFirma = spravca.getIdFirma();
+        Nastavenia.menoSpravcu = spravca.getMeno();
+        Nastavenia.priezviskoSpravcu = spravca.getPriezvisko();
+
+        Firma firma = getFirma(Nastavenia.idFirma);
+        Nastavenia.nazovFirmy = firma.getNazov();
+        Nastavenia.sidloFirmy = firma.getSidlo();
+
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

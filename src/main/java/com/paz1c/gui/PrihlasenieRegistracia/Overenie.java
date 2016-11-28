@@ -130,6 +130,7 @@ public class Overenie extends javax.swing.JPanel {
         if(kontrolaKodu()){
             Long id_firma = parentJFrame.vlozFirmu();
             parentJFrame.vlozSpravcu(id_firma);
+            parentJFrame.zapamatajUdaje(parentJFrame.getNovySpravca());
             if(Nastavenia.vybranyMod.equals("Zamestnanec")){
                 java.awt.EventQueue.invokeLater(new Runnable() {
                     public void run() {
@@ -137,6 +138,7 @@ public class Overenie extends javax.swing.JPanel {
                     }
                 });
                 System.out.println("otvaram sprava zamestnancov");
+                
             }else if(Nastavenia.vybranyMod.equals("Cviciaci")){
                 //pracuje sa na tom
             }

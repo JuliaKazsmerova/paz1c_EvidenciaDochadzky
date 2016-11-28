@@ -9,7 +9,7 @@ public interface ZamestnanecDao {
     
     public boolean zmazZamestnanca(Zamestnanec mazanaOsoba);
     
-    public List<Zamestnanec> getVsetkychZamestnancov();
+    public List<Zamestnanec> getVsetkychZamestnancov(Long idFirma);
 
     public List<Zamestnanec> getZamestnanci(String meno,String priezvisko);
 
