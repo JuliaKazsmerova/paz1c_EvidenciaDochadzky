@@ -34,5 +34,10 @@ public class DefaultZaznamDochadzkyManager implements ZaznamDochadzkyManager{
     public ZaznamDochadzky getPoslednyZaznam(Long idOsoba) {
         return zaznamDochadzkyDao.getPoslednyZaznam(idOsoba);
     }
+
+    @Override
+    public boolean zmazVsetkyZaznamy(Long idOsoba) {
+        return zaznamDochadzkyDao.zmazVsetkyZaznamy(idOsoba);
+    }
     
 }

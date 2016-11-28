@@ -1,16 +1,17 @@
 package com.paz1c.gui.zamestnanec;
 
-import com.paz1c.constants.Nastavenia;
 import com.paz1c.manager.DefaultZamestnanecManager;
+import com.paz1c.manager.DefaultZaznamDochadzkyManager;
 import com.paz1c.manager.ZamestnanecManager;
-import com.paz1c.other.Firma;
+import com.paz1c.manager.ZaznamDochadzkyManager;
 import com.paz1c.other.Zamestnanec;
 import java.awt.CardLayout;
 
 public class SpravaZamestnancov extends javax.swing.JFrame {
 
     private final CardLayout cardlayout;
-    private ZamestnanecManager zamestnanecManager = new DefaultZamestnanecManager();
+    private final ZamestnanecManager zamestnanecManager = new DefaultZamestnanecManager();
+    private final ZaznamDochadzkyManager zaznamDochadzkyManager = new DefaultZaznamDochadzkyManager();
     
     public SpravaZamestnancov() {
         initComponents();
@@ -99,11 +100,12 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
         zamestnanecManager.vlozZamestnanca(zamestnanec);
     }
 
-    public Zamestnanec najdiZamestnancaPodlaID(long zadaneID) {
+    public Zamestnanec getZamestnancaPodlaID(long zadaneID) {
         return zamestnanecManager.getZamestnanec(zadaneID);
     }
 
     void zmazZamestnanca(Zamestnanec zamestnanec) {
+        zaznamDochadzkyManager.zmazVsetkyZaznamy(zamestnanec.getIdOsoba());
         zamestnanecManager.zmazZamestnanca(zamestnanec);
     }
 }

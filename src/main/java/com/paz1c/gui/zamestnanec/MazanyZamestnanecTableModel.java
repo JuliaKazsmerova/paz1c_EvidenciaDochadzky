@@ -66,7 +66,7 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
         return NAZVY_STLPCOV[columnIndex];
     }
 
-    void najdiPodlaId(Long id) {
+    void zobrazZamestnancaSId(Long id) {
         this.id = id;
         fireTableDataChanged();
     }

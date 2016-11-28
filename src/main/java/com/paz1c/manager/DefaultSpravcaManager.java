@@ -1,5 +1,6 @@
 package com.paz1c.manager;
 
+import com.paz1c.constants.Nastavenia;
 import com.paz1c.dao.DaoFactory;
 import com.paz1c.dao.SpravcaDao;
 import com.paz1c.other.Spravca;
@@ -27,7 +28,7 @@ public class DefaultSpravcaManager implements SpravcaManager{
 
     @Override
     public List<Spravca> getVsetkychSpravcov() {
-        spravcovia = spravcaDao.getVsetkychSpravcov();
+        spravcovia = spravcaDao.getVsetkychSpravcov(Nastavenia.idFirma);
         return spravcovia;
     }
 

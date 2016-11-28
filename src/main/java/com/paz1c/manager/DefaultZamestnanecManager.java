@@ -25,6 +25,8 @@ public class DefaultZamestnanecManager implements ZamestnanecManager{
 
     @Override
     public boolean zmazZamestnanca(Zamestnanec mazanyZamestnanec) {
+        //najprv musim vymazat vsetky jeho zaznamy v terminaly
+        new DefaultZaznamDochadzkyManager().zmazVsetkyZaznamy(mazanyZamestnanec.getIdOsoba());
         return zamestnanecDao.zmazZamestnanca(mazanyZamestnanec);
     }
 

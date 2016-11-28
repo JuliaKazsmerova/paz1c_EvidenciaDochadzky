@@ -36,5 +36,11 @@ public class MySQLZaznamDochadzkyDao implements ZaznamDochadzkyDao{
         String sql = "SELECT ID_den,prichod,odchod,odrobene_hodiny,ID_zamestnanec,ID_cviciaci FROM Denna_dochadzka WHERE ID_den = (SELECT MAX(ID_den) FROM Denna_dochadzka WHERE ID_zamestnanec = ? OR ID_cviciaci = ?);";
         return jdbcTemplate.queryForObject(sql,new ZaznamDochadzkyRowMapper(),idOsoba,idOsoba);
     }
+
+    @Override
+    public boolean zmazVsetkyZaznamy(Long idOsoba) {
+        String sql = "DELETE FROM Denna_dochadzka WHERE ID_zamestnanec = ? OR ID_cviciaci = ?;";
+        return 0 <= jdbcTemplate.update(sql,idOsoba,idOsoba);
+    }
     
 }

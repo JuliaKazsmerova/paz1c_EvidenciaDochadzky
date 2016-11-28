@@ -66,9 +66,9 @@ public class MySQLSpravcaDaoTest {
     
     @Test
     public void vlozSpravcu() {
-        int pocetPredPridanim = spravcaDao.getVsetkychSpravcov().size();
+        int pocetPredPridanim = spravcaDao.getVsetkychSpravcov(testovaciaFirma.getIdFirma()).size();
         boolean result = spravcaDao.vlozSpravcu(testovaciSpravca);
-        int pocetPoPridani = spravcaDao.getVsetkychSpravcov().size();
+        int pocetPoPridani = spravcaDao.getVsetkychSpravcov(testovaciaFirma.getIdFirma()).size();
         
         assertTrue(pocetPoPridani-1==pocetPredPridanim && result);
         
@@ -83,9 +83,9 @@ public class MySQLSpravcaDaoTest {
        String priezvisko = testovaciSpravca.getPriezvisko();
        Spravca spravca = spravcaDao.getSpravcovMenoPriezvisko(meno, priezvisko).get(0);
        
-       int pocetPredMazanim = spravcaDao.getVsetkychSpravcov().size();
+       int pocetPredMazanim = spravcaDao.getVsetkychSpravcov(testovaciaFirma.getIdFirma()).size();
        boolean result = spravcaDao.zmazSpravcu(spravca);
-       int pocetPoMazani = spravcaDao.getVsetkychSpravcov().size();
+       int pocetPoMazani = spravcaDao.getVsetkychSpravcov(testovaciaFirma.getIdFirma()).size();
     
        assertTrue(pocetPredMazanim-1==pocetPoMazani && result);
     }
@@ -93,7 +93,7 @@ public class MySQLSpravcaDaoTest {
 
     @Test
     public void getVsetkychSpravcov() {
-        List<Spravca> spravcovia = spravcaDao.getVsetkychSpravcov();
+        List<Spravca> spravcovia = spravcaDao.getVsetkychSpravcov(testovaciaFirma.getIdFirma());
         assertTrue(spravcovia != null);
     }
 

@@ -56,7 +56,10 @@ CREATE TABLE IF NOT EXISTS Denna_dochadzka
     prichod DATETIME,
     odchod DATETIME,
     odrobene_hodiny INT NOT NULL,
-    ID_osoba INT NOT NULL,
+    ID_zamestnanec INT,
+    ID_cviciaci INT,
+    FOREIGN KEY (ID_zamestnanec) REFERENCES Zamestnanec(ID_zamestnanec),
+    FOREIGN KEY (ID_cviciaci) REFERENCES Cviciaci(ID_cviciaci),
     PRIMARY KEY (ID_den)
 );
 

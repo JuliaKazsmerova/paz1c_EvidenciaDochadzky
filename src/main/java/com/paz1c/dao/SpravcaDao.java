@@ -9,7 +9,7 @@ public interface SpravcaDao {
     
     public boolean zmazSpravcu(Spravca mazanySpravca);
     
-    public List<Spravca> getVsetkychSpravcov();
+    public List<Spravca> getVsetkychSpravcov(Long idFirma);
 
     public Spravca getSpravcuId(Long id);
     

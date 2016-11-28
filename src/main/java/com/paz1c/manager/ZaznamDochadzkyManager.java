@@ -6,6 +6,7 @@ public interface ZaznamDochadzkyManager {
     public boolean vlozZaznam(ZaznamDochadzky zaznam);
     public boolean upravZaznam(ZaznamDochadzky zaznam);
     public boolean zmazZaznam(ZaznamDochadzky zaznam);
+    public boolean zmazVsetkyZaznamy(Long idOsoba);
     public ZaznamDochadzky getPoslednyZaznam(Long idOsoba);
     
 }

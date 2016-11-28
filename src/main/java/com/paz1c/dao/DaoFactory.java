@@ -38,7 +38,7 @@ public enum DaoFactory {
         cviciaciDao = new MySQLCviciaciDao(jdbcTemplate);
         zaznamDochadzkyDao = new MySQLZaznamDochadzkyDao(jdbcTemplate);
         
-        
+        //zmazTabulky();
         //vytvorTabulky();
     }
     

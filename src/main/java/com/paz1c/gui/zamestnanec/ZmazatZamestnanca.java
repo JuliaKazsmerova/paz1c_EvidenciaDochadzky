@@ -1,5 +1,6 @@
 package com.paz1c.gui.zamestnanec;
 
+import com.paz1c.constants.Nastavenia;
 import com.paz1c.other.Zamestnanec;
 import javax.swing.JOptionPane;
 
@@ -19,9 +20,6 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         potvrditButton.setVisible(false);
     }
     
-    private void aktualizujMazanehoZamastnanca(Long ID) {
-        model.najdiPodlaId(ID);
-    }
 
     public void setParent(SpravaZamestnancov parent){
         this.parentJForm = parent;
@@ -141,8 +139,14 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         }else{
             Long zadaneID = Long.parseLong(IDZamestnancaTextField.getText());
             try{
-                aktualizujMazanehoZamastnanca(zadaneID);
-                zamestnanec = parentJForm.najdiZamestnancaPodlaID(zadaneID);
+                model.zobrazZamestnancaSId(zadaneID);
+                zamestnanec = parentJForm.getZamestnancaPodlaID(zadaneID);
+                
+                if(zamestnanec.getIdFirma() != Nastavenia.idFirma){
+                    System.out.println("fungujem");
+                    throw new Exception();
+                }
+                
                 overovaciaOtazkaLabel.setVisible(true);  
                 jScrollPane2.setVisible(true);
                 potvrditButton.setVisible(true);

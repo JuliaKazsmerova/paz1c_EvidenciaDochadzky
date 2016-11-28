@@ -29,9 +29,9 @@ public class MySQLSpravcaDao implements SpravcaDao{
     }
 
     @Override
-    public List<Spravca> getVsetkychSpravcov() {
-        String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo,sol FROM Spravca;";
-        return jdbcTemplate.query(sql,new SpravcaRowMapper());
+    public List<Spravca> getVsetkychSpravcov(Long idFirma) {
+        String sql = "SELECT ID_admin,meno,priezvisko,ID_firma,email,heslo,sol FROM Spravca WHERE ID_firma = ?;";
+        return jdbcTemplate.query(sql,new SpravcaRowMapper(),idFirma);
     }
 
     @Override

@@ -69,9 +69,9 @@ package com.paz1c.dao;
      
      @Test
      public void vlozZamestnanca() {
-         int pocetPredPridanim = zamestnanecDao.getVsetkychZamestnancov().size();
+         int pocetPredPridanim = zamestnanecDao.getVsetkychZamestnancov(testovaciaFirma.getIdFirma()).size();
          boolean result = zamestnanecDao.vlozZamestnanca(testovaciZamestnanec);
-         int pocetPoPridani = zamestnanecDao.getVsetkychZamestnancov().size();
+         int pocetPoPridani = zamestnanecDao.getVsetkychZamestnancov(testovaciaFirma.getIdFirma()).size();
          
          assertTrue(pocetPoPridani-1==pocetPredPridanim && result);
          
@@ -86,9 +86,9 @@ package com.paz1c.dao;
          String priezvisko = testovaciZamestnanec.getPriezvisko();
          Zamestnanec zamestnanec = zamestnanecDao.getZamestnanci(meno, priezvisko).get(0);
          
-         int pocetPredMazanim = zamestnanecDao.getVsetkychZamestnancov().size();
+         int pocetPredMazanim = zamestnanecDao.getVsetkychZamestnancov(testovaciaFirma.getIdFirma()).size();
          boolean result = zamestnanecDao.zmazZamestnanca(zamestnanec);
-         int pocetPoMazani = zamestnanecDao.getVsetkychZamestnancov().size();
+         int pocetPoMazani = zamestnanecDao.getVsetkychZamestnancov(testovaciaFirma.getIdFirma()).size();
          
          assertTrue(pocetPredMazanim-1==pocetPoMazani && result);
      }
@@ -107,7 +107,7 @@ package com.paz1c.dao;
      
      @Test
      public void getVsetkychZamestnancov(){
-         List<Zamestnanec> zamestnanci = zamestnanecDao.getVsetkychZamestnancov();
+         List<Zamestnanec> zamestnanci = zamestnanecDao.getVsetkychZamestnancov(testovaciaFirma.getIdFirma());
          assertTrue(zamestnanci != null);
      }
      

@@ -124,4 +124,13 @@ public class MySQLZaznamDochadzkyDaoTest {
         assertTrue(result);
     }
     
+    @Test
+    public void zmazVsetkyZaznamy(){
+        zaznamDao.vlozZaznam(testovaciZaznam);
+        zaznamDao.vlozZaznam(testovaciZaznam);
+        zaznamDao.vlozZaznam(testovaciZaznam);
+        zaznamDao.vlozZaznam(testovaciZaznam);
+        assertTrue(zaznamDao.zmazVsetkyZaznamy(testovaciZaznam.getIdZamestnanec()));
+    }
+    
 }
