@@ -19,28 +19,36 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="spatButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="pridatButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel1" max="32767" attributes="0"/>
-                          <Component id="jLabel2" max="32767" attributes="0"/>
-                          <Component id="jLabel3" max="32767" attributes="0"/>
-                          <Component id="jLabel4" max="32767" attributes="0"/>
-                          <Component id="jLabel5" pref="145" max="32767" attributes="0"/>
+                          <Component id="menoLabel" max="32767" attributes="0"/>
+                          <Component id="priezviskoLabel" max="32767" attributes="0"/>
+                          <Component id="emailLabel" max="32767" attributes="0"/>
+                          <Component id="hesloLabel" max="32767" attributes="0"/>
+                          <Component id="zopakovathesloLabel" pref="145" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="hesloProgressBar" pref="231" max="32767" attributes="0"/>
+                          <Component id="hesloProgressBar" pref="229" max="32767" attributes="0"/>
                           <Component id="menoTextField" max="32767" attributes="0"/>
                           <Component id="priezviskoTextField" max="32767" attributes="0"/>
                           <Component id="emailTextField" alignment="0" max="32767" attributes="0"/>
                           <Component id="hesloPasswordField" alignment="0" max="32767" attributes="0"/>
                           <Component id="zopakovatHesloPasswordField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="menoVypisLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="priezviskoVypisLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="emailVypisLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="zopakovatHesloVypisLabel" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="spatButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="pridatButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="zmenaJazykaPanel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -50,34 +58,44 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="zmenaJazykaPanel" min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="menoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="menoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="menoVypisLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="priezviskoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="priezviskoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="priezviskoVypisLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="emailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="emailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="emailVypisLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hesloLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="hesloPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="hesloProgressBar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="zopakovathesloLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="zopakovatHesloPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="zopakovatHesloVypisLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="pridatButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="spatButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -88,22 +106,22 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="menoLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="meno"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="priezviskoLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="priezvisko"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="emailLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="email"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="hesloLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="heslo"/>
       </Properties>
@@ -121,25 +139,43 @@
         <Property name="stringPainted" type="boolean" value="true"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="zopakovathesloLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="zopakovat heslo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="menoTextField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="menoTextFieldKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="priezviskoTextField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="priezviskoTextFieldKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="emailTextField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="emailTextFieldKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="hesloPasswordField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hesloPasswordFieldKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="zopakovatHesloPasswordField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="zopakovatHesloPasswordFieldKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pridatButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Prida&#x165;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pridatButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="spatButton">
       <Properties>
@@ -148,6 +184,28 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="spatButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="menoVypisLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="priezviskoVypisLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="emailVypisLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="zopakovatHesloVypisLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel" name="zmenaJazykaPanel">
     </Component>
   </SubComponents>
 </Form>

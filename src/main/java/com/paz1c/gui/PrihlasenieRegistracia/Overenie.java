@@ -27,7 +27,7 @@ public class Overenie extends javax.swing.JPanel {
     
     public void setParent(RegistraciaPrihlasenie parent){
         parentJFrame = parent; 
-        zmenaJazykaPanel.setParent(parentJFrame);
+        zmenaJazykaPanel.setParentRegistraciaPrihlasenie(parentJFrame);
     }
     
     void initTexts(String jazyk){

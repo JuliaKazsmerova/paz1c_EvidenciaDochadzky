@@ -49,7 +49,7 @@ public class SpravcaTableModel extends AbstractTableModel{
     }
     
    
-    void aktualizovat() {
+    public void aktualizovat() {
         spravcaManager.getVsetkychSpravcov();
         fireTableDataChanged();
     }
