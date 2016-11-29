@@ -1,7 +1,9 @@
 package com.paz1c.gui.PrihlasenieRegistracia;
 
 import com.paz1c.constants.Nastavenia;
+import com.paz1c.gui.Terminal.Terminal;
 import com.paz1c.gui.spravcovia.Spravcovia;
+import com.paz1c.gui.zamestnanec.SpravaZamestnancov;
 import javax.swing.JPanel;
 
 
@@ -9,6 +11,16 @@ public class zmenaJazykaPanel extends javax.swing.JPanel {
 
     private RegistraciaPrihlasenie parentRegistraciaPrihlasenie;
     private Spravcovia parentSpravcovia;
+    private Terminal parentTerminal;
+    private SpravaZamestnancov parentSpravaZamestnancov;
+
+    public void setParentSpravaZamestnancov(SpravaZamestnancov parentSpravaZamestnancov) {
+        this.parentSpravaZamestnancov = parentSpravaZamestnancov;
+    }
+
+    public void setParentTerminal(Terminal parent) {
+        this.parentTerminal = parent;
+    }
    
     public zmenaJazykaPanel() {
         initComponents();
@@ -27,6 +39,10 @@ public class zmenaJazykaPanel extends javax.swing.JPanel {
             parentRegistraciaPrihlasenie.nastavJazyk();
         if(parentSpravcovia!=null)
             parentSpravcovia.nastavJazyk();
+        if(parentTerminal!=null)
+            parentTerminal.nastavJazyk();
+        if(parentSpravaZamestnancov!=null)
+            parentSpravaZamestnancov.nastavJazyk();
     }
     
     @SuppressWarnings("unchecked")

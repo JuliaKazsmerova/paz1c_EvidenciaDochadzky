@@ -195,7 +195,8 @@ public class Prihlasenie extends javax.swing.JPanel {
 
     private void hesloPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hesloPasswordFieldKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-            prihlasenieButtonActionPerformed(null);
+            if(hesloPasswordField.isFocusOwner())
+                prihlasenieButtonActionPerformed(null);
         }
     }//GEN-LAST:event_hesloPasswordFieldKeyReleased
 

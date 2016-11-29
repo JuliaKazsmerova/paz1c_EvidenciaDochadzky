@@ -1,11 +1,13 @@
 package com.paz1c.gui.zamestnanec;
 
+import com.paz1c.manager.DefaultZamestnanecManager;
+import com.paz1c.manager.ZamestnanecManager;
 import com.paz1c.other.Zamestnanec;
 import javax.swing.table.AbstractTableModel;
 
 public class MazanyZamestnanecTableModel extends AbstractTableModel{
     
-    private com.paz1c.manager.ZamestnanecManager zamestnanecManager = new com.paz1c.manager.DefaultZamestnanecManager();
+    private ZamestnanecManager zamestnanecManager = new DefaultZamestnanecManager();
     private static final String[] NAZVY_STLPCOV = { "Meno", "Priezvisko", "Zameranie", "Označenie" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
     private Long id;
@@ -24,7 +26,7 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        System.out.println(columnIndex);
+        
         if(columnIndex == 0){
             zamestnanec = zamestnanecManager.getZamestnanec(id);
         }
@@ -61,10 +63,6 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
         return super.getColumnClass(columnIndex);
     }    
 
-    @Override
-    public String getColumnName(int columnIndex) {
-        return NAZVY_STLPCOV[columnIndex];
-    }
 
     void zobrazZamestnancaSId(Long id) {
         this.id = id;
