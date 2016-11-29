@@ -18,7 +18,7 @@ public class ZamestnanecTableModel extends AbstractTableModel{
     private static final String[] NAZVY_STLPCOV = { "ID zamestnanca", "Meno", "Priezvisko", "Pracovna doba", "Zameranie",
         "Je v praci", "Posledny prichod", "Posledny odchod" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
-    private static final String[] COLUMN_NAME = { "", "", "", "", "","", "", "" };
+    private static final String[] COLUMN_NAME = { "Employee ID", "Name", "Surname", "Hours per day", "Assignment","Is working", "Last arrival", "Last leave" };
     
     
     @Override

@@ -65,33 +65,33 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
                     mapaString.put("zopakovatHesloUpozornenie", "Heslá sa nezhodujú.");
                      break;
                 case "EN" :
-                    mapaString.put("meno", "");
-                    mapaString.put("menoPrazdne", "");
+                    mapaString.put("meno", "Name: " );
+                    mapaString.put("menoPrazdne", "Enter your name.");
                     
-                    mapaString.put("priezvisko", "");
-                    mapaString.put("priezviskoPrazdne", "");
+                    mapaString.put("priezvisko", "Surname: ");
+                    mapaString.put("priezviskoPrazdne", "Enter your surname.");
                    
-                    mapaString.put("email", "");
-                    mapaString.put("emailExistuje", "");
-                    mapaString.put("emailNeexistuje", "");
-                    mapaString.put("emailPrazdny", "");
+                    mapaString.put("email", "E-mail:");
+                    mapaString.put("emailExistuje", "Entered e-mail is registered.");
+                    mapaString.put("emailNeexistuje", "Entered e-mail does not exist");
+                    mapaString.put("emailPrazdny", "Enter your e-mail.");
                     
-                    mapaString.put("heslo", "");
-                    mapaString.put("zopakovatHeslo", "");
-                    mapaString.put("zopakovatHesloPrazdne", "");
-                    mapaString.put("zopakovatHesloNezhodne", "");
+                    mapaString.put("heslo", "Password:");
+                    mapaString.put("zopakovatHeslo", "Password again:");
+                    mapaString.put("zopakovatHesloPrazdne", "Enter your password again.");
+                    mapaString.put("zopakovatHesloNezhodne", "Entered passwords are different.");
                     
-                    mapaString.put("spat", "");
-                    mapaString.put("pridat", "");
+                    mapaString.put("spat", "Back");
+                    mapaString.put("pridat", "Add");
                     
-                    mapaString.put("pridanySpravcaText", "");
-                    mapaString.put("pridanySpravcaNadpis", "");
+                    mapaString.put("pridanySpravcaText", "Administrator was added.");
+                    mapaString.put("pridanySpravcaNadpis", "OK");
                    
-                    mapaString.put("menoUpozornenie", "");
-                    mapaString.put("priezviskoUpozornenie", "");
-                    mapaString.put("emailUpozornenie", "");
-                    mapaString.put("hesloUpozornenie", "");
-                    mapaString.put("zopakovatHesloUpozornenie", "");
+                    mapaString.put("menoUpozornenie", "Chcek name.");
+                    mapaString.put("priezviskoUpozornenie", "Chcek surname.");
+                    mapaString.put("emailUpozornenie", "Chcek e-mail.");
+                    mapaString.put("hesloUpozornenie", "Entered password is weak. ");
+                    mapaString.put("zopakovatHesloUpozornenie", "Entered passwords are different.");
                     
                  break;
                 

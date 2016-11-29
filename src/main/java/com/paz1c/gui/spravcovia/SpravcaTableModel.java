@@ -1,5 +1,6 @@
 package com.paz1c.gui.spravcovia;
 
+import com.paz1c.constants.Nastavenia;
 import com.paz1c.manager.DefaultSpravcaManager;
 import com.paz1c.manager.SpravcaManager;
 import com.paz1c.other.Spravca;
@@ -9,6 +10,8 @@ public class SpravcaTableModel extends AbstractTableModel{
 
     private SpravcaManager spravcaManager = new DefaultSpravcaManager();
     private static final String[] NAZVY_STLPCOV = { "ID spravcu", "Meno", "Priezvisko", "E-mail", "Heslo" };
+    private static final String[] COLUMN_NAME = { "Administrator ID", "Name", "Surname", "E-mail", "Password" };
+    
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
 
     
@@ -45,13 +48,22 @@ public class SpravcaTableModel extends AbstractTableModel{
     
     @Override
     public String getColumnName(int columnIndex) {
-        return NAZVY_STLPCOV[columnIndex];
+        System.out.println(Nastavenia.jazyk);
+        if(Nastavenia.jazyk.equals("SK"))
+            return NAZVY_STLPCOV[columnIndex];
+        if(Nastavenia.jazyk.equals("EN"))
+            return COLUMN_NAME[columnIndex];
+        return "error";
     }
     
    
     public void aktualizovat() {
         spravcaManager.getVsetkychSpravcov();
         fireTableDataChanged();
+    }
+
+    void zmenaJazyka() {
+        fireTableStructureChanged();
     }
     
 }

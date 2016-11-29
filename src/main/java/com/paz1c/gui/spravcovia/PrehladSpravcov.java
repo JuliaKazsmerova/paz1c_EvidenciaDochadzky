@@ -1,12 +1,20 @@
 package com.paz1c.gui.spravcovia;
 
+import com.paz1c.constants.Nastavenia;
+import java.util.HashMap;
+import java.util.Map;
+
 public class PrehladSpravcov extends javax.swing.JPanel {
     
     private Spravcovia parentJDialog;
+    private Map<String,String> mapaString = new HashMap<>();
+
     
     public PrehladSpravcov() {
         initComponents();
     }
+    
+    
     
     void aktualizujSpravcov(){
         // ziskaj model
@@ -17,7 +25,39 @@ public class PrehladSpravcov extends javax.swing.JPanel {
     
     public void setParent(Spravcovia parent){
         parentJDialog = parent;
+        zmenaJazykaPanel.setParentSpravcovia(parentJDialog);
     }
+    
+    void initTexts(String jazyk){
+        Map<String,String> mapaString = new HashMap<>();
+            switch(jazyk) {
+                case "SK" :
+                    mapaString.put("pridat", "Pridať");
+                    mapaString.put("zmazat", "Zmazať");
+                    mapaString.put("zrusit", "Zrušiť");
+                    break;
+                case "EN" :
+                    mapaString.put("pridat", "Add");
+                    mapaString.put("zmazat", "Delete");
+                    mapaString.put("zrusit", "Cancel");
+                    break;
+                
+            }
+            this.mapaString = mapaString;
+    }
+    
+    public void nastavJazyk(){
+        initTexts(Nastavenia.jazyk);
+        
+        pridatSpravcuButton.setText(mapaString.get("pridat"));
+        zmazatSpravcuButton.setText(mapaString.get("zmazat"));
+        zrusitButton.setText(mapaString.get("zrusit"));
+        SpravcaTableModel model = (SpravcaTableModel) spravcoviaTable.getModel();        
+        model.zmenaJazyka();
+        
+        
+    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -28,6 +68,7 @@ public class PrehladSpravcov extends javax.swing.JPanel {
         pridatSpravcuButton = new javax.swing.JButton();
         zmazatSpravcuButton = new javax.swing.JButton();
         zrusitButton = new javax.swing.JButton();
+        zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
 
         setBackground(new java.awt.Color(255, 250, 226));
 
@@ -62,29 +103,33 @@ public class PrehladSpravcov extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(pridatSpravcuButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
-                        .addComponent(zmazatSpravcuButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(zmazatSpravcuButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(zrusitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(zrusitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pridatSpravcuButton)
+                        .addComponent(zmazatSpravcuButton))
+                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zmazatSpravcuButton)
-                    .addComponent(pridatSpravcuButton))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(zrusitButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -106,10 +151,9 @@ public class PrehladSpravcov extends javax.swing.JPanel {
     private javax.swing.JButton pridatSpravcuButton;
     private javax.swing.JTable spravcoviaTable;
     private javax.swing.JButton zmazatSpravcuButton;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel;
     private javax.swing.JButton zrusitButton;
     // End of variables declaration//GEN-END:variables
 
-    void nastavJazyk() {
-        
-    }
+    
 }

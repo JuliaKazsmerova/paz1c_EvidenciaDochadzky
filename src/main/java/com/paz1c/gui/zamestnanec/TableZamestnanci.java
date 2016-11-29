@@ -54,17 +54,17 @@ public class TableZamestnanci extends javax.swing.JPanel {
                     mapaString.put("prihlasenySpravca", "Prihlásený správca: ");
                     break;
                 case "EN" :
-                    mapaString.put("vsetci", "");
-                    mapaString.put("aktivny", "");
-                    mapaString.put("neaktivny", "");
-                    mapaString.put("pridatZamestnanca", "");
-                    mapaString.put("zmazatZamestnanca", "");
-                    mapaString.put("odhlasitSa", "");
-                    mapaString.put("spravcovia", "");
-                    mapaString.put("obnov", "");
-                    mapaString.put("prihlasenaFirma", "");
-                    mapaString.put("sidloFirmy", "");
-                    mapaString.put("prihlasenySpravca", "");
+                    mapaString.put("vsetci", "All");
+                    mapaString.put("aktivny", "Active");
+                    mapaString.put("neaktivny", "Not active");
+                    mapaString.put("pridatZamestnanca", "Add employee");
+                    mapaString.put("zmazatZamestnanca", "Delete employee");
+                    mapaString.put("odhlasitSa", "Sign out");
+                    mapaString.put("spravcovia", "Administrators");
+                    mapaString.put("obnov", "Refresh");
+                    mapaString.put("prihlasenaFirma", "Logged company: ");
+                    mapaString.put("sidloFirmy", "company address: ");
+                    mapaString.put("prihlasenySpravca", "Logged administrator: ");
                     break;
                 
             }
@@ -167,7 +167,7 @@ public class TableZamestnanci extends javax.swing.JPanel {
             }
         });
 
-        obnovButton.setText("nacitaj udaje");
+        obnovButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/paz1c/images/Refresh-icon.png"))); // NOI18N
         obnovButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 obnovButtonActionPerformed(evt);
@@ -195,9 +195,9 @@ public class TableZamestnanci extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(firmaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(obnovButton)))
+                                .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                .addGap(67, 67, 67)
+                                .addComponent(obnovButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(spravcoviaButton, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -212,10 +212,10 @@ public class TableZamestnanci extends javax.swing.JPanel {
                     .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(firmaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(spravcoviaButton)
-                    .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(obnovButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(spravcoviaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(obnovButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()

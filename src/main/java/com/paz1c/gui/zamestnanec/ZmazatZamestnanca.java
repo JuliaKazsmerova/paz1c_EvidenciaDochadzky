@@ -52,20 +52,20 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
                     mapaString.put("neoznacenyUpozornenieNadpis", "Upozornenie");
                     break;
                 case "EN" :
-                    mapaString.put("uvod1", "");
-                    mapaString.put("uvod2", "");
-                    mapaString.put("otazka", "");
-                    mapaString.put("zmazat", "");
-                    mapaString.put("spat", "");
-                    mapaString.put("potvrdit", "");
-                    mapaString.put("idPrazdneText", "");
-                    mapaString.put("idPrazdneNadpis", "");
-                    mapaString.put("idNeexistujuceText", "");
-                    mapaString.put("idNeexistujuceNadpis", "");
-                    mapaString.put("zmazanyUpozornenieText", "");
-                    mapaString.put("zmazanyUpozornenieNadpis", "");
-                    mapaString.put("neoznacenyUpozornenieText", "");
-                    mapaString.put("neoznacenyUpozornenieNadpis", "");
+                    mapaString.put("uvod1", "Sign in");
+                    mapaString.put("uvod2", "E-mail:");
+                    mapaString.put("otazka", "Password:");
+                    mapaString.put("zmazat", "Sign in:");
+                    mapaString.put("spat", "Back");
+                    mapaString.put("potvrdit", "Warning");
+                    mapaString.put("idPrazdneText", "Enter ID of employee!");
+                    mapaString.put("idPrazdneNadpis", "Warning");
+                    mapaString.put("idNeexistujuceText", "Employee with entered ID does not exist!");
+                    mapaString.put("idNeexistujuceNadpis", "Warning");
+                    mapaString.put("zmazanyUpozornenieText", "Emoloyee was deleted.");
+                    mapaString.put("zmazanyUpozornenieNadpis", "OK");
+                    mapaString.put("neoznacenyUpozornenieText", "Choose an employee!");
+                    mapaString.put("neoznacenyUpozornenieNadpis", "Warning");
                     break;
                 
             }

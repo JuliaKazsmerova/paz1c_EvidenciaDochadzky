@@ -53,14 +53,14 @@ public class PridatZamestnanca extends javax.swing.JPanel {
                     mapaString.put("spat", "Späť");
                     break;
                 case "EN" :
-                    mapaString.put("uvod", "");
-                    mapaString.put("meno", "");
-                    mapaString.put("priezvisko", "");
-                    mapaString.put("datumNastupu", "");
-                    mapaString.put("hodinyZaDen", "");
-                    mapaString.put("funkcia", "");
-                    mapaString.put("pridat", "");
-                    mapaString.put("spat", "");
+                    mapaString.put("uvod", "Add employee");
+                    mapaString.put("meno", "Name: ");
+                    mapaString.put("priezvisko", "Surname: ");
+                    mapaString.put("datumNastupu", "Date of start: ");
+                    mapaString.put("hodinyZaDen", "Hours per day: ");
+                    mapaString.put("funkcia", "Assignment: ");
+                    mapaString.put("pridat", "Add");
+                    mapaString.put("spat", "Back");
                     break;
                 
             }

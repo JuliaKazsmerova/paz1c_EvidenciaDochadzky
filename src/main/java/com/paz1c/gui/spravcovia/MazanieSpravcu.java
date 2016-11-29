@@ -2,6 +2,8 @@ package com.paz1c.gui.spravcovia;
 
 import com.paz1c.constants.Nastavenia;
 import com.paz1c.other.Spravca;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 
@@ -10,6 +12,8 @@ public class MazanieSpravcu extends javax.swing.JPanel {
     private Spravcovia parentJDialog;
     private MazanySpravcaTableModel model;
     Spravca spravca;
+    private Map<String,String> mapaString = new HashMap<>();
+   
     
     public MazanieSpravcu() {
         initComponents();
@@ -27,6 +31,63 @@ public class MazanieSpravcu extends javax.swing.JPanel {
 
     public void setParent(Spravcovia parent){
         parentJDialog = parent;
+        zmenaJazykaPanel1.setParentSpravcovia(parentJDialog);
+    }
+    
+    void initTexts(String jazyk){
+        Map<String,String> mapaString = new HashMap<>();
+            switch(jazyk) {
+                case "SK" :
+                    mapaString.put("zmazat", "Zmazať");
+                    mapaString.put("potrdit", "Potvrdiť");
+                    mapaString.put("spat", "Späť");
+                    mapaString.put("mazanie", "Mazanie správcu");
+                    mapaString.put("zadajteID", "Zadajte ID správcu:");
+                    mapaString.put("overovaciaOtazka", "Naozaj si prajete zmazať tohto správcu?");
+                    mapaString.put("prazdneIdText", "Nezadali ste ID správcu!");
+                    mapaString.put("prazdneIdNadpis", "Upozornenie");
+                    mapaString.put("neexistujeIdText", "Správca s daným ID neexistuje!");
+                    mapaString.put("neexistujeIdNadpis", "Upozornenie");
+                    mapaString.put("sebaUpozornenieText", "Nemôžte zmazať seba! ");
+                    mapaString.put("sebaUpozornenieNadpis", "Upozornenie");
+                    mapaString.put("zmazanySpravcaText", "Správca bol zmazaný.");
+                    mapaString.put("zmazanySpravcaNadpis", "OK");
+                    mapaString.put("neoznacenySpravcaText", "Neoznačili ste správcu!");
+                    mapaString.put("neoznacenySpravcaNadpis", "Upozornenie");
+                    break;
+                case "EN" :
+                    mapaString.put("zmazat", "Delete");
+                    mapaString.put("potrdit", "Confirm");
+                    mapaString.put("spat", "Back");
+                    mapaString.put("mazanie", "Deleting administrator");
+                    mapaString.put("zadajteID", "Enter administrator ID: ");
+                    mapaString.put("overovaciaOtazka", "Are you sure you want to delete this amministrator?");
+                    mapaString.put("prazdneIdText", "You forgot to enter administrator's ID!");
+                    mapaString.put("prazdneIdNadpis", "Warning");
+                    mapaString.put("neexistujeIdText", "Adminisitrator with entered ID does not exist!");
+                    mapaString.put("neexistujeIdNadpis", "Warning");
+                    mapaString.put("sebaUpozornenieText", "You can't delete yourself! ");
+                    mapaString.put("sebaUpozornenieNadpis", "Warning");
+                    mapaString.put("zmazanySpravcaText", "Administrator was deleted");
+                    mapaString.put("zmazanySpravcaNadpis", "OK");
+                    mapaString.put("neoznacenySpravcaText", "You need to mark administrator!");
+                    mapaString.put("neoznacenySpravcaNadpis", "Warning");
+                    break;
+                
+            }
+            this.mapaString = mapaString;
+    }
+    
+    void nastavJazyk() {
+        initTexts(Nastavenia.jazyk);
+        
+        zmazatButton.setText(mapaString.get("zmazat"));
+        potvditButton.setText(mapaString.get("potvrdit"));
+        spatButton.setText(mapaString.get("spat"));
+        mazanieSpravcuLabel.setText(mapaString.get("mazanie"));
+        zadajteIDSpravcuLabel.setText(mapaString.get("zadajteID"));
+        overovaciaOtazkaLabel.setText(mapaString.get("overovaciaOtzka"));
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -34,8 +95,8 @@ public class MazanieSpravcu extends javax.swing.JPanel {
     private void initComponents() {
 
         zmenaJazykaPanel1 = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        mazanieSpravcuLabel = new javax.swing.JLabel();
+        zadajteIDSpravcuLabel = new javax.swing.JLabel();
         IDSpravcuTextField = new javax.swing.JTextField();
         zmazatButton = new javax.swing.JButton();
         overovaciaOtazkaLabel = new javax.swing.JLabel();
@@ -46,11 +107,11 @@ public class MazanieSpravcu extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 250, 226));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Mazanie správcu");
+        mazanieSpravcuLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        mazanieSpravcuLabel.setText("Mazanie správcu");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel2.setText("Zadajte ID správcu:");
+        zadajteIDSpravcuLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        zadajteIDSpravcuLabel.setText("Zadajte ID správcu:");
 
         zmazatButton.setText("Zmazať");
         zmazatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -109,8 +170,8 @@ public class MazanieSpravcu extends javax.swing.JPanel {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(zadajteIDSpravcuLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(mazanieSpravcuLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(17, 17, 17)
                         .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -120,10 +181,10 @@ public class MazanieSpravcu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(mazanieSpravcuLabel)
                     .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(zadajteIDSpravcuLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(IDSpravcuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,7 +203,7 @@ public class MazanieSpravcu extends javax.swing.JPanel {
 
     private void zmazatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zmazatButtonActionPerformed
         if(IDSpravcuTextField.getText().equals("")){
-            JOptionPane.showMessageDialog(parentJDialog, "Nezadali ste ID správcu!", "Upozornenie", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(parentJDialog, mapaString.get("prazdneIdText"), mapaString.get("prazdneIdNadpis"), JOptionPane.ERROR_MESSAGE);
         }else{
             Long zadaneID = Long.parseLong(IDSpravcuTextField.getText());
             try{
@@ -158,7 +219,7 @@ public class MazanieSpravcu extends javax.swing.JPanel {
                 tableScrollPane.setVisible(true);
                 potvditButton.setVisible(true);
             }catch(Exception e){
-                JOptionPane.showMessageDialog(parentJDialog, "Správca s daným ID neexistuje!", "Upozornenie", JOptionPane.ERROR_MESSAGE);  
+                JOptionPane.showMessageDialog(parentJDialog, mapaString.get("neexistujeIdText"), mapaString.get("neexistujeIdNadpis"), JOptionPane.ERROR_MESSAGE);  
                         
             }
         }
@@ -168,21 +229,22 @@ public class MazanieSpravcu extends javax.swing.JPanel {
 
     private void potvditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potvditButtonActionPerformed
         
-            //if(Nastavenia.idSpravcu.equals("zadane id"))
-            //vyhodim dajake okno
-            //return;
+        if(Nastavenia.idSpravca.equals(Long.parseLong(IDSpravcuTextField.getText()))){
+            JOptionPane.showMessageDialog(parentJDialog, mapaString.get("sebaUpozornenieText"), mapaString.get("sebaUpozornenieNadpis"), JOptionPane.ERROR_MESSAGE);
+        return;
+        }
         
         
         if((boolean)mazanySpravcaTable.getValueAt(0, 2)){
             parentJDialog.zmazatSpravcu(spravca);
-            JOptionPane.showMessageDialog(parentJDialog, "Správca bol zmazaný.", "OK", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(parentJDialog, mapaString.get("zmazanySpravcaText"), mapaString.get("zmazanySpravcaNadpis"), JOptionPane.PLAIN_MESSAGE);
             IDSpravcuTextField.setText("");
             overovaciaOtazkaLabel.setVisible(false);  
             tableScrollPane.setVisible(false);
             potvditButton.setVisible(false);
             model.setHodnota(false);
         }else{
-            JOptionPane.showMessageDialog(parentJDialog, "Neoznačili ste správcu!", "Upozornenie", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(parentJDialog, mapaString.get("neoznacenySpravcaText"), mapaString.get("neoznacenySpravcaNadpis"), JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_potvditButtonActionPerformed
 
@@ -200,19 +262,16 @@ public class MazanieSpravcu extends javax.swing.JPanel {
         model.setHodnota(!(boolean) mazanySpravcaTable.getValueAt(0, 2));
     }//GEN-LAST:event_mazanySpravcaTableMouseClicked
 
-    void nastavJazyk() {
-        
-    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField IDSpravcuTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel mazanieSpravcuLabel;
     private javax.swing.JTable mazanySpravcaTable;
     private javax.swing.JLabel overovaciaOtazkaLabel;
     private javax.swing.JButton potvditButton;
     private javax.swing.JButton spatButton;
     private javax.swing.JScrollPane tableScrollPane;
+    private javax.swing.JLabel zadajteIDSpravcuLabel;
     private javax.swing.JButton zmazatButton;
     private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel1;
     // End of variables declaration//GEN-END:variables
