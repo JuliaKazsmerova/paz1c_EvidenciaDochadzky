@@ -24,7 +24,6 @@ public class Spravcovia extends javax.swing.JDialog {
     }
     
     public void otvorOkno(String okno){
-        System.out.println(okno);
         cardLayout.show(getContentPane(), okno);
     }
     
@@ -33,27 +32,15 @@ public class Spravcovia extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mazanieSpravcu = new com.paz1c.gui.spravcovia.MazanieSpravcu();
         prehladSpravcov = new com.paz1c.gui.spravcovia.PrehladSpravcov();
         pridavanieSpravcu = new com.paz1c.gui.spravcovia.PridavanieSpravcu();
+        mazanieSpravcu = new com.paz1c.gui.spravcovia.MazanieSpravcu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
-
-        javax.swing.GroupLayout mazanieSpravcuLayout = new javax.swing.GroupLayout(mazanieSpravcu);
-        mazanieSpravcu.setLayout(mazanieSpravcuLayout);
-        mazanieSpravcuLayout.setHorizontalGroup(
-            mazanieSpravcuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 816, Short.MAX_VALUE)
-        );
-        mazanieSpravcuLayout.setVerticalGroup(
-            mazanieSpravcuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 311, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(mazanieSpravcu, "mazanieSpravcu");
         getContentPane().add(prehladSpravcov, "prehladSpravcov");
         getContentPane().add(pridavanieSpravcu, "pridavanieSpravcu");
+        getContentPane().add(mazanieSpravcu, "mazanieSpravcu");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -25,7 +25,6 @@ public class MazanySpravcaTableModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        System.out.println(columnIndex);
         if(columnIndex == 0){
             spravca = spravcaManager.getSpravcuId(id);
         }

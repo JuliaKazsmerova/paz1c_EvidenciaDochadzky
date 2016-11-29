@@ -63,6 +63,11 @@ public class MazanieSpravcu extends javax.swing.JPanel {
         overovaciaOtazkaLabel.setText("Naozaj si prajete zmazať tohto správcu?");
 
         mazanySpravcaTable.setModel(new MazanySpravcaTableModel());
+        mazanySpravcaTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mazanySpravcaTableMouseClicked(evt);
+            }
+        });
         tableScrollPane.setViewportView(mazanySpravcaTable);
 
         spatButton.setText("Späť");
@@ -86,25 +91,29 @@ public class MazanieSpravcu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(overovaciaOtazkaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(overovaciaOtazkaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                        .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(spatButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(potvditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(IDSpravcuTextField)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(zmazatButton)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(IDSpravcuTextField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(zmazatButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(spatButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(potvditButton)))
-                .addContainerGap())
+                        .addGap(17, 17, 17)
+                        .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +131,7 @@ public class MazanieSpravcu extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(overovaciaOtazkaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spatButton)
@@ -158,6 +167,12 @@ public class MazanieSpravcu extends javax.swing.JPanel {
     }//GEN-LAST:event_zmazatButtonActionPerformed
 
     private void potvditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potvditButtonActionPerformed
+        
+            //if(Nastavenia.idSpravcu.equals("zadane id"))
+            //vyhodim dajake okno
+            //return;
+        
+        
         if((boolean)mazanySpravcaTable.getValueAt(0, 2)){
             parentJDialog.zmazatSpravcu(spravca);
             JOptionPane.showMessageDialog(parentJDialog, "Správca bol zmazaný.", "OK", JOptionPane.PLAIN_MESSAGE);
@@ -181,11 +196,14 @@ public class MazanieSpravcu extends javax.swing.JPanel {
         parentJDialog.aktualizovatSpravcov();
     }//GEN-LAST:event_spatButtonActionPerformed
 
+    private void mazanySpravcaTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mazanySpravcaTableMouseClicked
+        model.setHodnota(!(boolean) mazanySpravcaTable.getValueAt(0, 2));
+    }//GEN-LAST:event_mazanySpravcaTableMouseClicked
+
     void nastavJazyk() {
         
     }
-
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField IDSpravcuTextField;
     private javax.swing.JLabel jLabel1;

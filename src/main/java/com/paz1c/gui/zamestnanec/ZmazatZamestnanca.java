@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 public class ZmazatZamestnanca extends javax.swing.JPanel {
 
     private SpravaZamestnancov parentJForm;
-    private boolean potvrdene;
     MazanyZamestnanecTableModel model;
     Zamestnanec zamestnanec;
     
@@ -176,8 +175,6 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         jScrollPane2.setVisible(false);
         potvrditButton.setVisible(false);
         model.setHodnota(false);
-        parentJForm.aktualizovatZamestnancov();
-
     }//GEN-LAST:event_spatButtonActionPerformed
 
     private void potvrditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potvrditButtonActionPerformed
