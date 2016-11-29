@@ -1,12 +1,15 @@
 
 package com.paz1c.gui.Terminal;
 
+import com.paz1c.constants.Nastavenia;
 import com.paz1c.manager.DefaultZaznamDochadzkyManager;
 import com.paz1c.manager.ZaznamDochadzkyManager;
 import com.paz1c.other.ZaznamDochadzky;
 import java.awt.Color;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 
@@ -16,14 +19,48 @@ public class Terminal extends javax.swing.JFrame {
     private boolean prichod = true; 
     private Terminal parentJForm;
     private ZaznamDochadzkyManager zaznamDochadzkyManager = new DefaultZaznamDochadzkyManager();
+    private Map<String,String> mapaString = new HashMap<>();
 
     
     public Terminal() {
         initComponents();
         getContentPane().setBackground(new Color(255,250,226));
-        
+        zmenaJazykaPanel.setParentTerminal(this);
         prichodToggleButton.setSelected(prichod);
+        nastavJazyk();
+    }
+    
+    
+    void initTexts(String jazyk){
+        Map<String,String> mapaString = new HashMap<>();
+            switch(jazyk) {
+                case "SK" :
+                    mapaString.put("prichod", "Príchod");
+                    mapaString.put("odchod", "Odchod");
+                    mapaString.put("potvrdit", "Potvrdiť");
+                    
+                    mapaString.put("zlaKartaNadpis", "Upozornenie");
+                    mapaString.put("zlaKartaText", "Zlá karta");
+                    break;
+                case "EN" :
+                    mapaString.put("prichod", "");
+                    mapaString.put("odchod", "");
+                    mapaString.put("potvrdit", "");
+                    
+                    mapaString.put("zlaKartaNadpis", "");
+                    mapaString.put("zlaKartaText", "");
+                    break;
+                
+            }
+            this.mapaString = mapaString;
+    }
+    
+    public void nastavJazyk(){
+        initTexts(Nastavenia.jazyk);
         
+        prichodToggleButton.setText(mapaString.get("prichod"));
+        odchodToggleButton.setText(mapaString.get("odchod"));
+        potvrditButton.setText(mapaString.get("potvrdit"));
     }
     
     @SuppressWarnings("unchecked")
@@ -35,15 +72,13 @@ public class Terminal extends javax.swing.JFrame {
         odchodToggleButton = new javax.swing.JToggleButton();
         idTextField = new javax.swing.JTextField();
         potvrditButton = new javax.swing.JButton();
-        zmenaJazykaPanel1 = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
+        zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 250, 226));
         setForeground(new java.awt.Color(255, 250, 226));
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 600, 150));
-        setMaximumSize(new java.awt.Dimension(600, 150));
         setMinimumSize(new java.awt.Dimension(400, 150));
-        setPreferredSize(new java.awt.Dimension(400, 150));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -89,7 +124,7 @@ public class Terminal extends javax.swing.JFrame {
                     .addComponent(idTextField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(potvrditButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -100,7 +135,7 @@ public class Terminal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prichodToggleButton)
                     .addComponent(odchodToggleButton)
-                    .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,12 +158,13 @@ public class Terminal extends javax.swing.JFrame {
         if(prichod){
             //zapise sa do databazy prichod
             ZaznamDochadzky novyZaznam = new ZaznamDochadzky();
-            novyZaznam.setIdZamestnanec(Long.parseLong(idTextField.getText()));
-            novyZaznam.setPrichod(new Timestamp(System.currentTimeMillis()));
             try{
+                novyZaznam.setIdZamestnanec(Long.parseLong(idTextField.getText()));
+                novyZaznam.setPrichod(new Timestamp(System.currentTimeMillis()));
+            
                 zaznamDochadzkyManager.vlozZaznam(novyZaznam);
             }catch(Exception e){
-                JOptionPane.showMessageDialog(parentJForm, "Zlá karta. ", "Upozornenie", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(parentJForm, mapaString.get("zlaKartaText"), mapaString.get("zlaKartaNadpis"), JOptionPane.ERROR_MESSAGE);
             }
         }else{
             //zapise sa do databazy odchod
@@ -136,10 +172,10 @@ public class Terminal extends javax.swing.JFrame {
             try{
                 existujuciZaznam = zaznamDochadzkyManager.getPoslednyZaznam(Long.parseLong(idTextField.getText()));
             }catch(Exception e){
-                    JOptionPane.showMessageDialog(parentJForm, "Zlá karta. ", "Upozornenie", JOptionPane.ERROR_MESSAGE);
-                    return;
+                    JOptionPane.showMessageDialog(parentJForm, mapaString.get("zlaKartaText"), mapaString.get("zlaKartaNadpis"), JOptionPane.ERROR_MESSAGE);
+            return;
                 }
-            System.out.println(existujuciZaznam.getOdchod());
+            
             if(existujuciZaznam.getOdchod()==null){
                 existujuciZaznam.setOdchod(new Timestamp(System.currentTimeMillis()));
                 long rozdiel = existujuciZaznam.getOdchod().getTime() - existujuciZaznam.getPrichod().getTime();
@@ -196,6 +232,6 @@ public class Terminal extends javax.swing.JFrame {
     private javax.swing.JToggleButton odchodToggleButton;
     private javax.swing.JButton potvrditButton;
     private javax.swing.JToggleButton prichodToggleButton;
-    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel1;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel;
     // End of variables declaration//GEN-END:variables
 }

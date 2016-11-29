@@ -10,6 +10,16 @@ public class Zamestnanec extends Osoba{
     private Date datumNastupu;
     /**pocet hodin ktore by mal kazdy den odrobit*/
     private int pocetHodinNaDen;
+    
+    private ZaznamDochadzky poslednyZaznam;
+
+    public void setPoslednyZaznam(ZaznamDochadzky poslednyZaznam) {
+        this.poslednyZaznam = poslednyZaznam;
+    }
+
+    public ZaznamDochadzky getPoslednyZaznam() {
+        return poslednyZaznam;
+    }
 
     /**toString vracia retazec "meno,priezvisko,id_firma,pocetHodinNaDen,datumNastupu,zameranie"*/
     @Override

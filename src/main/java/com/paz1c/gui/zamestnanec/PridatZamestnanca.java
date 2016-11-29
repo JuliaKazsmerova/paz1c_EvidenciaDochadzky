@@ -224,4 +224,8 @@ public class PridatZamestnanca extends javax.swing.JPanel {
     private javax.swing.JButton spatButton;
     private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel1;
     // End of variables declaration//GEN-END:variables
+
+    void nastavJazyk() {
+
+    }
 }

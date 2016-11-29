@@ -223,4 +223,8 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
     private javax.swing.JButton zmazatButton;
     private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel1;
     // End of variables declaration//GEN-END:variables
+
+    void nastavJazyk() {
+    
+    }
 }

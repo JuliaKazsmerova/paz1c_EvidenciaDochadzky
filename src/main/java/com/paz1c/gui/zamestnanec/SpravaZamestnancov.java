@@ -6,6 +6,9 @@ import com.paz1c.manager.ZamestnanecManager;
 import com.paz1c.manager.ZaznamDochadzkyManager;
 import com.paz1c.other.Zamestnanec;
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 public class SpravaZamestnancov extends javax.swing.JFrame {
 
@@ -21,6 +24,16 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
         zmazatZamestnanca.setParent(this);
         
         cardlayout.show(getContentPane(),"tableZamestnanci");
+        Timer timer = new Timer(0, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               tableZamestnanci.aktualizovatZamestnancov();
+            }
+        });
+
+        timer.setDelay(3000); // delay for 30 seconds
+        timer.start();
     }
     
     public void otvorOkno(String meno){
@@ -107,5 +120,11 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
     void zmazZamestnanca(Zamestnanec zamestnanec) {
         zaznamDochadzkyManager.zmazVsetkyZaznamy(zamestnanec.getIdOsoba());
         zamestnanecManager.zmazZamestnanca(zamestnanec);
+    }
+
+    public void nastavJazyk() {
+        pridatZamestnanca.nastavJazyk();
+        zmazatZamestnanca.nastavJazyk();
+        tableZamestnanci.nastavJazyk();
     }
 }

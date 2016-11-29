@@ -3,18 +3,21 @@ package com.paz1c.gui.zamestnanec;
 import com.paz1c.constants.Nastavenia;
 import com.paz1c.gui.PrihlasenieRegistracia.RegistraciaPrihlasenie;
 import com.paz1c.gui.spravcovia.Spravcovia;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.table.DefaultTableColumnModel;
 
 
 public class TableZamestnanci extends javax.swing.JPanel {
 
     private SpravaZamestnancov parentJForm;
+    private Map<String,String> mapaString = new HashMap<>();
+   
     
     public TableZamestnanci() {
         initComponents();
         aktualizovatZamestnancov();
-        firmaInfoLabel.setText("Prihlásená firma : " + Nastavenia.nazovFirmy + ". Sídlo firmy: " + Nastavenia.sidloFirmy + ".");
-        spravcaInfoLabel.setText("Prihlásený správca: " + Nastavenia.menoSpravcu + " " + Nastavenia.priezviskoSpravcu + "." );
+        nastavJazyk();
         for (int i = 0; i < zamestnanciTabulka.getColumnModel().getColumnCount(); i++) {
             zamestnanciTabulka.getColumnModel().getColumn(i).setMinWidth(50);
             zamestnanciTabulka.getColumnModel().getColumn(i).setPreferredWidth(150);
@@ -24,6 +27,7 @@ public class TableZamestnanci extends javax.swing.JPanel {
 
     public void setParent(SpravaZamestnancov parentJForm){
         this.parentJForm = parentJForm;
+        zmenaJazykaPanel.setParentSpravaZamestnancov(parentJForm);
     }
     
     public void aktualizovatZamestnancov() {
@@ -32,6 +36,60 @@ public class TableZamestnanci extends javax.swing.JPanel {
         // aktualizuj ho
         model.aktualizovat();
     }
+    
+    void initTexts(String jazyk){
+        Map<String,String> mapaString = new HashMap<>();
+            switch(jazyk) {
+                case "SK" :
+                    mapaString.put("vsetci", "Všetci");
+                    mapaString.put("aktivny", "Aktívny");
+                    mapaString.put("neaktivny", "Neaktívny");
+                    mapaString.put("pridatZamestnanca", "Pridať Zamestnanca");
+                    mapaString.put("zmazatZamestnanca", "Zmazať Zamestnanca");
+                    mapaString.put("odhlasitSa", "Odhlásiť sa");
+                    mapaString.put("spravcovia", "Správcovia");
+                    mapaString.put("obnov", "Načítaj údaje");
+                    mapaString.put("prihlasenaFirma", "Prihlásená firma : ");
+                    mapaString.put("sidloFirmy", ". Sídlo firmy: ");
+                    mapaString.put("prihlasenySpravca", "Prihlásený správca: ");
+                    break;
+                case "EN" :
+                    mapaString.put("vsetci", "");
+                    mapaString.put("aktivny", "");
+                    mapaString.put("neaktivny", "");
+                    mapaString.put("pridatZamestnanca", "");
+                    mapaString.put("zmazatZamestnanca", "");
+                    mapaString.put("odhlasitSa", "");
+                    mapaString.put("spravcovia", "");
+                    mapaString.put("obnov", "");
+                    mapaString.put("prihlasenaFirma", "");
+                    mapaString.put("sidloFirmy", "");
+                    mapaString.put("prihlasenySpravca", "");
+                    break;
+                
+            }
+            this.mapaString = mapaString;
+    }
+    
+    public void nastavJazyk(){
+        initTexts(Nastavenia.jazyk);
+        
+        vsetciFilter.setText(mapaString.get("vsetci"));
+        aktivnyFilter.setText(mapaString.get("aktivny"));
+        neaktivnyFilter.setText(mapaString.get("neaktivny"));
+        pridatZamestnancaButton.setText(mapaString.get("pridatZamestnanca"));
+        zmazatZamestnancaButton.setText(mapaString.get("zmazatZamestnanca"));
+        odhlasitSaButton.setText(mapaString.get("odhlasitSa"));
+        spravcoviaButton.setText(mapaString.get("spravcovia"));
+        obnovButton.setText(mapaString.get("obnov"));
+        firmaInfoLabel.setText(mapaString.get("prihlasenaFirma") + Nastavenia.nazovFirmy + mapaString.get("sidloFirmy") + Nastavenia.sidloFirmy + ".");
+        spravcaInfoLabel.setText(mapaString.get("prihlasenySpravca")+ Nastavenia.menoSpravcu + " " + Nastavenia.priezviskoSpravcu + "." );
+        
+        ZamestnanecTableModel model = (ZamestnanecTableModel) zamestnanciTabulka.getModel();        
+        model.zmenaJazyka();
+        
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,9 +103,10 @@ public class TableZamestnanci extends javax.swing.JPanel {
         spravcaInfoLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         zamestnanciTabulka = new javax.swing.JTable();
-        zmenaJazykaPanel1 = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
+        zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
         firmaInfoLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        odhlasitSaButton = new javax.swing.JButton();
+        obnovButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 250, 226));
 
@@ -101,10 +160,17 @@ public class TableZamestnanci extends javax.swing.JPanel {
 
         firmaInfoLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jButton1.setText("Odhlásiť sa");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        odhlasitSaButton.setText("Odhlásiť sa");
+        odhlasitSaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                odhlasitSaButtonActionPerformed(evt);
+            }
+        });
+
+        obnovButton.setText("nacitaj udaje");
+        obnovButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                obnovButtonActionPerformed(evt);
             }
         });
 
@@ -122,17 +188,20 @@ public class TableZamestnanci extends javax.swing.JPanel {
                             .addComponent(neaktivnyFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(aktivnyFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(vsetciFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(odhlasitSaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(firmaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(obnovButton)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(spravcoviaButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -140,12 +209,13 @@ public class TableZamestnanci extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(firmaInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(spravcoviaButton)
-                    .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spravcaInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(obnovButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -159,7 +229,7 @@ public class TableZamestnanci extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(zmazatZamestnancaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(odhlasitSaButton))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -178,28 +248,34 @@ public class TableZamestnanci extends javax.swing.JPanel {
         spravcoviaDialog.setVisible(true);
     }//GEN-LAST:event_spravcoviaButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void odhlasitSaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_odhlasitSaButtonActionPerformed
         parentJForm.dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RegistraciaPrihlasenie().setVisible(true);
             }
         });
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_odhlasitSaButtonActionPerformed
+
+    private void obnovButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obnovButtonActionPerformed
+        aktualizovatZamestnancov();
+    }//GEN-LAST:event_obnovButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton aktivnyFilter;
     private javax.swing.JLabel firmaInfoLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton neaktivnyFilter;
+    private javax.swing.JButton obnovButton;
+    private javax.swing.JButton odhlasitSaButton;
     private javax.swing.JButton pridatZamestnancaButton;
     private javax.swing.JLabel spravcaInfoLabel;
     private javax.swing.JButton spravcoviaButton;
     private javax.swing.JToggleButton vsetciFilter;
     private javax.swing.JTable zamestnanciTabulka;
     private javax.swing.JButton zmazatZamestnancaButton;
-    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel1;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel;
     // End of variables declaration//GEN-END:variables
+
 }

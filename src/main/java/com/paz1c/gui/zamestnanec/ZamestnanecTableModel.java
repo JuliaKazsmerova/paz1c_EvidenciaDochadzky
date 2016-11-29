@@ -1,16 +1,25 @@
 package com.paz1c.gui.zamestnanec;
 
+import com.paz1c.constants.Nastavenia;
+import com.paz1c.manager.DefaultZamestnanecManager;
+import com.paz1c.manager.DefaultZaznamDochadzkyManager;
+import com.paz1c.manager.ZamestnanecManager;
+import com.paz1c.manager.ZaznamDochadzkyManager;
 import com.paz1c.other.Zamestnanec;
+import com.paz1c.other.ZaznamDochadzky;
+import java.sql.Timestamp;
 import javax.swing.table.AbstractTableModel;
 
 
 public class ZamestnanecTableModel extends AbstractTableModel{
 
-    private com.paz1c.manager.ZamestnanecManager zamestnanecManager = new com.paz1c.manager.DefaultZamestnanecManager();
+    private ZamestnanecManager zamestnanecManager = new DefaultZamestnanecManager();
+    private ZaznamDochadzkyManager zaznamDochzdzkyManager = new DefaultZaznamDochadzkyManager();
     private static final String[] NAZVY_STLPCOV = { "ID zamestnanca", "Meno", "Priezvisko", "Pracovna doba", "Zameranie",
         "Je v praci", "Posledny prichod", "Posledny odchod" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
-
+    private static final String[] COLUMN_NAME = { "", "", "", "", "","", "", "" };
+    
     
     @Override
     public int getRowCount() {
@@ -22,10 +31,24 @@ public class ZamestnanecTableModel extends AbstractTableModel{
         return POCET_STLPCOV;
     }
 
+    boolean stav(Timestamp prichod,Timestamp odchod){
+        if(prichod==null)
+            return false;
+        if(odchod==null)
+            return true;
+        return false;
+    }
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Zamestnanec zamestnanec = zamestnanecManager.getVsetkychZamestnancov(rowIndex);
+        ZaznamDochadzky zaznam = zamestnanec.getPoslednyZaznam();
+        if(zaznam == null)
+            zaznam = zaznamDochzdzkyManager.getPoslednyZaznam(zamestnanec.getIdOsoba());
+        if(zaznam==null)
+            zaznam = new ZaznamDochadzky();
+        zamestnanec.setPoslednyZaznam(zaznam);
+            
         switch (columnIndex) {
             case 0:
                 return zamestnanec.getIdOsoba();
@@ -38,11 +61,11 @@ public class ZamestnanecTableModel extends AbstractTableModel{
             case 4:
                 return zamestnanec.getZameranie();
             case 5:
-                return false;
+                return stav(zaznam.getPrichod(),zaznam.getOdchod());
             case 6:
-                return "";
+                return zaznam.getPrichod();
             case 7:
-                return "";
+                return zaznam.getOdchod();
             default:
                 return "???";
         }
@@ -59,7 +82,12 @@ public class ZamestnanecTableModel extends AbstractTableModel{
     
     @Override
     public String getColumnName(int columnIndex) {
-        return NAZVY_STLPCOV[columnIndex];
+        System.out.println(Nastavenia.jazyk);
+        if(Nastavenia.jazyk.equals("SK"))
+            return NAZVY_STLPCOV[columnIndex];
+        if(Nastavenia.jazyk.equals("EN"))
+            return COLUMN_NAME[columnIndex];
+        return "error";
     }
     
     @Override
@@ -94,5 +122,8 @@ public class ZamestnanecTableModel extends AbstractTableModel{
     void aktualizovat() {
         zamestnanecManager.getVsetkychZamestnancov();
         fireTableDataChanged();
+    }
+    void zmenaJazyka(){
+        fireTableStructureChanged();
     }
 }
