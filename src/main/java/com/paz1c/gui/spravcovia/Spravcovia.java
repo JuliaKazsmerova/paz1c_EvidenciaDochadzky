@@ -106,6 +106,14 @@ public class Spravcovia extends javax.swing.JDialog {
     void pridatSpravcu(Spravca spravca) {
         spravcaManager.vlozSpravcu(spravca);
     }
+    
+    void zmazatSpravcu(Spravca spravca){
+        spravcaManager.zmazSpravcu(spravca);
+    }
+    
+    public Spravca getSpravcuPodlaId(Long zadaneID){
+        return spravcaManager.getSpravcuId(zadaneID);
+    }
 
     void aktualizovatSpravcov() {
         prehladSpravcov.aktualizujSpravcov();

@@ -63,7 +63,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         });
 
         overovaciaOtazkaLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        overovaciaOtazkaLabel.setText("Naozaj si prajete zmazať túto osobu?");
+        overovaciaOtazkaLabel.setText("Naozaj si prajete zmazať tohto zamestnanca?");
 
         potvrditButton.setText("Potvrdiť");
         potvrditButton.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +155,6 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
                 zamestnanec = parentJForm.getZamestnancaPodlaID(zadaneID);
                 
                 if(zamestnanec.getIdFirma() != Nastavenia.idFirma){
-                    System.out.println("fungujem");
                     throw new Exception();
                 }
                 
@@ -163,7 +162,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
                 jScrollPane2.setVisible(true);
                 potvrditButton.setVisible(true);
             }catch(Exception e){
-                JOptionPane.showMessageDialog(parentJForm, "Osoba s daným ID neexistuje!", "Upozornenie", JOptionPane.ERROR_MESSAGE);    
+                JOptionPane.showMessageDialog(parentJForm, "Zamestnanec s daným ID neexistuje!", "Upozornenie", JOptionPane.ERROR_MESSAGE);    
             }
         }
         

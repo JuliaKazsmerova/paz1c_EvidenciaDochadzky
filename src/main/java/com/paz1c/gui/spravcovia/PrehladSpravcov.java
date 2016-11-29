@@ -29,6 +29,8 @@ public class PrehladSpravcov extends javax.swing.JPanel {
         zmazatSpravcuButton = new javax.swing.JButton();
         zrusitButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 250, 226));
+
         spravcoviaTable.setModel(new com.paz1c.gui.spravcovia.SpravcaTableModel());
         jScrollPane1.setViewportView(spravcoviaTable);
 

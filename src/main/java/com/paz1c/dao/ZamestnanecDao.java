@@ -14,7 +14,6 @@ public interface ZamestnanecDao {
     public List<Zamestnanec> getZamestnanci(String meno,String priezvisko);
 
     public Zamestnanec getZamestnanec(Long id);
-
     
     public boolean upravZamestnanca(Zamestnanec upravovanaOsoba);
     

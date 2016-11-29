@@ -64,5 +64,4 @@ public class DefaultSpravcaManager implements SpravcaManager{
     public int pocetSpravcov() {
         return spravcovia.size();
     }
-    
 }

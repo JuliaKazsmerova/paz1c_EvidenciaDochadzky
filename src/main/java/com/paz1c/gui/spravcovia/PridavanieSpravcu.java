@@ -180,14 +180,21 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
         emailVypisLabel = new javax.swing.JLabel();
         zopakovatHesloVypisLabel = new javax.swing.JLabel();
         zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
+        pridatSpravcuTextLabel = new javax.swing.JLabel();
 
-        menoLabel.setText("meno");
+        setBackground(new java.awt.Color(255, 250, 226));
 
-        priezviskoLabel.setText("priezvisko");
+        menoLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        menoLabel.setText("Meno:");
 
-        emailLabel.setText("email");
+        priezviskoLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        priezviskoLabel.setText("Priezvisko:");
 
-        hesloLabel.setText("heslo");
+        emailLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        emailLabel.setText("E-mail:");
+
+        hesloLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        hesloLabel.setText("Heslo:");
 
         hesloProgressBar.setBackground(new java.awt.Color(255, 250, 226));
         hesloProgressBar.setForeground(new java.awt.Color(255, 0, 0));
@@ -195,7 +202,8 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
         hesloProgressBar.setString("");
         hesloProgressBar.setStringPainted(true);
 
-        zopakovathesloLabel.setText("zopakovat heslo");
+        zopakovathesloLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        zopakovathesloLabel.setText("Zopakovať heslo:");
 
         menoTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -249,6 +257,9 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
 
         zopakovatHesloVypisLabel.setText("jLabel1");
 
+        pridatSpravcuTextLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        pridatSpravcuTextLabel.setText("Pridať správcu");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -280,7 +291,8 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
                             .addComponent(emailVypisLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(zopakovatHesloVypisLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(pridatSpravcuTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -288,8 +300,10 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pridatSpravcuTextLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(menoLabel)
                     .addComponent(menoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -428,6 +442,7 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
     private javax.swing.JTextField menoTextField;
     private javax.swing.JLabel menoVypisLabel;
     private javax.swing.JButton pridatButton;
+    private javax.swing.JLabel pridatSpravcuTextLabel;
     private javax.swing.JLabel priezviskoLabel;
     private javax.swing.JTextField priezviskoTextField;
     private javax.swing.JLabel priezviskoVypisLabel;
