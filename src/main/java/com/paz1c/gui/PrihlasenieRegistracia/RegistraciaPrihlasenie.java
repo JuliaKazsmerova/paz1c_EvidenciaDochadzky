@@ -107,7 +107,8 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
         Nastavenia.idFirma = spravca.getIdFirma();
         Nastavenia.menoSpravcu = spravca.getMeno();
         Nastavenia.priezviskoSpravcu = spravca.getPriezvisko();
-
+        Nastavenia.idSpravca = spravca.getIdOsoba();
+        
         Firma firma = getFirma(Nastavenia.idFirma);
         Nastavenia.nazovFirmy = firma.getNazov();
         Nastavenia.sidloFirmy = firma.getSidlo();

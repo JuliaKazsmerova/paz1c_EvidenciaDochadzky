@@ -158,6 +158,7 @@ public class MazanieSpravcu extends javax.swing.JPanel {
     }//GEN-LAST:event_zmazatButtonActionPerformed
 
     private void potvditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_potvditButtonActionPerformed
+        
         if((boolean)mazanySpravcaTable.getValueAt(0, 2)){
             parentJDialog.zmazatSpravcu(spravca);
             JOptionPane.showMessageDialog(parentJDialog, "Správca bol zmazaný.", "OK", JOptionPane.PLAIN_MESSAGE);
