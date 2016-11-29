@@ -4,20 +4,69 @@ import com.paz1c.constants.Nastavenia;
 import com.paz1c.other.Zamestnanec;
 import java.awt.event.KeyEvent;
 import java.sql.Date;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 
 public class PridatZamestnanca extends javax.swing.JPanel {
     
     private SpravaZamestnancov parentJFrame;  
+    private Map<String,String> mapaString = new HashMap<>();
+   
     
 
     public PridatZamestnanca() {
         initComponents();
+        nastavJazyk();
     }
     
     public void setParent(SpravaZamestnancov parent){
         this.parentJFrame = parent;
+        zmenaJazykaPanel.setParentSpravaZamestnancov(parentJFrame);
     }
+    
+    void nastavJazyk() {
+        initTexts(Nastavenia.jazyk);
+        
+        pridatZamestnancaTextLabel.setText(mapaString.get("uvod"));
+        menoLabel.setText(mapaString.get("meno"));
+        priezviskoLabel.setText(mapaString.get("priezvisko"));
+        datumNastupuLabel.setText(mapaString.get("datumNastupu"));
+        hodinyZaDenLabel.setText(mapaString.get("hodinyZaDen"));
+        funkciaLabel.setText(mapaString.get("funkcia"));
+        pridatButton.setText(mapaString.get("pridat"));
+        spatButton.setText(mapaString.get("spat"));
+        
+    }
+    
+     void initTexts(String jazyk){
+        Map<String,String> mapaString = new HashMap<>();
+            switch(jazyk) {
+                case "SK" :
+                    mapaString.put("uvod", "Pridať zamestnanca");
+                    mapaString.put("meno", "Meno:");
+                    mapaString.put("priezvisko", "Priezvisko:");
+                    mapaString.put("datumNastupu", "Dátum nástupu:");
+                    mapaString.put("hodinyZaDen", "Hodiny za deň:");
+                    mapaString.put("funkcia", "Funkcia:");
+                    mapaString.put("pridat", "Pridať");
+                    mapaString.put("spat", "Späť");
+                    break;
+                case "EN" :
+                    mapaString.put("uvod", "");
+                    mapaString.put("meno", "");
+                    mapaString.put("priezvisko", "");
+                    mapaString.put("datumNastupu", "");
+                    mapaString.put("hodinyZaDen", "");
+                    mapaString.put("funkcia", "");
+                    mapaString.put("pridat", "");
+                    mapaString.put("spat", "");
+                    break;
+                
+            }
+            this.mapaString = mapaString;
+    }
+   
     
     public boolean upozornit(){
        
@@ -57,7 +106,7 @@ public class PridatZamestnanca extends javax.swing.JPanel {
         spatButton = new javax.swing.JButton();
         pridatZamestnancaTextLabel = new javax.swing.JLabel();
         datumNastupuJXDatePicker = new org.jdesktop.swingx.JXDatePicker();
-        zmenaJazykaPanel1 = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
+        zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
 
         setBackground(new java.awt.Color(255, 250, 226));
 
@@ -111,7 +160,7 @@ public class PridatZamestnanca extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pridatZamestnancaTextLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                        .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(spatButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -138,7 +187,7 @@ public class PridatZamestnanca extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pridatZamestnancaTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(zmenaJazykaPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(menoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,10 +271,8 @@ public class PridatZamestnanca extends javax.swing.JPanel {
     private javax.swing.JLabel priezviskoLabel;
     private javax.swing.JTextField priezviskoTextField;
     private javax.swing.JButton spatButton;
-    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel1;
+    private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel;
     // End of variables declaration//GEN-END:variables
 
-    void nastavJazyk() {
-
-    }
+    
 }

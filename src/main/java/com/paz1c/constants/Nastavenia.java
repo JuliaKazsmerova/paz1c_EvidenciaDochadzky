@@ -9,4 +9,5 @@ public class Nastavenia {
     public static String priezviskoSpravcu;
     public static String nazovFirmy;
     public static String sidloFirmy;
+    public static Long idSpravca;
 }
