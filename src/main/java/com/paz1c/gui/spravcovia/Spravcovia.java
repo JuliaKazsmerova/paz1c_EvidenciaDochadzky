@@ -2,12 +2,13 @@ package com.paz1c.gui.spravcovia;
 
 import com.paz1c.manager.DefaultSpravcaManager;
 import com.paz1c.manager.SpravcaManager;
+import com.paz1c.other.Spravca;
 import java.awt.CardLayout;
 
 public class Spravcovia extends javax.swing.JDialog {
 
     private CardLayout cardLayout;
-    private SpravcaManager spravcaDao = new DefaultSpravcaManager();
+    private SpravcaManager spravcaManager = new DefaultSpravcaManager();
     
     public Spravcovia(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -17,7 +18,9 @@ public class Spravcovia extends javax.swing.JDialog {
         prehladSpravcov.setParent(this);
         pridavanieSpravcu.setParent(this);
         
+        aktualizovatSpravcov();
         cardLayout.show(getContentPane(), "prehladSpravcov");
+        
     }
     
     public void otvorOkno(String okno){
@@ -99,4 +102,22 @@ public class Spravcovia extends javax.swing.JDialog {
     private com.paz1c.gui.spravcovia.PrehladSpravcov prehladSpravcov;
     private com.paz1c.gui.spravcovia.PridavanieSpravcu pridavanieSpravcu;
     // End of variables declaration//GEN-END:variables
+
+    void pridatSpravcu(Spravca spravca) {
+        spravcaManager.vlozSpravcu(spravca);
+    }
+
+    void aktualizovatSpravcov() {
+        prehladSpravcov.aktualizujSpravcov();
+    }
+    
+    boolean existsEmail(String email){
+        return spravcaManager.existsEmail(email);
+    }
+
+    public void nastavJazyk() {
+        pridavanieSpravcu.nastavJazyk();
+        mazanieSpravcu.nastavJazyk();
+        prehladSpravcov.nastavJazyk();
+    }
 }

@@ -179,7 +179,7 @@ public class PridatZamestnanca extends javax.swing.JPanel {
             zamestnanec.setZameranie(funkciaTextField.getText());
             zamestnanec.setIdFirma(Nastavenia.idFirma);
             parentJFrame.pridatZamestnanca(zamestnanec);
-            JOptionPane.showMessageDialog(parentJFrame, "Zamestnanec bol pridaný.", "OK", JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(parentJFrame, "Zamestnanec bol pridaný.", "OK", JOptionPane.INFORMATION_MESSAGE);
             
             menoTextField.setText("");
             priezviskoTextField.setText("");

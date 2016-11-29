@@ -3,8 +3,6 @@ package com.paz1c.gui.PrihlasenieRegistracia;
 import com.nulabinc.zxcvbn.Strength;
 import com.nulabinc.zxcvbn.Zxcvbn;
 import com.paz1c.constants.Nastavenia;
-import com.paz1c.dao.DaoFactory;
-import com.paz1c.dao.FirmaDao;
 import com.paz1c.other.Firma;
 import com.paz1c.other.GoogleMail;
 import com.paz1c.other.Spravca;
@@ -12,7 +10,6 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
@@ -171,7 +168,7 @@ public class Registracia extends javax.swing.JPanel {
     
     public void setParent(RegistraciaPrihlasenie parent){
         parentJFrame = parent; 
-        zmenaJazykaPanel.setParent(parentJFrame);
+        zmenaJazykaPanel.setParentRegistraciaPrihlasenie(parentJFrame);
     }
     
     int silaHesla(String heslo){
@@ -658,10 +655,7 @@ public class Registracia extends javax.swing.JPanel {
             else{
                 emailVypisLabel.setText(ok); 
                 email = true;
-            }
-            
-               
-            
+            }  
         }
         
     }//GEN-LAST:event_emailTextFieldKeyReleased

@@ -6,7 +6,13 @@ public class PrehladSpravcov extends javax.swing.JPanel {
     
     public PrehladSpravcov() {
         initComponents();
-        
+    }
+    
+    void aktualizujSpravcov(){
+        // ziskaj model
+        SpravcaTableModel model = (SpravcaTableModel) spravcoviaTable.getModel();        
+        // aktualizuj ho
+        model.aktualizovat();
     }
     
     public void setParent(Spravcovia parent){
@@ -18,13 +24,13 @@ public class PrehladSpravcov extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        spravcoviaTable = new javax.swing.JTable();
         pridatSpravcuButton = new javax.swing.JButton();
         zmazatSpravcuButton = new javax.swing.JButton();
         zrusitButton = new javax.swing.JButton();
 
-        jTable1.setModel(new com.paz1c.gui.spravcovia.SpravcaTableModel());
-        jScrollPane1.setViewportView(jTable1);
+        spravcoviaTable.setModel(new com.paz1c.gui.spravcovia.SpravcaTableModel());
+        jScrollPane1.setViewportView(spravcoviaTable);
 
         pridatSpravcuButton.setText("Pridať spravcu");
         pridatSpravcuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,9 +101,13 @@ public class PrehladSpravcov extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton pridatSpravcuButton;
+    private javax.swing.JTable spravcoviaTable;
     private javax.swing.JButton zmazatSpravcuButton;
     private javax.swing.JButton zrusitButton;
     // End of variables declaration//GEN-END:variables
+
+    void nastavJazyk() {
+        
+    }
 }

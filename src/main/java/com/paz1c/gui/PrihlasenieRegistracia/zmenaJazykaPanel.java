@@ -1,19 +1,32 @@
 package com.paz1c.gui.PrihlasenieRegistracia;
 
 import com.paz1c.constants.Nastavenia;
+import com.paz1c.gui.spravcovia.Spravcovia;
 import javax.swing.JPanel;
 
 
 public class zmenaJazykaPanel extends javax.swing.JPanel {
 
-    private RegistraciaPrihlasenie parentJForm;
+    private RegistraciaPrihlasenie parentRegistraciaPrihlasenie;
+    private Spravcovia parentSpravcovia;
    
     public zmenaJazykaPanel() {
         initComponents();
     }
 
-    public void setParent(RegistraciaPrihlasenie parent){
-        this.parentJForm = parent;
+    public void setParentRegistraciaPrihlasenie(RegistraciaPrihlasenie parent){
+        this.parentRegistraciaPrihlasenie = parent;
+    }
+    
+    public void setParentSpravcovia(Spravcovia parent){
+        this.parentSpravcovia = parent;
+    }
+    
+    void nastavJazyk(){
+        if(parentRegistraciaPrihlasenie!=null)
+            parentRegistraciaPrihlasenie.nastavJazyk();
+        if(parentSpravcovia!=null)
+            parentSpravcovia.nastavJazyk();
     }
     
     @SuppressWarnings("unchecked")
@@ -63,14 +76,14 @@ public class zmenaJazykaPanel extends javax.swing.JPanel {
     private void anglictinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anglictinaActionPerformed
         if(anglictina.isSelected())
             Nastavenia.jazyk = "EN";
-        parentJForm.nastavJazyk();
+        nastavJazyk();
         
     }//GEN-LAST:event_anglictinaActionPerformed
 
     private void slovencinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slovencinaActionPerformed
         if(slovencina.isSelected())
             Nastavenia.jazyk = "SK";
-        parentJForm.nastavJazyk();
+        nastavJazyk();
     }//GEN-LAST:event_slovencinaActionPerformed
 
 
