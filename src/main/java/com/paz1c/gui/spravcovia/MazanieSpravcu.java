@@ -13,11 +13,16 @@ public class MazanieSpravcu extends javax.swing.JPanel {
     
     public MazanieSpravcu() {
         initComponents();
-//        model = (MazanySpravcaTableModel) mazanySpravcaTable.getModel();
+        aktualizovatSpravcov();
         mazanySpravcaTable.getTableHeader().setUI(null);
         overovaciaOtazkaLabel.setVisible(false);
         tableScrollPane.setVisible(false);
         potvditButton.setVisible(false);
+    }
+    
+    public void aktualizovatSpravcov(){
+        model = (MazanySpravcaTableModel) mazanySpravcaTable.getModel();
+        
     }
 
     public void setParent(Spravcovia parent){
@@ -57,17 +62,7 @@ public class MazanieSpravcu extends javax.swing.JPanel {
         overovaciaOtazkaLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         overovaciaOtazkaLabel.setText("Naozaj si prajete zmazať tohto správcu?");
 
-        mazanySpravcaTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        mazanySpravcaTable.setModel(new MazanySpravcaTableModel());
         tableScrollPane.setViewportView(mazanySpravcaTable);
 
         spatButton.setText("Späť");
