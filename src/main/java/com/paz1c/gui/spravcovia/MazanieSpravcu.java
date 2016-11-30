@@ -59,16 +59,16 @@ public class MazanieSpravcu extends javax.swing.JPanel {
                     mapaString.put("zmazat", "Delete");
                     mapaString.put("potrdit", "Confirm");
                     mapaString.put("spat", "Back");
-                    mapaString.put("mazanie", "Deleting administrator");
+                    mapaString.put("mazanie", "Delete administrator");
                     mapaString.put("zadajteID", "Enter administrator ID: ");
-                    mapaString.put("overovaciaOtazka", "Are you sure you want to delete this amministrator?");
+                    mapaString.put("overovaciaOtazka", "Are you sure you want to delete this administrator?");
                     mapaString.put("prazdneIdText", "You forgot to enter administrator's ID!");
                     mapaString.put("prazdneIdNadpis", "Warning");
-                    mapaString.put("neexistujeIdText", "Adminisitrator with entered ID does not exist!");
+                    mapaString.put("neexistujeIdText", "Adminisitrator ID does not exist!");
                     mapaString.put("neexistujeIdNadpis", "Warning");
                     mapaString.put("sebaUpozornenieText", "You can't delete yourself! ");
                     mapaString.put("sebaUpozornenieNadpis", "Warning");
-                    mapaString.put("zmazanySpravcaText", "Administrator was deleted");
+                    mapaString.put("zmazanySpravcaText", "Administrator was deleted.");
                     mapaString.put("zmazanySpravcaNadpis", "OK");
                     mapaString.put("neoznacenySpravcaText", "You need to mark administrator!");
                     mapaString.put("neoznacenySpravcaNadpis", "Warning");
@@ -82,11 +82,11 @@ public class MazanieSpravcu extends javax.swing.JPanel {
         initTexts(Nastavenia.jazyk);
         
         zmazatButton.setText(mapaString.get("zmazat"));
-        potvditButton.setText(mapaString.get("potvrdit"));
+        potvditButton.setText(mapaString.get("potrdit"));
         spatButton.setText(mapaString.get("spat"));
         mazanieSpravcuLabel.setText(mapaString.get("mazanie"));
         zadajteIDSpravcuLabel.setText(mapaString.get("zadajteID"));
-        overovaciaOtazkaLabel.setText(mapaString.get("overovaciaOtzka"));
+        overovaciaOtazkaLabel.setText(mapaString.get("overovaciaOtazka"));
         
     }
     

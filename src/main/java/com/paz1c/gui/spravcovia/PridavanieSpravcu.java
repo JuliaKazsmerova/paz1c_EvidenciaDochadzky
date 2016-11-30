@@ -55,7 +55,7 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
                     
                     mapaString.put("spat", "Späť");
                     mapaString.put("pridat", "Pridať");  
-                    mapaString.put("pridanySpravcaText", "Spravca bol pridaný.");
+                    mapaString.put("pridanySpravcaText", "Správca bol pridaný.");
                     mapaString.put("pridanySpravcaNadpis", "OK");
                     
                     mapaString.put("menoUpozornenie", "Skontrolujte meno.");
@@ -66,15 +66,15 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
                      break;
                 case "EN" :
                     mapaString.put("meno", "Name: " );
-                    mapaString.put("menoPrazdne", "Enter your name.");
+                    mapaString.put("menoPrazdne", "Enter name.");
                     
                     mapaString.put("priezvisko", "Surname: ");
-                    mapaString.put("priezviskoPrazdne", "Enter your surname.");
+                    mapaString.put("priezviskoPrazdne", "Enter surname.");
                    
                     mapaString.put("email", "E-mail:");
                     mapaString.put("emailExistuje", "Entered e-mail is registered.");
                     mapaString.put("emailNeexistuje", "Entered e-mail does not exist");
-                    mapaString.put("emailPrazdny", "Enter your e-mail.");
+                    mapaString.put("emailPrazdny", "Enter e-mail.");
                     
                     mapaString.put("heslo", "Password:");
                     mapaString.put("zopakovatHeslo", "Password again:");

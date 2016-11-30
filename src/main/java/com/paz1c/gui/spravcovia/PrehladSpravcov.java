@@ -75,14 +75,14 @@ public class PrehladSpravcov extends javax.swing.JPanel {
         spravcoviaTable.setModel(new com.paz1c.gui.spravcovia.SpravcaTableModel());
         jScrollPane1.setViewportView(spravcoviaTable);
 
-        pridatSpravcuButton.setText("Pridať spravcu");
+        pridatSpravcuButton.setText("Pridať správcu");
         pridatSpravcuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pridatSpravcuButtonActionPerformed(evt);
             }
         });
 
-        zmazatSpravcuButton.setText("Zmazať spravcu");
+        zmazatSpravcuButton.setText("Zmazať správcu");
         zmazatSpravcuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 zmazatSpravcuButtonActionPerformed(evt);

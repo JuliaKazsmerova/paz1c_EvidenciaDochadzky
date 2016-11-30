@@ -63,7 +63,7 @@ public class TableZamestnanci extends javax.swing.JPanel {
                     mapaString.put("spravcovia", "Administrators");
                     mapaString.put("obnov", "Refresh");
                     mapaString.put("prihlasenaFirma", "Logged company: ");
-                    mapaString.put("sidloFirmy", "company address: ");
+                    mapaString.put("sidloFirmy", " company address: ");
                     mapaString.put("prihlasenySpravca", "Logged administrator: ");
                     break;
                 

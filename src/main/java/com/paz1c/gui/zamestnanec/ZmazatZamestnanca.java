@@ -36,12 +36,12 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
         Map<String,String> mapaString = new HashMap<>();
             switch(jazyk) {
                 case "SK" :
-                    mapaString.put("uvod1", "Prihlásenie");
-                    mapaString.put("uvod2", "E-mail:");
-                    mapaString.put("otazka", "Heslo:");
-                    mapaString.put("zmazat", "Prihlasiť");
+                    mapaString.put("uvod1", "Zmazať zamestnanca");
+                    mapaString.put("uvod2", "Zadajte ID zamestnanca: ");
+                    mapaString.put("otazka", "Naozaj si prajete zmazať tohto zamestnanca?");
+                    mapaString.put("zmazat", "Zmazať");
                     mapaString.put("spat", "Späť");
-                    mapaString.put("potvrdit", "Upozornenie");
+                    mapaString.put("potvrdit", "Potvrdiť");
                     mapaString.put("idPrazdneText", "Nezadali ste ID zamestnanca!");
                     mapaString.put("idPrazdneNadpis", "Upozornenie");
                     mapaString.put("idNeexistujuceText", "Zamestnanec s daným ID neexistuje!");
@@ -52,15 +52,15 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
                     mapaString.put("neoznacenyUpozornenieNadpis", "Upozornenie");
                     break;
                 case "EN" :
-                    mapaString.put("uvod1", "Sign in");
-                    mapaString.put("uvod2", "E-mail:");
-                    mapaString.put("otazka", "Password:");
-                    mapaString.put("zmazat", "Sign in:");
+                    mapaString.put("uvod1", "Delete employee");
+                    mapaString.put("uvod2", "Enter employee's ID: ");
+                    mapaString.put("otazka", "Are you sure you want to delete this emoloyee? ");
+                    mapaString.put("zmazat", "Delete");
                     mapaString.put("spat", "Back");
-                    mapaString.put("potvrdit", "Warning");
-                    mapaString.put("idPrazdneText", "Enter ID of employee!");
+                    mapaString.put("potvrdit", "Confirm");
+                    mapaString.put("idPrazdneText", "Enter employee ID!");
                     mapaString.put("idPrazdneNadpis", "Warning");
-                    mapaString.put("idNeexistujuceText", "Employee with entered ID does not exist!");
+                    mapaString.put("idNeexistujuceText", "Employee ID does not exist!");
                     mapaString.put("idNeexistujuceNadpis", "Warning");
                     mapaString.put("zmazanyUpozornenieText", "Emoloyee was deleted.");
                     mapaString.put("zmazanyUpozornenieNadpis", "OK");
