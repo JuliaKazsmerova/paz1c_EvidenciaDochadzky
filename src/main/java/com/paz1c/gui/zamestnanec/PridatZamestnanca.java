@@ -82,6 +82,12 @@ public class PridatZamestnanca extends javax.swing.JPanel {
         if(hodinyZaDenTextField.getText().equals(""))
              return true;
         
+        try{
+            Integer.parseInt(hodinyZaDenTextField.getText());
+        }catch(NumberFormatException e){
+            return true;
+        }
+        
         if(funkciaTextField.getText().equals(""))
              return true;
         

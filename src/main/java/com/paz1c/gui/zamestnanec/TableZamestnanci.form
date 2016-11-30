@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="filterGroup">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="e2" green="fa" red="ff" type="rgb"/>
@@ -137,6 +141,9 @@
     </Component>
     <Component class="javax.swing.JToggleButton" name="vsetciFilter">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="filterGroup"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="V&#x161;etci"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[170, 25]"/>
@@ -148,9 +155,15 @@
           <Dimension value="[170, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vsetciFilterActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="aktivnyFilter">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="filterGroup"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Akt&#xed;vny"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[170, 25]"/>
@@ -162,9 +175,15 @@
           <Dimension value="[170, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aktivnyFilterActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JToggleButton" name="neaktivnyFilter">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="filterGroup"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Neakt&#xed;vny"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[170, 25]"/>
@@ -176,6 +195,9 @@
           <Dimension value="[170, 25]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="neaktivnyFilterActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="spravcaInfoLabel">
       <Properties>

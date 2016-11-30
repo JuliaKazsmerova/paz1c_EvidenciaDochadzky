@@ -1,26 +1,31 @@
 package com.paz1c.gui.spravcovia;
 
+import com.paz1c.gui.zamestnanec.SpravaZamestnancov;
 import com.paz1c.manager.DefaultSpravcaManager;
 import com.paz1c.manager.SpravcaManager;
 import com.paz1c.other.Spravca;
 import java.awt.CardLayout;
+import java.awt.Frame;
 
 public class Spravcovia extends javax.swing.JDialog {
 
     private CardLayout cardLayout;
     private SpravcaManager spravcaManager = new DefaultSpravcaManager();
+    private Frame parent;
     
-    public Spravcovia(java.awt.Frame parent, boolean modal) {
+    public Spravcovia(Frame parent, boolean modal) {
         super(parent, modal);
+        this.parent = parent;
         initComponents();
         cardLayout = (CardLayout)getContentPane().getLayout();
         mazanieSpravcu.setParent(this);
         prehladSpravcov.setParent(this);
         pridavanieSpravcu.setParent(this);
         
+        
         aktualizovatSpravcov();
         cardLayout.show(getContentPane(), "prehladSpravcov");
-        
+        nastavJazyk();
     }
     
     public void otvorOkno(String okno){
@@ -109,8 +114,13 @@ public class Spravcovia extends javax.swing.JDialog {
     boolean existsEmail(String email){
         return spravcaManager.existsEmail(email);
     }
+    
 
     public void nastavJazyk() {
+        if(parent.getClass()==SpravaZamestnancov.class)
+            ((SpravaZamestnancov)parent).nastavJazyk();
+        //else if(parent.getClass()==SpravaCviciacich.class)
+            //((SpravaCviciacich)parent).nastavJazyk();
         pridavanieSpravcu.nastavJazyk();
         mazanieSpravcu.nastavJazyk();
         prehladSpravcov.nastavJazyk();

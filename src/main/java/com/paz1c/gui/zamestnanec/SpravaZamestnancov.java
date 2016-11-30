@@ -28,7 +28,7 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-               tableZamestnanci.aktualizovatZamestnancov();
+               tableZamestnanci.obnovZamestnancov();
             }
         });
 
@@ -41,7 +41,7 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
     }
 
     public void aktualizovatZamestnancov() {
-        tableZamestnanci.aktualizovatZamestnancov();
+        tableZamestnanci.aktualizovatVsetkychZamestnancov();
     }
     
    
@@ -50,8 +50,8 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
     private void initComponents() {
 
         pridatZamestnanca = new com.paz1c.gui.zamestnanec.PridatZamestnanca();
-        tableZamestnanci = new com.paz1c.gui.zamestnanec.TableZamestnanci();
         zmazatZamestnanca = new com.paz1c.gui.zamestnanec.ZmazatZamestnanca();
+        tableZamestnanci = new com.paz1c.gui.zamestnanec.TableZamestnanci();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 500));
@@ -61,11 +61,9 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
         pridatZamestnanca.setPreferredSize(new java.awt.Dimension(700, 700));
         getContentPane().add(pridatZamestnanca, "pridatZamestnanca");
 
-        tableZamestnanci.setPreferredSize(new java.awt.Dimension(700, 700));
-        getContentPane().add(tableZamestnanci, "tableZamestnanci");
-
         zmazatZamestnanca.setPreferredSize(new java.awt.Dimension(700, 700));
         getContentPane().add(zmazatZamestnanca, "zmazatZamestnanca");
+        getContentPane().add(tableZamestnanci, "tableZamestnanci");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

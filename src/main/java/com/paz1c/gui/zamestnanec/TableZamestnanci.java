@@ -16,7 +16,7 @@ public class TableZamestnanci extends javax.swing.JPanel {
     
     public TableZamestnanci() {
         initComponents();
-        aktualizovatZamestnancov();
+        aktualizovatVsetkychZamestnancov();
         nastavJazyk();
         for (int i = 0; i < zamestnanciTabulka.getColumnModel().getColumnCount(); i++) {
             zamestnanciTabulka.getColumnModel().getColumn(i).setMinWidth(50);
@@ -30,11 +30,40 @@ public class TableZamestnanci extends javax.swing.JPanel {
         zmenaJazykaPanel.setParentSpravaZamestnancov(parentJForm);
     }
     
-    public void aktualizovatZamestnancov() {
+    public void aktualizovatVsetkychZamestnancov() {
         // ziskaj model
         ZamestnanecTableModel model = (ZamestnanecTableModel) zamestnanciTabulka.getModel();        
         // aktualizuj ho
-        model.aktualizovat();
+        model.aktualizovatVsetkych();
+    }
+    
+    public void aktualizovatAktivnychZamestnancov() {
+        // ziskaj model
+        ZamestnanecTableModel model = (ZamestnanecTableModel) zamestnanciTabulka.getModel();        
+        // aktualizuj ho
+        model.aktualizovatAktivnych();
+    }
+    
+    public void aktualizovatNeaktivnychZamestnancov() {
+        // ziskaj model
+        ZamestnanecTableModel model = (ZamestnanecTableModel) zamestnanciTabulka.getModel();        
+        // aktualizuj ho
+        model.aktualizovatNeaktivnych();
+    }
+    
+    public void obnovZamestnancov(){
+        if(vsetciFilter.isSelected()){
+            aktualizovatVsetkychZamestnancov();
+            System.out.println("vsetkych taham");
+        }
+        if(aktivnyFilter.isSelected()){
+            aktualizovatAktivnychZamestnancov();
+            System.out.println("aktivnych taham");
+        }
+        if(neaktivnyFilter.isSelected()){
+            aktualizovatNeaktivnychZamestnancov();
+            System.out.println("ne aktivnych taham");
+        }
     }
     
     void initTexts(String jazyk){
@@ -94,6 +123,7 @@ public class TableZamestnanci extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        filterGroup = new javax.swing.ButtonGroup();
         spravcoviaButton = new javax.swing.JButton();
         zmazatZamestnancaButton = new javax.swing.JButton();
         pridatZamestnancaButton = new javax.swing.JButton();
@@ -137,20 +167,38 @@ public class TableZamestnanci extends javax.swing.JPanel {
             }
         });
 
+        filterGroup.add(vsetciFilter);
         vsetciFilter.setText("Všetci");
         vsetciFilter.setMaximumSize(new java.awt.Dimension(170, 25));
         vsetciFilter.setMinimumSize(new java.awt.Dimension(170, 25));
         vsetciFilter.setPreferredSize(new java.awt.Dimension(170, 25));
+        vsetciFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vsetciFilterActionPerformed(evt);
+            }
+        });
 
+        filterGroup.add(aktivnyFilter);
         aktivnyFilter.setText("Aktívny");
         aktivnyFilter.setMaximumSize(new java.awt.Dimension(170, 25));
         aktivnyFilter.setMinimumSize(new java.awt.Dimension(170, 25));
         aktivnyFilter.setPreferredSize(new java.awt.Dimension(170, 25));
+        aktivnyFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aktivnyFilterActionPerformed(evt);
+            }
+        });
 
+        filterGroup.add(neaktivnyFilter);
         neaktivnyFilter.setText("Neaktívny");
         neaktivnyFilter.setMaximumSize(new java.awt.Dimension(170, 25));
         neaktivnyFilter.setMinimumSize(new java.awt.Dimension(170, 25));
         neaktivnyFilter.setPreferredSize(new java.awt.Dimension(170, 25));
+        neaktivnyFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                neaktivnyFilterActionPerformed(evt);
+            }
+        });
 
         spravcaInfoLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
@@ -258,12 +306,25 @@ public class TableZamestnanci extends javax.swing.JPanel {
     }//GEN-LAST:event_odhlasitSaButtonActionPerformed
 
     private void obnovButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obnovButtonActionPerformed
-        aktualizovatZamestnancov();
+        obnovZamestnancov();
     }//GEN-LAST:event_obnovButtonActionPerformed
+
+    private void vsetciFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vsetciFilterActionPerformed
+        aktualizovatVsetkychZamestnancov();
+    }//GEN-LAST:event_vsetciFilterActionPerformed
+
+    private void aktivnyFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aktivnyFilterActionPerformed
+        aktualizovatAktivnychZamestnancov();
+    }//GEN-LAST:event_aktivnyFilterActionPerformed
+
+    private void neaktivnyFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neaktivnyFilterActionPerformed
+        aktualizovatNeaktivnychZamestnancov();
+    }//GEN-LAST:event_neaktivnyFilterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton aktivnyFilter;
+    private javax.swing.ButtonGroup filterGroup;
     private javax.swing.JLabel firmaInfoLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton neaktivnyFilter;

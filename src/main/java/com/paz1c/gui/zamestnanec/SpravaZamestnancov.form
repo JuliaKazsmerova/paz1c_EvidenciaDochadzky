@@ -41,18 +41,6 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="com.paz1c.gui.zamestnanec.TableZamestnanci" name="tableZamestnanci">
-      <Properties>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[700, 700]"/>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-          <CardConstraints cardName="tableZamestnanci"/>
-        </Constraint>
-      </Constraints>
-    </Component>
     <Component class="com.paz1c.gui.zamestnanec.ZmazatZamestnanca" name="zmazatZamestnanca">
       <Properties>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -62,6 +50,13 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="zmazatZamestnanca"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="com.paz1c.gui.zamestnanec.TableZamestnanci" name="tableZamestnanci">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="tableZamestnanci"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -41,13 +41,8 @@ public class ZamestnanecTableModel extends AbstractTableModel{
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Zamestnanec zamestnanec = zamestnanecManager.getVsetkychZamestnancov(rowIndex);
+        Zamestnanec zamestnanec = zamestnanecManager.getNacitanychZamestnancov(rowIndex);
         ZaznamDochadzky zaznam = zamestnanec.getPoslednyZaznam();
-        if(zaznam == null)
-            zaznam = zaznamDochzdzkyManager.getPoslednyZaznam(zamestnanec.getIdOsoba());
-        if(zaznam==null)
-            zaznam = new ZaznamDochadzky();
-        zamestnanec.setPoslednyZaznam(zaznam);
             
         switch (columnIndex) {
             case 0:
@@ -99,7 +94,7 @@ public class ZamestnanecTableModel extends AbstractTableModel{
     }
     
     public void setValueAt(Object value, int rowIndex, int columnIndex) {
-        Zamestnanec upravovany = zamestnanecManager.getVsetkychZamestnancov(rowIndex);
+        Zamestnanec upravovany = zamestnanecManager.getNacitanychZamestnancov(rowIndex);
         switch (columnIndex) {
             case 1:
                 upravovany.setMeno((String)value);
@@ -116,13 +111,24 @@ public class ZamestnanecTableModel extends AbstractTableModel{
            
         }
         zamestnanecManager.upravZamestnanca(upravovany);
-        aktualizovat();
+        aktualizovatVsetkych();
     }
     
-    void aktualizovat() {
+    void aktualizovatVsetkych() {
         zamestnanecManager.getVsetkychZamestnancov();
         fireTableDataChanged();
     }
+    
+    void aktualizovatAktivnych() {
+        zamestnanecManager.getAktivnychZamestnancov();
+        fireTableDataChanged();
+    }
+    
+    void aktualizovatNeaktivnych() {
+        zamestnanecManager.getNeaktivnychZamestnancov();
+        fireTableDataChanged();
+    }
+    
     void zmenaJazyka(){
         fireTableStructureChanged();
     }

@@ -211,7 +211,7 @@ public class MazanieSpravcu extends javax.swing.JPanel {
                 model.zobrazSpravcuSId(zadaneID);
                 spravca = parentJDialog.getSpravcuPodlaId(zadaneID);
                 
-                if(spravca.getIdFirma() != Nastavenia.idFirma){
+                if(!spravca.getIdFirma().equals(Nastavenia.idFirma)){
                     throw new Exception();
                 }
                 
@@ -220,7 +220,7 @@ public class MazanieSpravcu extends javax.swing.JPanel {
                 potvditButton.setVisible(true);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(parentJDialog, mapaString.get("neexistujeIdText"), mapaString.get("neexistujeIdNadpis"), JOptionPane.ERROR_MESSAGE);  
-                        
+                    e.printStackTrace();
             }
         }
         

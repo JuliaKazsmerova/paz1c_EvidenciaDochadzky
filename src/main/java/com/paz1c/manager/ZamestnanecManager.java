@@ -11,7 +11,11 @@ public interface ZamestnanecManager {
     
     public List<Zamestnanec> getVsetkychZamestnancov();
     
-    public Zamestnanec getVsetkychZamestnancov(int index);
+    public List<Zamestnanec> getAktivnychZamestnancov();
+    
+    public List<Zamestnanec> getNeaktivnychZamestnancov();
+    
+    public Zamestnanec getNacitanychZamestnancov(int index);
 
     public List<Zamestnanec> getZamestnanci(String meno,String priezvisko);
 

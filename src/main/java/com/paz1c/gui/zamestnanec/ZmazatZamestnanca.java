@@ -212,7 +212,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
                 model.zobrazZamestnancaSId(zadaneID);
                 zamestnanec = parentJForm.getZamestnancaPodlaID(zadaneID);
                 
-                if(zamestnanec.getIdFirma() != Nastavenia.idFirma){
+                if(!zamestnanec.getIdFirma().equals(Nastavenia.idFirma)){
                     throw new Exception();
                 }
                 
