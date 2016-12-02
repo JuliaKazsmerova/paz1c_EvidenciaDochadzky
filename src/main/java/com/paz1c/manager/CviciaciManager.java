@@ -5,16 +5,24 @@ import java.util.List;
 
 public interface CviciaciManager {
     
-    public boolean vlozCvicaceho(Cviciaci pridavanaOsoba);
+    public boolean vlozCvicaceho(Cviciaci pridavanyCviciaci);
     
-    public boolean zmazCviciaceho(Cviciaci mazanaOsoba);
+    public boolean zmazCviciaceho(Cviciaci mazanyCviciaci);
     
     public List<Cviciaci> getVsetkychCviciacich();
-
-    public Cviciaci getCviciaceho(Long id);
     
+    public List<Cviciaci> getAktivnychCviciacich();
+    
+    public List<Cviciaci> getNeaktivnychCviciacich();
+    
+    public Cviciaci getNacitanychCviciacich(int index);
+
     public List<Cviciaci> getCviciacich(String meno,String priezvisko);
 
-    public boolean upravCviciaceho(Cviciaci upravovanaOsoba);
+    public Cviciaci getCviciaceho(Long id);    
+    
+    public boolean upravCviciaceho(Cviciaci upravovanyCviciaci);
+    
+    public int pocetCviciacich();
     
 }

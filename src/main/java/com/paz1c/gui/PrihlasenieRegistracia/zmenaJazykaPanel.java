@@ -2,6 +2,7 @@ package com.paz1c.gui.PrihlasenieRegistracia;
 
 import com.paz1c.constants.Nastavenia;
 import com.paz1c.gui.Terminal.Terminal;
+import com.paz1c.gui.cviciaci.SpravaCviciacich;
 import com.paz1c.gui.spravcovia.Spravcovia;
 import com.paz1c.gui.zamestnanec.SpravaZamestnancov;
 import javax.swing.JPanel;
@@ -13,6 +14,7 @@ public class zmenaJazykaPanel extends javax.swing.JPanel {
     private Spravcovia parentSpravcovia;
     private Terminal parentTerminal;
     private SpravaZamestnancov parentSpravaZamestnancov;
+    private SpravaCviciacich parentSpravaCviciacich;
 
     public void setParentSpravaZamestnancov(SpravaZamestnancov parentSpravaZamestnancov) {
         this.parentSpravaZamestnancov = parentSpravaZamestnancov;
@@ -20,6 +22,10 @@ public class zmenaJazykaPanel extends javax.swing.JPanel {
 
     public void setParentTerminal(Terminal parent) {
         this.parentTerminal = parent;
+    }
+    
+    public void setParentSpravaCviciacich(SpravaCviciacich parentSpravaCviciacich){
+        this.parentSpravaCviciacich = parentSpravaCviciacich;
     }
    
     public zmenaJazykaPanel() {

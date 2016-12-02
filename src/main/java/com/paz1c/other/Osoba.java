@@ -1,7 +1,5 @@
 package com.paz1c.other;
 
-import java.time.LocalDate;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 
 public abstract class Osoba {
     
@@ -9,6 +7,15 @@ public abstract class Osoba {
     private String meno;
     private String priezvisko;
     private Long idFirma;
+    private ZaznamDochadzky poslednyZaznam;
+
+    public void setPoslednyZaznam(ZaznamDochadzky poslednyZaznam) {
+        this.poslednyZaznam = poslednyZaznam;
+    }
+
+    public ZaznamDochadzky getPoslednyZaznam() {
+        return poslednyZaznam;
+    }
     
     public void setIdOsoba(Long idOsoba) {
         this.idOsoba = idOsoba;

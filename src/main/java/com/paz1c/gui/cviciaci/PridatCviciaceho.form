@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="org.jdesktop.swingx.JXDatePicker" name="jXDatePicker1">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="e2" green="fa" red="ff" type="rgb"/>
+    </Property>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="pridatCviciacehoTextLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="128" max="32767" attributes="0"/>
+                      <Component id="zmenaJazykaPanel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="spatButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="pridatButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="zaciatocnyKreditLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="sumaLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="priezviskoLabel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="menoLabel" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="kreditTextField" max="32767" attributes="0"/>
+                          <Component id="sumaTextField" max="32767" attributes="0"/>
+                          <Component id="priezviskoTextField" max="32767" attributes="0"/>
+                          <Component id="menoTextField" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="pridatCviciacehoTextLabel" max="32767" attributes="0"/>
+                  <Component id="zmenaJazykaPanel" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="menoLabel" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="menoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="priezviskoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="priezviskoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="zaciatocnyKreditLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="kreditTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="sumaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="sumaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="pridatButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spatButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="13" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="menoLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="15" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Meno:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="priezviskoLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="15" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Priezvisko: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="zaciatocnyKreditLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="15" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Za&#x10d;iato&#x10d;n&#xfd; kredit:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="sumaLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="15" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Suma za hodinu:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="menoTextField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="priezviskoTextField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="sumaTextField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="kreditTextField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kreditTextFieldKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="pridatButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Prida&#x165;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pridatButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="spatButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sp&#xe4;&#x165;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="spatButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="pridatCviciacehoTextLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Prida&#x165; cviciaceho"/>
+      </Properties>
+    </Component>
+    <Component class="com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel" name="zmenaJazykaPanel">
+    </Component>
+  </SubComponents>
+</Form>

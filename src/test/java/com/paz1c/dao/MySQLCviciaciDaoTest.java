@@ -1,5 +1,6 @@
 package com.paz1c.dao;
 
+import com.paz1c.constants.Nastavenia;
 import com.paz1c.other.Cviciaci;
 import com.paz1c.other.Firma;
 import java.util.List;
@@ -68,9 +69,9 @@ public class MySQLCviciaciDaoTest {
     
      @Test
     public void vlozCvicaceho() {
-        int pocetPredPridanim = cviciaciDao.getVsetkychCviciacich().size();
+        int pocetPredPridanim = cviciaciDao.getVsetkychCviciacich(testovaciaFirma.getIdFirma()).size();
         boolean result = cviciaciDao.vlozCvicaceho(testovaciCviciaci);
-        int pocetPoPridani = cviciaciDao.getVsetkychCviciacich().size();
+        int pocetPoPridani = cviciaciDao.getVsetkychCviciacich(testovaciaFirma.getIdFirma()).size();
         
         assertTrue(pocetPoPridani-1==pocetPredPridanim && result);
         
@@ -86,9 +87,9 @@ public class MySQLCviciaciDaoTest {
         String priezvisko = testovaciCviciaci.getPriezvisko();
         Cviciaci cviciaci = cviciaciDao.getCviciacich(meno, priezvisko).get(0);
         
-        int pocetPredMazanim = cviciaciDao.getVsetkychCviciacich().size();
+        int pocetPredMazanim = cviciaciDao.getVsetkychCviciacich(testovaciaFirma.getIdFirma()).size();
         boolean result = cviciaciDao.zmazCviciaceho(cviciaci);
-        int pocetPoMazani = cviciaciDao.getVsetkychCviciacich().size();
+        int pocetPoMazani = cviciaciDao.getVsetkychCviciacich(testovaciaFirma.getIdFirma()).size();
         
         assertTrue(pocetPredMazanim-1==pocetPoMazani && result);
     
@@ -96,7 +97,7 @@ public class MySQLCviciaciDaoTest {
 
     @Test
     public void getVsetkychCviciacich() {
-        List<Cviciaci> cviciaci = cviciaciDao.getVsetkychCviciacich();
+        List<Cviciaci> cviciaci = cviciaciDao.getVsetkychCviciacich(testovaciaFirma.getIdFirma());
         assertTrue(cviciaci != null);
     }
 

@@ -169,17 +169,8 @@ public class Prihlasenie extends javax.swing.JPanel {
             if(spravca.checkPassword(new String(hesloPasswordField.getPassword()))){
                 parentJFrame.zapamatajUdaje(spravca);
                 
-                if(Nastavenia.vybranyMod.equals("Zamestnanec")){
-                    java.awt.EventQueue.invokeLater(new Runnable() {
-                        public void run() {
-                            new SpravaZamestnancov().setVisible(true);
-                        }
-                    });
-                }else if (Nastavenia.vybranyMod.equals("Cviciaci")){
-                    //pracuje sa na tom
-                }
+                parentJFrame.spustVybratyMod();
                     
-                parentJFrame.dispose();
             }else{
                 JOptionPane.showMessageDialog(parentJFrame,mapaString.get("zleHesloText"),mapaString.get("zleHesloNadpis"),JOptionPane.ERROR_MESSAGE);
             }

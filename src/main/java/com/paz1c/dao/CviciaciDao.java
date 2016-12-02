@@ -9,7 +9,7 @@ public interface CviciaciDao {
     
     public boolean zmazCviciaceho(Cviciaci mazanyCviciaci);
     
-    public List<Cviciaci> getVsetkychCviciacich();
+    public List<Cviciaci> getVsetkychCviciacich(Long idFirma);
 
     public Cviciaci getCviciaceho(Long id);
     

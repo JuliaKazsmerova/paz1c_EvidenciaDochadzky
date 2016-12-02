@@ -1,6 +1,8 @@
 package com.paz1c.gui.PrihlasenieRegistracia;
 
 import com.paz1c.constants.Nastavenia;
+import com.paz1c.gui.cviciaci.SpravaCviciacich;
+import com.paz1c.gui.zamestnanec.SpravaZamestnancov;
 import com.paz1c.manager.DefaultFirmaManager;
 import com.paz1c.manager.DefaultSpravcaManager;
 import com.paz1c.manager.FirmaManager;
@@ -113,6 +115,25 @@ public class RegistraciaPrihlasenie extends javax.swing.JFrame {
         Nastavenia.nazovFirmy = firma.getNazov();
         Nastavenia.sidloFirmy = firma.getSidlo();
 
+    }
+    
+    public void spustVybratyMod(){
+        if(Nastavenia.vybranyMod.equals("Zamestnanec")){
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new SpravaZamestnancov().setVisible(true);
+                }
+            });
+        }else if (Nastavenia.vybranyMod.equals("Cviciaci")){
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new SpravaCviciacich().setVisible(true);
+                }
+            });
+        }
+        
+        dispose();
+        
     }
     
     @SuppressWarnings("unchecked")

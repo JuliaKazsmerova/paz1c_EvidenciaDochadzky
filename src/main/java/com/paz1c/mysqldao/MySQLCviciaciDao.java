@@ -32,9 +32,9 @@ public class MySQLCviciaciDao implements CviciaciDao{
     }
 
     @Override
-    public List<Cviciaci> getVsetkychCviciacich() {
-        String sql = "SELECT ID_cviciaci,meno,priezvisko,ID_firma,kredit FROM Cviciaci;";
-        return jdbcTemplate.query(sql,new CviciaciRowMapper());    
+    public List<Cviciaci> getVsetkychCviciacich(Long idFirma) {
+        String sql = "SELECT ID_cviciaci,meno,priezvisko,ID_firma,kredit FROM Cviciaci WHERE ID_firma = ?;";
+        return jdbcTemplate.query(sql,new CviciaciRowMapper(),idFirma);    
     }
 
     @Override

@@ -131,21 +131,11 @@ public class Overenie extends javax.swing.JPanel {
         if(kontrolaKodu()){
             Long id_firma = parentJFrame.vlozFirmu();
             parentJFrame.vlozSpravcu(id_firma);
+            parentJFrame.getNovySpravca().setIdOsoba(id_firma);
             parentJFrame.zapamatajUdaje(parentJFrame.getNovySpravca());
-            if(Nastavenia.vybranyMod.equals("Zamestnanec")){
-                java.awt.EventQueue.invokeLater(new Runnable() {
-                    public void run() {
-                        new SpravaZamestnancov().setVisible(true);
-                    }
-                });
-                
-            }else if(Nastavenia.vybranyMod.equals("Cviciaci")){
-                //pracuje sa na tom
-            }
             
-            Nastavenia.idFirma = id_firma;
+            parentJFrame.spustVybratyMod();
             
-            parentJFrame.dispose();
         } else
             JOptionPane.showMessageDialog(parentJFrame,mapaString.get("textUpozornenie"),mapaString.get("nadpisUpozornenie"),JOptionPane.ERROR_MESSAGE);
         

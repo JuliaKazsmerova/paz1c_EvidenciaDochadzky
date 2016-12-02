@@ -2,7 +2,6 @@ package com.paz1c.manager;
 
 import com.paz1c.constants.Nastavenia;
 import com.paz1c.dao.DaoFactory;
-import com.paz1c.other.Osoba;
 import java.util.List;
 import com.paz1c.dao.ZamestnanecDao;
 import com.paz1c.dao.ZaznamDochadzkyDao;
