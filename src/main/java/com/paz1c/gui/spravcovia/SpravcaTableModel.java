@@ -48,7 +48,6 @@ public class SpravcaTableModel extends AbstractTableModel{
     
     @Override
     public String getColumnName(int columnIndex) {
-        System.out.println(Nastavenia.jazyk);
         if(Nastavenia.jazyk.equals("SK"))
             return NAZVY_STLPCOV[columnIndex];
         if(Nastavenia.jazyk.equals("EN"))

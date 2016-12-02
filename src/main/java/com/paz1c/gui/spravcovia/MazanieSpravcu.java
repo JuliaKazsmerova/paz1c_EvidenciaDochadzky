@@ -220,7 +220,6 @@ public class MazanieSpravcu extends javax.swing.JPanel {
                 potvditButton.setVisible(true);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(parentJDialog, mapaString.get("neexistujeIdText"), mapaString.get("neexistujeIdNadpis"), JOptionPane.ERROR_MESSAGE);  
-                    e.printStackTrace();
             }
         }
         

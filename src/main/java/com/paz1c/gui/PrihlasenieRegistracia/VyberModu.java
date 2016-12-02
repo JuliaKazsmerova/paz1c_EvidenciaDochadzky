@@ -178,7 +178,6 @@ public class VyberModu extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(parentJFrame,mapaString.get("upozornenieText"),mapaString.get("upozornenieNadpis"),JOptionPane.ERROR_MESSAGE);
         }
-        System.out.println(Nastavenia.vybranyMod);
     }//GEN-LAST:event_registraciaButtonActionPerformed
 
     private void zamestnanecToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zamestnanecToggleActionPerformed

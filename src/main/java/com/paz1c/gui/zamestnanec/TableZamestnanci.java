@@ -54,15 +54,12 @@ public class TableZamestnanci extends javax.swing.JPanel {
     public void obnovZamestnancov(){
         if(vsetciFilter.isSelected()){
             aktualizovatVsetkychZamestnancov();
-            System.out.println("vsetkych taham");
         }
         if(aktivnyFilter.isSelected()){
             aktualizovatAktivnychZamestnancov();
-            System.out.println("aktivnych taham");
         }
         if(neaktivnyFilter.isSelected()){
             aktualizovatNeaktivnychZamestnancov();
-            System.out.println("ne aktivnych taham");
         }
     }
     
@@ -303,6 +300,13 @@ public class TableZamestnanci extends javax.swing.JPanel {
                 new RegistraciaPrihlasenie().setVisible(true);
             }
         });
+        Nastavenia.idFirma = null;
+        Nastavenia.idSpravca = null;
+        Nastavenia.menoSpravcu = null;
+        Nastavenia.priezviskoSpravcu = null;
+        Nastavenia.sidloFirmy = null;
+        Nastavenia.vybranyMod = null;
+        Nastavenia.nazovFirmy = null;
     }//GEN-LAST:event_odhlasitSaButtonActionPerformed
 
     private void obnovButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obnovButtonActionPerformed

@@ -167,7 +167,6 @@ public class Prihlasenie extends javax.swing.JPanel {
         Spravca spravca = parentJFrame.getSpravcuEmail(emailTextField.getText());
         if(spravca != null){
             if(spravca.checkPassword(new String(hesloPasswordField.getPassword()))){
-                System.out.println("ta zapamatam si udaje");
                 parentJFrame.zapamatajUdaje(spravca);
                 
                 if(Nastavenia.vybranyMod.equals("Zamestnanec")){

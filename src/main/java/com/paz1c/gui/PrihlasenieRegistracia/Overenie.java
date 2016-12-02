@@ -1,3 +1,4 @@
+
 package com.paz1c.gui.PrihlasenieRegistracia;
 
 import com.paz1c.constants.Nastavenia;
@@ -137,7 +138,6 @@ public class Overenie extends javax.swing.JPanel {
                         new SpravaZamestnancov().setVisible(true);
                     }
                 });
-                System.out.println("otvaram sprava zamestnancov");
                 
             }else if(Nastavenia.vybranyMod.equals("Cviciaci")){
                 //pracuje sa na tom
