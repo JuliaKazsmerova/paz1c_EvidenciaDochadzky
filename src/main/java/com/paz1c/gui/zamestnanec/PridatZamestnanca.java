@@ -65,10 +65,10 @@ public class PridatZamestnanca extends javax.swing.JPanel {
                     mapaString.put("funkcia", "Assignment: ");
                     mapaString.put("pridat", "Add");
                     mapaString.put("spat", "Back");
-                    mapaString.put("upozornenieText", "");
-                    mapaString.put("upozornenieNadpis", "");
-                    mapaString.put("pridanyText", "");
-                    mapaString.put("pridanyNadpis", "");
+                    mapaString.put("upozornenieText", "You need to enter all information!");
+                    mapaString.put("upozornenieNadpis", "Warning");
+                    mapaString.put("pridanyText", "Employee was added.");
+                    mapaString.put("pridanyNadpis", "OK");
                     break;
                 
             }

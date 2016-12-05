@@ -55,18 +55,17 @@ public class PridatCviciaceho extends javax.swing.JPanel {
                     mapaString.put("pridanyNadpis", "OK");
                     break;
                 case "EN" :
-                    mapaString.put("uvod", "Add employee");
+                    mapaString.put("uvod", "Add member");
                     mapaString.put("meno", "Name: ");
                     mapaString.put("priezvisko", "Surname: ");
-                    mapaString.put("datumNastupu", "Date of start: ");
-                    mapaString.put("hodinyZaDen", "Hours per day: ");
-                    mapaString.put("funkcia", "Assignment: ");
+                    mapaString.put("zaciatocnyKredit", "Initial credit: ");
+                    mapaString.put("suma", "Price per day: ");
                     mapaString.put("pridat", "Add");
                     mapaString.put("spat", "Back");
-                    mapaString.put("upozornenieText", "");
-                    mapaString.put("upozornenieNadpis", "");
-                    mapaString.put("pridanyText", "");
-                    mapaString.put("pridanyNadpis", "");
+                    mapaString.put("upozornenieText", "You need to enter all information!");
+                    mapaString.put("upozornenieNadpis", "Warning");
+                    mapaString.put("pridanyText", "Member was added.");
+                    mapaString.put("pridanyNadpis", "OK");
                     break;
                 
             }

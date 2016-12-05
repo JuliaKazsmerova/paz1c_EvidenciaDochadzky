@@ -53,19 +53,19 @@ public class ZmazatCviciaceho extends javax.swing.JPanel {
                     mapaString.put("neoznacenyUpozornenieNadpis", "Upozornenie");
                     break;
                 case "EN" :
-                    mapaString.put("uvod1", "Delete employee");
-                    mapaString.put("uvod2", "Enter employee's ID: ");
-                    mapaString.put("otazka", "Are you sure you want to delete this emoloyee? ");
+                    mapaString.put("uvod1", "Delete member");
+                    mapaString.put("uvod2", "Enter member ID: ");
+                    mapaString.put("otazka", "Are you sure you want to delete this member? ");
                     mapaString.put("zmazat", "Delete");
                     mapaString.put("spat", "Back");
                     mapaString.put("potvrdit", "Confirm");
-                    mapaString.put("idPrazdneText", "Enter employee ID!");
+                    mapaString.put("idPrazdneText", "Enter member ID!");
                     mapaString.put("idPrazdneNadpis", "Warning");
-                    mapaString.put("idNeexistujuceText", "Employee ID does not exist!");
+                    mapaString.put("idNeexistujuceText", "Member ID does not exist!");
                     mapaString.put("idNeexistujuceNadpis", "Warning");
-                    mapaString.put("zmazanyUpozornenieText", "Emoloyee was deleted.");
+                    mapaString.put("zmazanyUpozornenieText", "Member was deleted.");
                     mapaString.put("zmazanyUpozornenieNadpis", "OK");
-                    mapaString.put("neoznacenyUpozornenieText", "Choose an employee!");
+                    mapaString.put("neoznacenyUpozornenieText", "Choose a member!");
                     mapaString.put("neoznacenyUpozornenieNadpis", "Warning");
                     break;
                 

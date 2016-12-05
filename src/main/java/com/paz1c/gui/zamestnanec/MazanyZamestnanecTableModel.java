@@ -9,6 +9,7 @@ public class MazanyZamestnanecTableModel extends AbstractTableModel{
     
     private ZamestnanecManager zamestnanecManager = new DefaultZamestnanecManager();
     private static final String[] NAZVY_STLPCOV = { "Meno", "Priezvisko", "Zameranie", "Označenie" };
+    private static final String[] COLUMN_NAME = { "Name", "Surname", "Assignment", "Mark" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
     private Long id;
     private boolean hodnota;

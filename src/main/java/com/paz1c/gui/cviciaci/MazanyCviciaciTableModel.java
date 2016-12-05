@@ -9,6 +9,7 @@ public class MazanyCviciaciTableModel extends AbstractTableModel{
     
     private CviciaciManager cviciaciManager = new DefaultCviciaciManager();
     private static final String[] NAZVY_STLPCOV = { "Meno", "Priezvisko", "Kredit", "Označenie" };
+    private static final String[] COLUMN_NAME = { "Name", "Surname", "Credit", "Mark" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
     private Long id;
     private boolean hodnota;

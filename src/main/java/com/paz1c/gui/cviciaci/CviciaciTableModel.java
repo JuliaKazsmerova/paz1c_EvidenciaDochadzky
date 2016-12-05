@@ -18,7 +18,7 @@ public class CviciaciTableModel extends AbstractTableModel{
     private static final String[] NAZVY_STLPCOV = { "ID cvičiaci", "Meno", "Priezvisko", "Kredit",
                                                     "Cvici", "Posledny prichod", "Posledny odchod" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
-    private static final String[] COLUMN_NAME = { "", "Name", "Surname", "Hours per day", "Assignment","Is working", "Last arrival", "Last leave" };
+    private static final String[] COLUMN_NAME = { "Member ID", "Name", "Surname", "Hours per day", "Assignment","Is working", "Last arrival", "Last leave" };
     
     
     @Override

@@ -53,8 +53,8 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
                     break;
                 case "EN" :
                     mapaString.put("uvod1", "Delete employee");
-                    mapaString.put("uvod2", "Enter employee's ID: ");
-                    mapaString.put("otazka", "Are you sure you want to delete this emoloyee? ");
+                    mapaString.put("uvod2", "Enter employee´s ID: ");
+                    mapaString.put("otazka", "Are you sure you want to delete this employee? ");
                     mapaString.put("zmazat", "Delete");
                     mapaString.put("spat", "Back");
                     mapaString.put("potvrdit", "Confirm");
@@ -62,7 +62,7 @@ public class ZmazatZamestnanca extends javax.swing.JPanel {
                     mapaString.put("idPrazdneNadpis", "Warning");
                     mapaString.put("idNeexistujuceText", "Employee ID does not exist!");
                     mapaString.put("idNeexistujuceNadpis", "Warning");
-                    mapaString.put("zmazanyUpozornenieText", "Emoloyee was deleted.");
+                    mapaString.put("zmazanyUpozornenieText", "Employee was deleted.");
                     mapaString.put("zmazanyUpozornenieNadpis", "OK");
                     mapaString.put("neoznacenyUpozornenieText", "Choose an employee!");
                     mapaString.put("neoznacenyUpozornenieNadpis", "Warning");

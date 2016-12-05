@@ -81,12 +81,12 @@ public class TableCviciaci extends javax.swing.JPanel {
                     mapaString.put("vsetci", "All");
                     mapaString.put("aktivny", "Active");
                     mapaString.put("neaktivny", "Not active");
-                    mapaString.put("pridatCviciaceho", "Add employee");
-                    mapaString.put("zmazatCviciaceho", "Delete employee");
+                    mapaString.put("pridatCviciaceho", "Add member");
+                    mapaString.put("zmazatCviciaceho", "Delete member");
                     mapaString.put("odhlasitSa", "Sign out");
                     mapaString.put("spravcovia", "Administrators");
-                    mapaString.put("prihlasenaFirma", "Logged company: ");
-                    mapaString.put("sidloFirmy", " company address: ");
+                    mapaString.put("prihlasenaFirma", "Logged sport facility: ");
+                    mapaString.put("sidloFirmy", " facility address: ");
                     mapaString.put("prihlasenySpravca", "Logged administrator: ");
                     break;
                 
