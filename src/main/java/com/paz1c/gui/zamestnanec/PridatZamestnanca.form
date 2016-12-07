@@ -39,7 +39,8 @@
                       <Component id="pridatButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="hodinovaMzdaLabel" alignment="0" max="32767" attributes="0"/>
                           <Component id="datumNastupuLabel" alignment="0" max="32767" attributes="0"/>
                           <Component id="hodinyZaDenLabel" alignment="0" max="32767" attributes="0"/>
                           <Component id="priezviskoLabel" alignment="0" max="32767" attributes="0"/>
@@ -53,6 +54,7 @@
                           <Component id="priezviskoTextField" max="32767" attributes="0"/>
                           <Component id="menoTextField" max="32767" attributes="0"/>
                           <Component id="datumNastupuJXDatePicker" alignment="0" max="32767" attributes="0"/>
+                          <Component id="hodinovaMzdaTextField" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -93,12 +95,17 @@
                   <Component id="funkciaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="funkciaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="hodinovaMzdaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hodinovaMzdaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="pridatButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="spatButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -151,9 +158,6 @@
     <Component class="javax.swing.JTextField" name="hodinyZaDenTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="funkciaTextField">
-      <Events>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="funkciaTextFieldKeyReleased"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pridatButton">
       <Properties>
@@ -187,6 +191,19 @@
       </Properties>
     </Component>
     <Component class="com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel" name="zmenaJazykaPanel">
+    </Component>
+    <Component class="javax.swing.JLabel" name="hodinovaMzdaLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="15" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="hodinova mzda:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="hodinovaMzdaTextField">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hodinovaMzdaTextFieldKeyReleased"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -17,6 +17,7 @@ public class ZamestnanecRowMapper implements RowMapper<Zamestnanec>{
         zamestnanec.setPocetHodinNaDen(rs.getInt("pocet_hodin_na_den"));
         zamestnanec.setDatumNastupu(rs.getDate("datum_nastupu"));
         zamestnanec.setZameranie(rs.getString("funkcia"));
+        zamestnanec.setHodMzda(rs.getDouble("hod_mzda"));
         
         return zamestnanec;
     }

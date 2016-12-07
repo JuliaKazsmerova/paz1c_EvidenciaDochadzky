@@ -11,6 +11,8 @@ public class Zamestnanec extends Osoba{
     /**pocet hodin ktore by mal kazdy den odrobit*/
     private int pocetHodinNaDen;
     
+    private double hodMzda;
+    
     /**toString vracia retazec "meno,priezvisko,id_firma,pocetHodinNaDen,datumNastupu,zameranie"*/
     @Override
     public String toString() {
@@ -39,6 +41,14 @@ public class Zamestnanec extends Osoba{
 
     public void setPocetHodinNaDen(int pocetHodinNaDen) {
         this.pocetHodinNaDen = pocetHodinNaDen;
+    }
+
+    public void setHodMzda(double hodMzda) {
+        this.hodMzda = hodMzda;
+    }
+
+    public double getHodMzda() {
+        return hodMzda;
     }
    
     

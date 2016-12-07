@@ -8,17 +8,18 @@ import com.paz1c.manager.ZaznamDochadzkyManager;
 import com.paz1c.other.Zamestnanec;
 import com.paz1c.other.ZaznamDochadzky;
 import java.sql.Timestamp;
+import java.util.concurrent.TimeUnit;
 import javax.swing.table.AbstractTableModel;
 
 
 public class ZamestnanecTableModel extends AbstractTableModel{
 
-    private ZamestnanecManager zamestnanecManager = new DefaultZamestnanecManager();
-    private ZaznamDochadzkyManager zaznamDochzdzkyManager = new DefaultZaznamDochadzkyManager();
+    private final ZamestnanecManager zamestnanecManager = new DefaultZamestnanecManager();
     private static final String[] NAZVY_STLPCOV = { "ID zamestnanca", "Meno", "Priezvisko", "Pracovna doba", "Zameranie",
-        "Je v praci", "Posledny prichod", "Posledny odchod" };
+        "Hodinová mzda", "Je v praci", "Posledny prichod", "Posledny odchod","Odrobené hodiny","Zarobená suma" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
-    private static final String[] COLUMN_NAME = { "Employee ID", "Name", "Surname", "Hours per day", "Assignment","Is working", "Last arrival", "Last leave" };
+    private static final String[] COLUMN_NAME = { "Employee ID", "Name", "Surname", "Hours per day", "Assignment",
+        "Hourly pay","Is working", "Last arrival", "Last leave","Hours worked","" };
     
     
     @Override
@@ -32,11 +33,7 @@ public class ZamestnanecTableModel extends AbstractTableModel{
     }
 
     boolean stav(Timestamp prichod,Timestamp odchod){
-        if(prichod==null)
-            return false;
-        if(odchod==null)
-            return true;
-        return false;
+        return prichod!=null && odchod == null;
     }
     
     @Override
@@ -56,21 +53,44 @@ public class ZamestnanecTableModel extends AbstractTableModel{
             case 4:
                 return zamestnanec.getZameranie();
             case 5:
-                return stav(zaznam.getPrichod(),zaznam.getOdchod());
+                return zamestnanec.getHodMzda();
             case 6:
-                return zaznam.getPrichod();
+                return stav(zaznam.getPrichod(),zaznam.getOdchod());
             case 7:
+                return zaznam.getPrichod();
+            case 8:
                 return zaznam.getOdchod();
+            case 9:
+                return aktualneOdrobeneHodiny(zaznam);
+            case 10:
+                return zamestnanec.getHodMzda()*aktualneOdrobeneHodiny(zaznam)+" \u20AC";
             default:
                 return "???";
         }
     }
     
+    int aktualneOdrobeneHodiny(ZaznamDochadzky zaznam){
+        if(stav(zaznam.getPrichod(), zaznam.getOdchod())){
+            long rozdiel = System.currentTimeMillis() - zaznam.getPrichod().getTime();
+            return (int)TimeUnit.HOURS.convert(rozdiel, TimeUnit.MILLISECONDS);
+        }else   
+            return zaznam.getOdrobeneHodiny();
+        
+    }
+    
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        if (columnIndex == 5) {
-            return Boolean.class;
+        switch (columnIndex) {
+            case 3:
+                return Integer.class;
+            case 5:
+                return Double.class;
+            case 6:
+                return Boolean.class;
+            default:
+                break;
         }
+        
         
         return super.getColumnClass(columnIndex);
     }
@@ -86,12 +106,10 @@ public class ZamestnanecTableModel extends AbstractTableModel{
     
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex){
-        if(columnIndex >0 && columnIndex < 5)
-            return true;
-        else
-            return false;
+        return columnIndex > 0 && columnIndex < 6;
     }
     
+    @Override
     public void setValueAt(Object value, int rowIndex, int columnIndex) {
         Zamestnanec upravovany = zamestnanecManager.getNacitanychZamestnancov(rowIndex);
         switch (columnIndex) {
@@ -102,11 +120,14 @@ public class ZamestnanecTableModel extends AbstractTableModel{
                 upravovany.setPriezvisko((String)value);
                 break;
             case 3:
-                upravovany.setPocetHodinNaDen(Integer.parseInt((String)value));
+                upravovany.setPocetHodinNaDen((Integer)value);
                 break;
             case 4:
                 upravovany.setZameranie((String)value);
                 break;
+            case 5:
+                upravovany.setHodMzda((Double)value);
+            break;
            
         }
         zamestnanecManager.upravZamestnanca(upravovany);

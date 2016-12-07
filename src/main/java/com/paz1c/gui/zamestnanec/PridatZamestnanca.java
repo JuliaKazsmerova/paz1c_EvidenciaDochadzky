@@ -13,8 +13,6 @@ public class PridatZamestnanca extends javax.swing.JPanel {
     private SpravaZamestnancov parentJFrame;  
     private Map<String,String> mapaString = new HashMap<>();
    
-    
-
     public PridatZamestnanca() {
         initComponents();
         nastavJazyk();
@@ -34,12 +32,13 @@ public class PridatZamestnanca extends javax.swing.JPanel {
         datumNastupuLabel.setText(mapaString.get("datumNastupu"));
         hodinyZaDenLabel.setText(mapaString.get("hodinyZaDen"));
         funkciaLabel.setText(mapaString.get("funkcia"));
+        hodinovaMzdaLabel.setText(mapaString.get("hodinovaMzda"));
         pridatButton.setText(mapaString.get("pridat"));
         spatButton.setText(mapaString.get("spat"));
         
     }
     
-     void initTexts(String jazyk){
+    void initTexts(String jazyk){
         Map<String,String> mapaString = new HashMap<>();
             switch(jazyk) {
                 case "SK" :
@@ -49,6 +48,7 @@ public class PridatZamestnanca extends javax.swing.JPanel {
                     mapaString.put("datumNastupu", "Dátum nástupu:");
                     mapaString.put("hodinyZaDen", "Hodiny za deň:");
                     mapaString.put("funkcia", "Funkcia:");
+                    mapaString.put("hodinovaMzda", "Hodinová mzda:");
                     mapaString.put("pridat", "Pridať");
                     mapaString.put("spat", "Späť");
                     mapaString.put("upozornenieText", "Všetky údaje musia byť zadané!");
@@ -63,6 +63,7 @@ public class PridatZamestnanca extends javax.swing.JPanel {
                     mapaString.put("datumNastupu", "Date of start: ");
                     mapaString.put("hodinyZaDen", "Hours per day: ");
                     mapaString.put("funkcia", "Assignment: ");
+                    mapaString.put("hodinovaMzda", "Hourly pay:");
                     mapaString.put("pridat", "Add");
                     mapaString.put("spat", "Back");
                     mapaString.put("upozornenieText", "You need to enter all information!");
@@ -74,7 +75,6 @@ public class PridatZamestnanca extends javax.swing.JPanel {
             }
             this.mapaString = mapaString;
     }
-   
     
     public boolean upozornit(){
        
@@ -90,18 +90,31 @@ public class PridatZamestnanca extends javax.swing.JPanel {
         if(hodinyZaDenTextField.getText().equals(""))
              return true;
         
+        if(funkciaTextField.getText().equals(""))
+             return true;
+        
+        if(hodinovaMzdaTextField.getText().equals(""))
+             return true;
+        
         try{
             Integer.parseInt(hodinyZaDenTextField.getText());
+            Double.parseDouble(hodinovaMzdaTextField.getText());
         }catch(NumberFormatException e){
             return true;
         }
         
-        if(funkciaTextField.getText().equals(""))
-             return true;
-        
         return false;
     }
 
+    void vynulujHodnoty(){
+        menoTextField.setText("");
+        priezviskoTextField.setText("");
+        datumNastupuJXDatePicker.setDate(null);
+        hodinyZaDenTextField.setText("");
+        funkciaTextField.setText("");
+        hodinovaMzdaTextField.setText("");
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -121,6 +134,8 @@ public class PridatZamestnanca extends javax.swing.JPanel {
         pridatZamestnancaTextLabel = new javax.swing.JLabel();
         datumNastupuJXDatePicker = new org.jdesktop.swingx.JXDatePicker();
         zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
+        hodinovaMzdaLabel = new javax.swing.JLabel();
+        hodinovaMzdaTextField = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 250, 226));
 
@@ -138,12 +153,6 @@ public class PridatZamestnanca extends javax.swing.JPanel {
 
         funkciaLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         funkciaLabel.setText("Funkcia:");
-
-        funkciaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                funkciaTextFieldKeyReleased(evt);
-            }
-        });
 
         pridatButton.setText("Pridať");
         pridatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +173,15 @@ public class PridatZamestnanca extends javax.swing.JPanel {
 
         datumNastupuJXDatePicker.setTimeZone(java.util.TimeZone.getTimeZone("Europe/Bratislava"));
 
+        hodinovaMzdaLabel.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        hodinovaMzdaLabel.setText("hodinova mzda:");
+
+        hodinovaMzdaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                hodinovaMzdaTextFieldKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,19 +198,21 @@ public class PridatZamestnanca extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(pridatButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(datumNastupuLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(hodinyZaDenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(priezviskoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(menoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(funkciaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(hodinovaMzdaLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(datumNastupuLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hodinyZaDenLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(priezviskoLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(menoLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(funkciaLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(funkciaTextField)
                             .addComponent(hodinyZaDenTextField)
                             .addComponent(priezviskoTextField)
                             .addComponent(menoTextField)
-                            .addComponent(datumNastupuJXDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(datumNastupuJXDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hodinovaMzdaTextField))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -222,11 +242,15 @@ public class PridatZamestnanca extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(funkciaLabel)
                     .addComponent(funkciaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hodinovaMzdaLabel)
+                    .addComponent(hodinovaMzdaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pridatButton)
                     .addComponent(spatButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -240,34 +264,26 @@ public class PridatZamestnanca extends javax.swing.JPanel {
             zamestnanec.setDatumNastupu(new Date(datumNastupuJXDatePicker.getDate().getTime()));
             zamestnanec.setPocetHodinNaDen(Integer.parseInt(hodinyZaDenTextField.getText()));
             zamestnanec.setZameranie(funkciaTextField.getText());
+            zamestnanec.setHodMzda(Double.parseDouble(hodinovaMzdaTextField.getText()));
             zamestnanec.setIdFirma(Nastavenia.idFirma);
             parentJFrame.pridatZamestnanca(zamestnanec);
             JOptionPane.showMessageDialog(parentJFrame, mapaString.get("pridanyText"), mapaString.get("pridanyNadpis"), JOptionPane.INFORMATION_MESSAGE);
             
-            menoTextField.setText("");
-            priezviskoTextField.setText("");
-            datumNastupuJXDatePicker.setDate(null);
-            hodinyZaDenTextField.setText("");
-            funkciaTextField.setText("");
-            
+            vynulujHodnoty();
             parentJFrame.aktualizovatZamestnancov();
         }
     }//GEN-LAST:event_pridatButtonActionPerformed
 
     private void spatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spatButtonActionPerformed
         parentJFrame.otvorOkno("tableZamestnanci");
-        menoTextField.setText("");
-        priezviskoTextField.setText("");
-        datumNastupuJXDatePicker.setDate(null);
-        hodinyZaDenTextField.setText("");
-        funkciaTextField.setText("");
+        vynulujHodnoty();
     }//GEN-LAST:event_spatButtonActionPerformed
 
-    private void funkciaTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_funkciaTextFieldKeyReleased
+    private void hodinovaMzdaTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hodinovaMzdaTextFieldKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             pridatButtonActionPerformed(null);
         }
-    }//GEN-LAST:event_funkciaTextFieldKeyReleased
+    }//GEN-LAST:event_hodinovaMzdaTextFieldKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -275,6 +291,8 @@ public class PridatZamestnanca extends javax.swing.JPanel {
     private javax.swing.JLabel datumNastupuLabel;
     private javax.swing.JLabel funkciaLabel;
     private javax.swing.JTextField funkciaTextField;
+    private javax.swing.JLabel hodinovaMzdaLabel;
+    private javax.swing.JTextField hodinovaMzdaTextField;
     private javax.swing.JLabel hodinyZaDenLabel;
     private javax.swing.JTextField hodinyZaDenTextField;
     private org.jdesktop.swingx.JXDatePicker jXDatePicker1;

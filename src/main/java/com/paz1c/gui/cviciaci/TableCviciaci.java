@@ -17,6 +17,7 @@ public class TableCviciaci extends javax.swing.JPanel {
         initComponents();
         aktualizovatVsetkychCviciacich();
         nastavJazyk();
+        vsetciFilter.setSelected(true);
         for (int i = 0; i < zamestnanciTabulka.getColumnModel().getColumnCount(); i++) {
             zamestnanciTabulka.getColumnModel().getColumn(i).setMinWidth(50);
             zamestnanciTabulka.getColumnModel().getColumn(i).setPreferredWidth(150);

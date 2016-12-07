@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS Zamestnanec
     pocet_hodin_na_den INT NOT NULL,
     datum_nastupu DATETIME,
     funkcia VARCHAR(20),
+    hod_mzda DECIMAL(3,2),
     ID_firma INT NOT NULL,
     FOREIGN KEY (ID_firma) REFERENCES Firma(ID_firma),
     PRIMARY KEY (ID_zamestnanec)

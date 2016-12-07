@@ -33,7 +33,7 @@ public class SpravaCviciacich extends javax.swing.JFrame {
             }
         });
 
-        timer.setDelay(3000); // delay for 3 seconds
+        timer.setDelay(30000); // delay for 3 seconds
         timer.start();
     }
     

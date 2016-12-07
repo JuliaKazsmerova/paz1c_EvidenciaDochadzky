@@ -16,9 +16,9 @@ public class MySQLZamestnanecDao implements ZamestnanecDao{
     
     @Override
     public boolean vlozZamestnanca(Zamestnanec pridavanyZamestnanec) {
-        String sql = "INSERT INTO Zamestnanec (meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,funkcia) VALUES (?,?,?,?,?,?);";
+        String sql = "INSERT INTO Zamestnanec (meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,funkcia,hod_mzda) VALUES (?,?,?,?,?,?,?);";
         return 1 == jdbcTemplate.update(sql,pridavanyZamestnanec.getMeno(),pridavanyZamestnanec.getPriezvisko(),pridavanyZamestnanec.getIdFirma(),
-                pridavanyZamestnanec.getPocetHodinNaDen(),pridavanyZamestnanec.getDatumNastupu(),pridavanyZamestnanec.getZameranie());
+                pridavanyZamestnanec.getPocetHodinNaDen(),pridavanyZamestnanec.getDatumNastupu(),pridavanyZamestnanec.getZameranie(),pridavanyZamestnanec.getHodMzda());
     }
 
     @Override
@@ -30,30 +30,30 @@ public class MySQLZamestnanecDao implements ZamestnanecDao{
     @Override
     public List<Zamestnanec> getVsetkychZamestnancov(Long idFirmy) {
         String sql = "SELECT ID_Zamestnanec,meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,funkcia"
-                + ",pocet_hodin_na_den,datum_nastupu,funkcia FROM Zamestnanec WHERE ID_firma = ?;";   
+                + ",pocet_hodin_na_den,datum_nastupu,funkcia,hod_mzda FROM Zamestnanec WHERE ID_firma = ?;";   
         return jdbcTemplate.query(sql,new ZamestnanecRowMapper(),idFirmy);
     }
 
     @Override
     public List<Zamestnanec> getZamestnanci(String meno,String priezvisko) {
        String sql = "SELECT ID_Zamestnanec,meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,"
-                + "funkcia,pocet_hodin_na_den,datum_nastupu FROM Zamestnanec WHERE meno = ? AND priezvisko = ?;";   
+                + "funkcia,pocet_hodin_na_den,datum_nastupu,hod_mzda FROM Zamestnanec WHERE meno = ? AND priezvisko = ?;";   
         return jdbcTemplate.query(sql,new ZamestnanecRowMapper(),meno,priezvisko);
     }
     
     @Override
     public Zamestnanec getZamestnanec(Long id) {
         String sql = "SELECT ID_Zamestnanec,meno,priezvisko,ID_firma,pocet_hodin_na_den,datum_nastupu,"
-                + "funkcia ,pocet_hodin_na_den,datum_nastupu FROM Zamestnanec WHERE ID_Zamestnanec = ?;";   
+                + "funkcia,pocet_hodin_na_den,datum_nastupu,hod_mzda FROM Zamestnanec WHERE ID_Zamestnanec = ?;";   
         return jdbcTemplate.queryForObject(sql,new ZamestnanecRowMapper(),id);
     }
     
     
     @Override
     public boolean upravZamestnanca(Zamestnanec upravovanyZamestnanec) {
-        String sql = "UPDATE Zamestnanec SET meno = ?,priezvisko = ?,pocet_hodin_na_den = ?,datum_nastupu = ?,funkcia = ? WHERE ID_zamestnanec = ?";
+        String sql = "UPDATE Zamestnanec SET meno = ?,priezvisko = ?,pocet_hodin_na_den = ?,datum_nastupu = ?,funkcia = ?,hod_mzda = ? WHERE ID_zamestnanec = ?";
         return 1 == jdbcTemplate.update(sql,upravovanyZamestnanec.getMeno(),upravovanyZamestnanec.getPriezvisko(),upravovanyZamestnanec.getPocetHodinNaDen(),
-                upravovanyZamestnanec.getDatumNastupu(),upravovanyZamestnanec.getZameranie(),upravovanyZamestnanec.getIdOsoba());
+                upravovanyZamestnanec.getDatumNastupu(),upravovanyZamestnanec.getZameranie(),upravovanyZamestnanec.getHodMzda(),upravovanyZamestnanec.getIdOsoba());
     }
 
     

@@ -32,7 +32,7 @@ public class SpravaZamestnancov extends javax.swing.JFrame {
             }
         });
 
-        timer.setDelay(3000); // delay for 30 seconds
+        timer.setDelay(30000); // delay for 30 seconds
         timer.start();
     }
     
