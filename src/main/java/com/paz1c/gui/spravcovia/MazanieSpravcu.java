@@ -230,7 +230,7 @@ public class MazanieSpravcu extends javax.swing.JPanel {
         
         if(Nastavenia.idSpravca.equals(Long.parseLong(IDSpravcuTextField.getText()))){
             JOptionPane.showMessageDialog(parentJDialog, mapaString.get("sebaUpozornenieText"), mapaString.get("sebaUpozornenieNadpis"), JOptionPane.ERROR_MESSAGE);
-        return;
+            return;
         }
         
         

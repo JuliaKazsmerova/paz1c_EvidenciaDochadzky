@@ -223,6 +223,20 @@ public class Registracia extends javax.swing.JPanel {
         return upozornenie.equals("");
     }
     
+    
+    void resetVypisLabels() {
+        
+        hesloPasswordFieldKeyReleased(null);
+        nazovFirmyTextFieldKeyReleased(null);
+        menoTextFieldKeyReleased(null);
+        priezviskoTextFieldKeyReleased(null);
+        emailTextFieldKeyReleased(null);
+        zopakovatHesloPasswordFieldKeyReleased(null);
+        sidloTextFieldKeyReleased(null);
+        icoTextFieldKeyReleased(null);
+        dicTextFieldKeyReleased(null);
+    }
+    
     public void nastavJazyk(){
         initTexts(Nastavenia.jazyk);
         
@@ -240,16 +254,7 @@ public class Registracia extends javax.swing.JPanel {
         icoLabel.setText(mapaString.get("ico"));
         dicLabel.setText(mapaString.get("dic"));
         
-        
-        hesloPasswordFieldKeyReleased(null);
-        nazovFirmyTextFieldKeyReleased(null);
-        menoTextFieldKeyReleased(null);
-        priezviskoTextFieldKeyReleased(null);
-        emailTextFieldKeyReleased(null);
-        zopakovatHesloPasswordFieldKeyReleased(null);
-        sidloTextFieldKeyReleased(null);
-        icoTextFieldKeyReleased(null);
-        dicTextFieldKeyReleased(null);
+        resetVypisLabels();
     }
     
     private Firma novaFirma(){
@@ -743,4 +748,5 @@ public class Registracia extends javax.swing.JPanel {
     private javax.swing.JPasswordField zopakovatHesloPasswordField;
     private javax.swing.JLabel zopakovatHesloVypisLabel;
     // End of variables declaration//GEN-END:variables
+
 }

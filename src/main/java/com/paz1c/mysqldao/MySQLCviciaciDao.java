@@ -19,10 +19,10 @@ public class MySQLCviciaciDao implements CviciaciDao{
 
     @Override
     public boolean vlozCvicaceho(Cviciaci pridavanyCviciaci) {
-        String sql = "INSERT INTO Cviciaci (meno,priezvisko,ID_firma,kredit) "
-                + "VALUES (?,?,?,?);";
+        String sql = "INSERT INTO Cviciaci (meno,priezvisko,ID_firma,kredit,suma_za_hodinu) "
+                + "VALUES (?,?,?,?,?);";
         return 1 == jdbcTemplate.update(sql,pridavanyCviciaci.getMeno(),pridavanyCviciaci.getPriezvisko(),
-                    pridavanyCviciaci.getIdFirma(),pridavanyCviciaci.getKredit());    
+                    pridavanyCviciaci.getIdFirma(),pridavanyCviciaci.getKredit(),pridavanyCviciaci.getSumaZaHodinu());    
     }
 
     @Override
@@ -33,13 +33,13 @@ public class MySQLCviciaciDao implements CviciaciDao{
 
     @Override
     public List<Cviciaci> getVsetkychCviciacich(Long idFirma) {
-        String sql = "SELECT ID_cviciaci,meno,priezvisko,ID_firma,kredit FROM Cviciaci WHERE ID_firma = ?;";
+        String sql = "SELECT ID_cviciaci,meno,priezvisko,ID_firma,kredit,suma_za_hodinu FROM Cviciaci WHERE ID_firma = ?;";
         return jdbcTemplate.query(sql,new CviciaciRowMapper(),idFirma);    
     }
 
     @Override
     public Cviciaci getCviciaceho(Long id) {
-        String sql = "SELECT ID_cviciaci,meno,priezvisko,ID_firma,kredit"
+        String sql = "SELECT ID_cviciaci,meno,priezvisko,ID_firma,kredit,suma_za_hodinu"
                 + " FROM Cviciaci WHERE ID_cviciaci = ?;";   
         return jdbcTemplate.queryForObject(sql,new CviciaciRowMapper(),id);
         
@@ -48,7 +48,7 @@ public class MySQLCviciaciDao implements CviciaciDao{
     @Override
     public List<Cviciaci> getCviciacich(String meno,String priezvisko) {
          String sql = "SELECT ID_cviciaci,meno,priezvisko"
-                + ",ID_firma,kredit"
+                + ",ID_firma,kredit,suma_za_hodinu"
                 + " FROM Cviciaci WHERE meno = ? AND priezvisko = ?;";   
         return jdbcTemplate.query(sql,new CviciaciRowMapper(),meno,priezvisko);
         
@@ -56,9 +56,9 @@ public class MySQLCviciaciDao implements CviciaciDao{
 
     @Override
     public boolean upravCviciaceho(Cviciaci upravovanaOsoba) {
-        String sql = "UPDATE Cviciaci SET meno = ?,priezvisko = ?,kredit = ? WHERE ID_cviciaci = ?";
+        String sql = "UPDATE Cviciaci SET meno = ?,priezvisko = ?,kredit = ?,suma_za_hodinu = ? WHERE ID_cviciaci = ?";
         return 1 == jdbcTemplate.update(sql,upravovanaOsoba.getMeno(),upravovanaOsoba.getPriezvisko(),
-                upravovanaOsoba.getKredit(),upravovanaOsoba.getIdOsoba());
+                upravovanaOsoba.getKredit(),upravovanaOsoba.getSumaZaHodinu(),upravovanaOsoba.getIdOsoba());
     }
     
 }

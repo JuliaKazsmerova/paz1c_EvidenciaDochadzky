@@ -15,6 +15,7 @@ public class CviciaciRowMapper implements RowMapper<Cviciaci>{
         cviciaci.setPriezvisko(rs.getString("priezvisko"));
         cviciaci.setKredit(rs.getDouble("kredit"));
         cviciaci.setIdFirma(rs.getLong("ID_firma"));
+        cviciaci.setSumaZaHodinu(rs.getDouble("suma_za_hodinu"));
         return cviciaci;
     }
     

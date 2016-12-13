@@ -20,13 +20,14 @@ public class Terminal extends javax.swing.JFrame {
     private Terminal parentJForm;
     private ZaznamDochadzkyManager zaznamDochadzkyManager = new DefaultZaznamDochadzkyManager();
     private Map<String,String> mapaString = new HashMap<>();
-
+    private String mod = "Zamestnanec";
     
     public Terminal() {
         initComponents();
         getContentPane().setBackground(new Color(255,250,226));
         zmenaJazykaPanel.setParentTerminal(this);
         prichodToggleButton.setSelected(prichod);
+        
         nastavJazyk();
     }
     
@@ -41,6 +42,10 @@ public class Terminal extends javax.swing.JFrame {
                     
                     mapaString.put("zlaKartaNadpis", "Upozornenie");
                     mapaString.put("zlaKartaText", "Zlá karta");
+                    mapaString.put("zaznamenanyOdchodNadpis", "Upozornenie");
+                    mapaString.put("zaznamenanyOdchodText", "Odchod už bol zaznamenaný. ");
+                    mapaString.put("chybaPrichodNadpis", "Upozornenie");
+                    mapaString.put("chybaPrichodText", "Príchod nebol zaznamenaný.");
                     break;
                 case "EN" :
                     mapaString.put("prichod", "");
@@ -49,6 +54,10 @@ public class Terminal extends javax.swing.JFrame {
                     
                     mapaString.put("zlaKartaNadpis", "");
                     mapaString.put("zlaKartaText", "");
+                    mapaString.put("zaznamenanyOdchodNadpis", "Warning");
+                    mapaString.put("zaznamenanyOdchodText", "Leave was entered.");
+                    mapaString.put("chybaPrichodNadpis", "Warning");
+                    mapaString.put("chybaPrichodText", "Arrival was not entered.");
                     break;
                 
             }
@@ -68,11 +77,14 @@ public class Terminal extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         prichodToggleButton = new javax.swing.JToggleButton();
         odchodToggleButton = new javax.swing.JToggleButton();
         idTextField = new javax.swing.JTextField();
         potvrditButton = new javax.swing.JButton();
         zmenaJazykaPanel = new com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel();
+        zamestnanieToggleButton = new javax.swing.JToggleButton();
+        sportZarToggleButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 250, 226));
@@ -80,11 +92,6 @@ public class Terminal extends javax.swing.JFrame {
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 600, 150));
         setMinimumSize(new java.awt.Dimension(400, 150));
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         buttonGroup1.add(prichodToggleButton);
         prichodToggleButton.setText("Prichod");
@@ -109,6 +116,22 @@ public class Terminal extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup2.add(zamestnanieToggleButton);
+        zamestnanieToggleButton.setText("Zamestnanie");
+        zamestnanieToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zamestnanieToggleButtonActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(sportZarToggleButton);
+        sportZarToggleButton.setText("Sportove zariadenie");
+        sportZarToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sportZarToggleButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,15 +140,20 @@ public class Terminal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(prichodToggleButton)
+                        .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(potvrditButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(prichodToggleButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(odchodToggleButton))
+                            .addComponent(zamestnanieToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(odchodToggleButton)
-                        .addGap(0, 122, Short.MAX_VALUE))
-                    .addComponent(idTextField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(potvrditButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(sportZarToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -135,12 +163,16 @@ public class Terminal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prichodToggleButton)
                     .addComponent(odchodToggleButton)
-                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(zmenaJazykaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(zamestnanieToggleButton)
+                    .addComponent(sportZarToggleButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(potvrditButton))
-                .addGap(29, 29, 29))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -159,7 +191,11 @@ public class Terminal extends javax.swing.JFrame {
             //zapise sa do databazy prichod
             ZaznamDochadzky novyZaznam = new ZaznamDochadzky();
             try{
-                novyZaznam.setIdZamestnanec(Long.parseLong(idTextField.getText()));
+                System.out.println(Long.parseLong(idTextField.getText()));
+                if(mod.equals("Zamestnanec"))
+                    novyZaznam.setIdZamestnanec(Long.parseLong(idTextField.getText()));
+                else if(mod.equals("Cviciaci"))
+                    novyZaznam.setIdCviciaci(Long.parseLong(idTextField.getText()));
                 novyZaznam.setPrichod(new Timestamp(System.currentTimeMillis()));
             
                 zaznamDochadzkyManager.vlozZaznam(novyZaznam);
@@ -176,6 +212,11 @@ public class Terminal extends javax.swing.JFrame {
             return;
                 }
             
+            if(existujuciZaznam==null){
+                JOptionPane.showMessageDialog(parentJForm, mapaString.get("chybaPrichodText"), mapaString.get("chybaPrichodNadpis"), JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+                
             if(existujuciZaznam.getOdchod()==null){
                 existujuciZaznam.setOdchod(new Timestamp(System.currentTimeMillis()));
                 long rozdiel = existujuciZaznam.getOdchod().getTime() - existujuciZaznam.getPrichod().getTime();
@@ -183,15 +224,20 @@ public class Terminal extends javax.swing.JFrame {
                 existujuciZaznam.setOdrobeneHodiny(hodiny);
                 zaznamDochadzkyManager.upravZaznam(existujuciZaznam);
             }else{
-                JOptionPane.showMessageDialog(parentJForm, "Odchod uz bol zaznamenany. ", "Upozornenie", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(parentJForm, mapaString.get("zaznamenanyOdchodText"), mapaString.get("zaznamenanyOdchodNadpis"), JOptionPane.ERROR_MESSAGE);
             }
         }
         idTextField.setText("");
     }//GEN-LAST:event_potvrditButtonActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formWindowOpened
+    private void zamestnanieToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zamestnanieToggleButtonActionPerformed
+        mod = "Zamestnanec";
+        
+    }//GEN-LAST:event_zamestnanieToggleButtonActionPerformed
+
+    private void sportZarToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sportZarToggleButtonActionPerformed
+        mod = "Cviciaci";
+    }//GEN-LAST:event_sportZarToggleButtonActionPerformed
 
     
     public static void main(String args[]) {
@@ -228,10 +274,13 @@ public class Terminal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JTextField idTextField;
     private javax.swing.JToggleButton odchodToggleButton;
     private javax.swing.JButton potvrditButton;
     private javax.swing.JToggleButton prichodToggleButton;
+    private javax.swing.JToggleButton sportZarToggleButton;
+    private javax.swing.JToggleButton zamestnanieToggleButton;
     private com.paz1c.gui.PrihlasenieRegistracia.zmenaJazykaPanel zmenaJazykaPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,6 @@ import com.paz1c.gui.Terminal.Terminal;
 import com.paz1c.gui.cviciaci.SpravaCviciacich;
 import com.paz1c.gui.spravcovia.Spravcovia;
 import com.paz1c.gui.zamestnanec.SpravaZamestnancov;
-import javax.swing.JPanel;
 
 
 public class zmenaJazykaPanel extends javax.swing.JPanel {
@@ -49,6 +48,8 @@ public class zmenaJazykaPanel extends javax.swing.JPanel {
             parentTerminal.nastavJazyk();
         if(parentSpravaZamestnancov!=null)
             parentSpravaZamestnancov.nastavJazyk();
+        if(parentSpravaCviciacich!=null)
+            parentSpravaCviciacich.nastavJazyk();
     }
     
     @SuppressWarnings("unchecked")

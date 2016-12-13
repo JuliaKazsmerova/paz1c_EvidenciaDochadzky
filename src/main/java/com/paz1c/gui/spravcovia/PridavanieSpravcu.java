@@ -138,6 +138,14 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
         return upozornenie.equals("");
     }
     
+    void resetVypisLabels(){
+        menoTextFieldKeyReleased(null);
+        priezviskoTextFieldKeyReleased(null);
+        emailTextFieldKeyReleased(null);
+        hesloPasswordFieldKeyReleased(null);
+        zopakovatHesloPasswordFieldKeyReleased(null);
+    }
+    
     public void nastavJazyk(){
         initTexts(Nastavenia.jazyk);
         
@@ -149,13 +157,7 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
         pridatButton.setText(mapaString.get("pridat"));
         spatButton.setText(mapaString.get("spat"));
         
-        
-        
-        menoTextFieldKeyReleased(null);
-        priezviskoTextFieldKeyReleased(null);
-        emailTextFieldKeyReleased(null);
-        hesloPasswordFieldKeyReleased(null);
-        zopakovatHesloPasswordFieldKeyReleased(null);
+        resetVypisLabels();
     }
     
     @SuppressWarnings("unchecked")
@@ -361,6 +363,9 @@ public class PridavanieSpravcu extends javax.swing.JPanel {
             emailTextField.setText("");
             hesloPasswordField.setText("");
             zopakovatHesloPasswordField.setText("");
+           
+            resetVypisLabels();
+            
             parentJDialog.aktualizovatSpravcov();
         }
     }//GEN-LAST:event_pridatButtonActionPerformed

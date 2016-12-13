@@ -12,7 +12,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
+//http://stackoverflow.com/questions/3649014/send-email-using-java
 public class GoogleMail {
     /**
      * Send email using GMail SMTP server.
@@ -89,7 +89,7 @@ public class GoogleMail {
             t.sendMessage(msg, msg.getAllRecipients());      
             t.close();
         }catch(Exception e){
-            System.err.println("mail sa nepodarilo odoslat");
+            System.err.println("Mail sa nepodarilo odoslat");
             e.printStackTrace();
         }
     }

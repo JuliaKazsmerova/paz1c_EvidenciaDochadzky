@@ -4,6 +4,7 @@ package com.paz1c.other;
 public class Cviciaci extends Osoba{
     /**suma ktoru ma osob na permanentke*/
     private double kredit;
+    private double sumaZaHodinu;
 
     public double getKredit() {
         return kredit;
@@ -18,4 +19,14 @@ public class Cviciaci extends Osoba{
     public String toString() {
         return super.toString()+","+kredit;
     }
+
+    public void setSumaZaHodinu(double sumaZaHodinu) {
+        this.sumaZaHodinu = sumaZaHodinu;
+    }
+
+    public double getSumaZaHodinu() {
+        return sumaZaHodinu;
+    }
+    
+    
 }

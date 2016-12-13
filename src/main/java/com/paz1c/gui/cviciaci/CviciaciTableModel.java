@@ -15,10 +15,10 @@ public class CviciaciTableModel extends AbstractTableModel{
 
     private CviciaciManager cviciaciManager = new DefaultCviciaciManager();
     private ZaznamDochadzkyManager zaznamDochzdzkyManager = new DefaultZaznamDochadzkyManager();
-    private static final String[] NAZVY_STLPCOV = { "ID cvičiaci", "Meno", "Priezvisko", "Kredit",
-                                                    "Cvici", "Posledny prichod", "Posledny odchod" };
+    private static final String[] NAZVY_STLPCOV = { "ID cvičiaci", "Meno", "Priezvisko", "Kredit", "Suma/h", 
+                                                    "Aktívny", "Posledný príchod", "Posledný odchod" };
     private static final int POCET_STLPCOV = NAZVY_STLPCOV.length;
-    private static final String[] COLUMN_NAME = { "Member ID", "Name", "Surname", "Hours per day", "Assignment","Is working", "Last arrival", "Last leave" };
+    private static final String[] COLUMN_NAME = { "Member ID", "Name", "Surname", "Credit", "Price/h", "Active", "Last arrival", "Last leave" };
     
     
     @Override
@@ -54,10 +54,12 @@ public class CviciaciTableModel extends AbstractTableModel{
             case 3:
                 return cviciaci.getKredit();
             case 4:
-                return stav(zaznam.getPrichod(),zaznam.getOdchod());
+                return cviciaci.getSumaZaHodinu();
             case 5:
-                return zaznam.getPrichod();
+                return stav(zaznam.getPrichod(),zaznam.getOdchod());
             case 6:
+                return zaznam.getPrichod();
+            case 7:
                 return zaznam.getOdchod();
             default:
                 return "???";
@@ -66,9 +68,12 @@ public class CviciaciTableModel extends AbstractTableModel{
     
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        if (columnIndex == 4) {
+        if (columnIndex == 5) 
             return Boolean.class;
-        }
+        else if(columnIndex == 4)
+            return Double.class;
+        else if(columnIndex == 3)
+            return Double.class;
         
         return super.getColumnClass(columnIndex);
     }
@@ -85,7 +90,7 @@ public class CviciaciTableModel extends AbstractTableModel{
     
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex){
-        if(columnIndex >0 && columnIndex < 4)
+        if(columnIndex >0 && columnIndex < 5)
             return true;
         else
             return false;
@@ -101,7 +106,10 @@ public class CviciaciTableModel extends AbstractTableModel{
                 upravovany.setPriezvisko((String)value);
                 break;
             case 3:
-                upravovany.setKredit(Integer.parseInt((String)value));
+                upravovany.setKredit((Double)value);
+                break;
+            case 4:
+                upravovany.setSumaZaHodinu((Double)value);
                 break;
            
         }

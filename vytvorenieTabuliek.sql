@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS Cviciaci
     meno VARCHAR(20),
     priezvisko VARCHAR(20),
     kredit DECIMAL(5,2),
+    suma_za_hodinu DECIMAL(5,2),
     ID_firma INT NOT NULL,
     FOREIGN KEY (ID_firma) REFERENCES Firma(ID_firma),
     PRIMARY KEY (ID_cviciaci)
